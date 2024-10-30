@@ -1,28 +1,9 @@
 import { auth } from "./auth.js";
 import { createIconsSelector } from "./icons-selector.js";
 
-function closeModal() {
+document.querySelector(".close-button").addEventListener("click", () => {
   document.querySelector(".modal").style.display = "none";
-}
-
-function selectIcon(direction) {
-  const icons = document.querySelectorAll(".icon-selector img");
-  let current = Array.from(icons).findIndex((icon) =>
-    icon.classList.contains("selected")
-  );
-
-  icons[current].classList.remove("selected");
-  if (direction === "next") {
-    current = (current + 1) % icons.length;
-  } else {
-    current = (current - 1 + icons.length) % icons.length;
-  }
-  icons[current].classList.add("selected");
-}
-
-export function cancel() {
-  document.getElementById("metaForm").reset();
-}
+});
 
 document
   .getElementById("metaForm")
@@ -48,61 +29,72 @@ document
     cancel();
   });
 
-let metas = [];
+createIconsSelector();
 
-// Função para exibir as metas
-function exibirMetas() {
-    const metasList = document.querySelector('.form__field__icons'); // Seleciona a lista de ícones
-    metasList.innerHTML = ''; // Limpa a lista antes de adicionar as metas
+async function criarMeta({ nome, tempo, icone, valor }) {
+  const user = auth();
+  const time = new Date().getTime();
 
-    metas.forEach(meta => {
-        const li = document.createElement('li');
-        li.textContent = `${meta.nome} - R$${meta.valor} (${meta.tempo})`;
+  const res = await fetch("/goals", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      ownerId: user.id,
+      name: nome,
+      time: tempo,
+      icon: icone,
+      value: valor,
+      createdAt: time,
+      updatedAt: time,
+    }),
+  });
 
-        // Botão de exclusão
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Excluir';
-        deleteButton.onclick = () => {
-            excluirMeta(meta.id);
-        };
-        li.appendChild(deleteButton);
+  if (res.ok) {
+    const novaMeta = await res.json();
 
-        metasList.appendChild(li);
-    });
+    return novaMeta();
+  } else {
+    alert("Erro ao criar a meta, tente novamente.");
+    return null;
+  }
 }
 
 // Função para excluir uma meta
-function excluirMeta(id) {
-    const index = metas.findIndex(meta => meta.id === id);
-    if (index !== -1) {
-        metas.splice(index, 1); // Remove a meta do array
-        exibirMetas(); // Atualiza a exibição
-    }
+async function atualizarMeta({ id, nome, tempo, icone, valor }) {
+  const updatedAt = new Date().getTime();
+
+  const res = await fetch(`/goals/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: nome,
+      time: tempo,
+      icon: icone,
+      value: valor,
+      updatedAt,
+    }),
+  });
+
+  if (res.ok) {
+    const metaAtualizada = await res.json();
+
+    return metaAtualizada;
+  } else {
+    alert("Erro ao criar a meta, tente novamente.");
+    return null;
+  }
 }
 
-// Função para criar a meta
-function criarMeta(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
+// Função para excluir uma meta
+async function excluirMeta(id) {
+  const res = await fetch(`/goals/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
 
-    const nome = document.getElementById('nome').value;
-    const valor = parseFloat(document.getElementById('valor').value.replace('R$', '').replace(',', '.').trim());
-    const tempo = document.getElementById('tempo').value;
+  if (!res.ok) {
+    alert("Erro ao deletar a meta, tente novamente.");
+  }
 
-    // Gera um ID único para a nova meta
-    const id = metas.length ? metas[metas.length - 1].id + 1 : 1;
-
-    // Adiciona a nova meta ao array
-    metas.push({ id, nome, valor, tempo });
-    exibirMetas(); // Atualiza a exibição
-
-    // Limpa os campos do formulário
-    document.getElementById('metaForm').reset();
+  return res.ok;
 }
-
-document.getElementById('metaForm').addEventListener('submit', criarMeta);
-
-// Inicializa a exibição das metas
-exibirMetas();
-
-createIconsSelector();
-

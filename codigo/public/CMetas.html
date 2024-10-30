@@ -13,7 +13,7 @@
     <div class="modal">
       <div class="modal-header">
         <h2>Criar Meta</h2>
-        <button class="close-button" onclick="closeModal()">&#x2715;</button>
+        <button class="close-button">&#x2715;</button>
       </div>
 
       <form id="metaForm">
@@ -24,7 +24,7 @@
 
         <div class="input-group">
           <label for="valor">Valor</label>
-          <input type="text" id="valor" placeholder="R$ 10,00" required />
+          <input type="number" id="valor" placeholder="R$ 10,00" required />
         </div>
 
         <div class="input-group">
@@ -43,9 +43,7 @@
         </div>
 
         <div class="input-group">
-          <button type="button" class="cancel-button" onclick="cancel()">
-            Cancelar
-          </button>
+          <button type="reset" class="cancel-button">Cancelar</button>
           <button type="submit" class="confirm-button">Confirmar</button>
         </div>
       </form>
