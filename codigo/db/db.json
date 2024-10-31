@@ -212,6 +212,60 @@
       "createdAt": 1730314889341,
       "updatedAt": 1730314889341,
       "id": 19
+    },
+    {
+      "ownerId": 5,
+      "label": "receita",
+      "type": "income",
+      "icon": "tent-tree",
+      "createdAt": 1730337182249,
+      "updatedAt": 1730337182249,
+      "id": 20
+    },
+    {
+      "ownerId": 5,
+      "label": "despesa",
+      "type": "expense",
+      "createdAt": 1730337187311,
+      "updatedAt": 1730337191754,
+      "id": 21,
+      "icon": "landmark"
+    },
+    {
+      "ownerId": 5,
+      "label": "receitaTeste123",
+      "type": "income",
+      "icon": "plane",
+      "createdAt": 1730338071528,
+      "updatedAt": 1730338071528,
+      "id": 22
+    },
+    {
+      "ownerId": 5,
+      "label": "ReceitaTeste9234",
+      "type": "income",
+      "icon": "laptop",
+      "createdAt": 1730338081694,
+      "updatedAt": 1730338081694,
+      "id": 23
+    },
+    {
+      "ownerId": 5,
+      "label": "DespesaTeste123",
+      "type": "expense",
+      "icon": "plane",
+      "createdAt": 1730338092621,
+      "updatedAt": 1730338092621,
+      "id": 24
+    },
+    {
+      "ownerId": 5,
+      "label": "Despesateste324",
+      "type": "expense",
+      "icon": "gamepad",
+      "createdAt": 1730338106868,
+      "updatedAt": 1730338106868,
+      "id": 25
     }
   ],
   "entries": [
@@ -502,6 +556,78 @@
       "type": "expense",
       "date": "1696118400000",
       "value": 500
+    },
+    {
+      "label": "teste",
+      "type": "income",
+      "value": "126",
+      "date": "2024-10-29",
+      "category": "none",
+      "id": 285
+    },
+    {
+      "label": "teste",
+      "type": "income",
+      "value": "126",
+      "date": "2024-10-29",
+      "category": "none",
+      "id": 286
+    },
+    {
+      "label": "teste",
+      "type": "income",
+      "value": "126",
+      "date": "2024-10-29",
+      "category": "none",
+      "id": 287
+    },
+    {
+      "label": "teste",
+      "type": "income",
+      "value": "2",
+      "date": "2024-10-31",
+      "category": "20",
+      "id": 288
+    },
+    {
+      "label": "teste",
+      "type": "income",
+      "value": "2",
+      "date": "2024-10-31",
+      "category": "20",
+      "id": 289
+    },
+    {
+      "label": "ra",
+      "type": "expense",
+      "value": "12",
+      "date": "2024-10-21",
+      "category": "21",
+      "id": 290
+    },
+    {
+      "label": "just",
+      "type": "income",
+      "value": "123",
+      "date": 1729641600000,
+      "category": "20",
+      "id": 291
+    },
+    {
+      "label": "teste23",
+      "type": "income",
+      "value": "123",
+      "date": 1728432000000,
+      "category": "22",
+      "id": 292
+    },
+    {
+      "label": "teste",
+      "type": "expense",
+      "value": "13434",
+      "date": 1727827200000,
+      "category": "none",
+      "id": 293
     }
   ],
   "goals": [

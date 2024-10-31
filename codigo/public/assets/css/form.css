@@ -11,6 +11,7 @@
 .form {
   display: grid;
   gap: 1rem;
+  color-scheme: dark;
 }
 
 .form__header {

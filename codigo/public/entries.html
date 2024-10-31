@@ -5,11 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FinUp | Login</title>
     <link rel="stylesheet" href="assets/css/globals.css" />
-    <link rel="stylesheet" href="assets/css/entries.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/popup.css" />
     <link rel="stylesheet" href="assets/css/form.css" />
+    <link rel="stylesheet" href="assets/css/entries.css" />
   </head>
   <body>
     <main>
+      <header class="navbar">
+        <nav class="navbar__container">
+          <a class="navbar__logo" href="./index.html">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m13.11 7.664 1.78 2.672" />
+              <path d="m14.162 12.788-3.324 1.424" />
+              <path d="m20 4-6.06 1.515" />
+              <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+              <circle cx="12" cy="6" r="2" />
+              <circle cx="16" cy="12" r="2" />
+              <circle cx="9" cy="15" r="2" />
+            </svg>
+
+            <span>FinUp</span>
+          </a>
+
+          <div class="navbar__content">
+            <input id="navbar-menu-toggle" type="checkbox" />
+
+            <ul class="navbar__list">
+              <li class="navbar__list__item navbar__list__item--active">
+                <a
+                  class="navbar__link navbar__link--active"
+                  href="./entries.html"
+                >
+                  Registros
+                </a>
+              </li>
+              <li class="navbar__list__item">
+                <a class="navbar__link" href="./goals.html">Metas</a>
+              </li>
+              <li class="navbar__list__item">
+                <a class="navbar__link" href="./evolution.html">Evolução</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="navbar__buttons">
+            <button id="logout-button">Sair</button>
+            <div class="navbar__menu"></div>
+          </div>
+        </nav>
+      </header>
+
       <div class="card">
         <div class="form">
           <div class="registryContainer">
@@ -22,24 +77,161 @@
               <span id="currentMonth" class="value">+R$ 662,00</span>
             </div>
             <div class="searchContainer">
-              <img src= "assets/img/icon/search.svg" id="btnBusca" alt="Buscar" class="searchImg"/>
-              <input type="text" id="pesquisar" style="width: 100%;" class="icon" placeholder="Pesquisar"/>
+              <img
+                src="assets/img/icon/search.svg"
+                id="btnBusca"
+                alt="Buscar"
+                class="searchImg"
+              />
+              <input
+                type="text"
+                id="pesquisar"
+                style="width: 100%"
+                class="input-icon"
+                placeholder="Pesquisar"
+              />
             </div>
+          </div>
         </div>
       </div>
-    </main>
-    <main>
+
       <div class="card">
         <div class="form">
           <div id="elements" class="registryContainer">
-            <span class="registry">Registros</span>
+            <div>
+              <span class="registry">Registros</span>
+              <button class="open-popup" data-popup-id="create-entrie-popup">
+                Adicionar
+              </button>
+            </div>
             <div class="titulo1">
-              <h3>24 de Setembro de 2024 </h3>
+              <h3>24 de Setembro de 2024</h3>
               <h3 id="total"></h3>
             </div>
+          </div>
         </div>
       </div>
     </main>
+
+    <!-- Popups -->
+    <dialog class="popup" id="create-entrie-popup">
+      <button
+        data-popup-id="create-entrie-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <form class="form" id="create-entrie-form" method="post">
+        <div class="form__header">
+          <h2>Criar Registro</h2>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-entrie-form--label">
+            Título
+          </label>
+          <input
+            class="form__field__input"
+            type="text"
+            name="label"
+            id="create-entrie-form--label"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <ul class="form__field__tab">
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="create-entrie-form--income"
+                checked
+              />
+              <label
+                class="form__field__tab__label"
+                for="create-entrie-form--income"
+              >
+                Receita
+              </label>
+            </li>
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="create-entrie-form--expense"
+              />
+              <label
+                class="form__field__tab__label"
+                for="create-entrie-form--expense"
+              >
+                Despesa
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-entrie-form--value">
+            Valor
+          </label>
+          <input
+            class="form__field__input"
+            type="number"
+            name="label"
+            id="create-entrie-form--value"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-entrie-form--date">
+            Data
+          </label>
+          <input
+            class="form__field__input"
+            type="date"
+            name="label"
+            id="create-entrie-form--date"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-entrie-form--category">
+            Categoria
+          </label>
+          <select
+            class="form__field__input"
+            name="category"
+            id="create-entrie-form--category"
+          ></select>
+        </div>
+
+        <div class="form__footer">
+          <button
+            class="close-popup form__cancel"
+            data-popup-id="create-entrie-popup"
+            type="reset"
+          >
+            Cancelar
+          </button>
+
+          <button class="close-popup form__submit" type="submit">Criar</button>
+        </div>
+      </form>
+    </dialog>
     <!-- Javascript -->
     <script src="assets/js/entries.js" type="module"></script>
   </body>
