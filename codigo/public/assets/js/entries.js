@@ -1,106 +1,92 @@
-function lerDados () {
-    let strDados = sessionStorage.getItem('db');
-    let objDados = {};
-    
-    if (strDados){
-        objDados = JSON.parse(strDados);
+const categoryImagens = {
+    1: 'assets/img/icon/icones/compra.png',
+    2: 'assets/img/icon/icones/casa.png',
+    3: 'assets/img/icon/icones/casa.png',
+    6: 'assets/img/icon/icones/salario.png',
+  }
+  
+  export async function loadAllRegisters(useFilter, text) {
+    const res = await fetch("/entries");
+  
+    if (!res.ok) {
+      console.error("Erro ao carregar registros");
+      return null;
     }
-    else {
-        alert("Erro ao carregar registros no banco de dados: strDados = null");
-    }
-    
-    return objDados;
-}
-
-function salvarDados(dados) {
-    localStorage.setItem('db', JSON.stringify(dados));
-
-}
-
-
-function imprimeDados() {
-    let tela = document.getElementById('tela');
-    let strHTML = '';
-    let objDados = lerDados();
-
-
-    for (let i = 0; i<objDados.contatos.length; i++){
-        strHTML += `<p>${objDados.contatos[i].nome} - ${objDados.contatos[i].telefone}</p>`;
-    }
-
-    tela.innerHTML = strHTML;
-}
-
-
-document.addEventListener('DOMContentLoaded', async function() {
-    const openModalButton = document.getElementById('dateSelector'); //Botão selecionar data
-    const calendarModal = document.getElementById('calendarModal'); // Iframe
-
-    // Abre o modal do calendário ao clicar no botão
-    openModalButton.addEventListener('click', () => {
-        calendarModal.style.display = 'flex';
+  
+    let registers = await res.json();
+  
+    const divContaner = document.getElementById('elements');
+  
+    registers = useFilter ? registers.filter(element => element.label.toLowerCase().includes(text.toLowerCase())) :  registers
+  
+    registers.forEach(element => {
+  
+      const div = document.createElement('div');
+      div.className = "container2";
+  
+      const img = document.createElement('img');
+  
+      //Ajustar a constante lÃ¡ em cima para receber todas as imagens
+      //img.src = categoryImagens[element.categoryId]
+      img.src = "/assets/img/icon/selectable/briefcase.svg"
+      
+      const spanTitle = document.createElement('span');
+  
+      spanTitle.innerHTML = element.label
+      spanTitle.className = 'info'
+  
+      const valueTitle = document.createElement('span');
+  
+      const valueStyled = element.type === 'expense' ? 'red' : 'green'
+  
+      valueTitle.innerHTML = decimalFormat(element.value)
+      valueTitle.className = 'value'
+      valueTitle.style = `color: ${valueStyled}`
+  
+      div.appendChild(img)
+      div.appendChild(spanTitle)
+      div.appendChild(valueTitle)
+  
+      divContaner.appendChild(div)
+  
     });
-
-    // Fecha o modal do calendário ao receber a confirmação de data selecionada
-    window.addEventListener('message', async (event) => {
-        if (event.data.action === 'confirmDate') {
-            const { startOfDay, endOfDay } = event.data;
-            await buscarRegistrosPorData(startOfDay, endOfDay);
-            calendarModal.style.display = 'none'; // Fecha o modal
-        }
-    });
-
-    // Busca e exibe os registros do dia atual ao carregar a página
-    const hoje = new Date();
-    const startOfDay = new Date(hoje.setHours(0, 0, 0, 0)).getTime();
-    const endOfDay = new Date(hoje.setHours(23, 59, 59, 999)).getTime();
-    await buscarRegistrosPorData(startOfDay, endOfDay);
-});
-
-// Função para buscar e exibir registros por data
-async function buscarRegistrosPorData(startOfDay, endOfDay) {
-    try {
-        const response = await fetch('C:\\Users\\rondi\\PUC\\2024.2\\TI1\\codigo\\db\\db.json'); // Caminho para o JSON
-        const data = await response.json();
-
-        // Filtra os registros que têm data entre o início e o fim do dia selecionado
-        const registros = data.entries.filter(entry => {
-            const entryDate = parseInt(entry.date);
-            return entryDate >= startOfDay && entryDate <= endOfDay;
-        });
-
-        // Exibe os registros na página
-        exibirRegistros(registros);
-    } catch (error) {
-        console.error('Erro ao carregar os dados:', error);
+  
+    const total = registers.reduce((memo, currenc) => {
+      memo =  currenc.type ===  'expense' ? memo - currenc.value : memo + currenc.value
+      return memo
+    }, 0);
+  
+    const divTotal = document.getElementById('total');
+  
+    divTotal.innerHTML = decimalFormat(total);
+    divTotal.style = total > 0 ? 'color: green' : "color: red";
+  
+  
+    const previousMonth = document.getElementById('previousMonth');
+    const currentMonth = document.getElementById('currentMonth');
+  
+    //colocar os valores aqui
+  
+  }
+  
+  const decimalFormat = (value) =>  new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
+  
+  
+  function myFunction(val) {
+    alert("The input value has changed. The new value is: " + val);
+  }
+  
+  
+  const pesquisar = document.getElementById('pesquisar');
+  
+  pesquisar.addEventListener("input", (e) => {
+    const elementsToRemove = document.getElementsByClassName('container2')
+    while(elementsToRemove.length > 0) {
+      elementsToRemove[0].parentNode.removeChild(elementsToRemove[0]);
     }
-}
-
-// Função para exibir os registros na interface
-function exibirRegistros(registros) {
-    const container = document.querySelector('.card-body'); // Seletor do contêiner onde deseja exibir os registros
-    container.innerHTML = '<h3>Registros</h3>'; // Limpa e adiciona título
-
-    registros.forEach(registro => {
-        const registroDiv = document.createElement('div');
-        registroDiv.classList.add('registro', 'd-flex', 'justify-content-between', 'align-items-center', 'p-2', 'mb-2', 'rounded');
-
-        const labelDiv = document.createElement('div');
-        labelDiv.classList.add('Label');
-        labelDiv.textContent = registro.label;
-
-        const valueDiv = document.createElement('div');
-        valueDiv.classList.add(registro.type === 'expense' ? 'expense' : 'income');
-        valueDiv.textContent = `${registro.type === 'expense' ? '-' : '+'} R$${registro.value.toFixed(2)}`;
-
-        // Estilos adicionais para despesas e receitas
-        valueDiv.style.color = registro.type === 'expense' ? 'red' : 'green';
-
-        // Adiciona label e valor ao registro
-        registroDiv.appendChild(labelDiv);
-        registroDiv.appendChild(valueDiv);
-
-        // Adiciona o registro ao contêiner
-        container.appendChild(registroDiv);
-    });
-}
+  
+    loadAllRegisters(true, e.target.value)
+  }, false);
+  
+  
+  loadAllRegisters();
