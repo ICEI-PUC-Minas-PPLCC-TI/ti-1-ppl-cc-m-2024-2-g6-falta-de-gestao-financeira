@@ -7,21 +7,37 @@
     <link rel="stylesheet" href="metas.css">
     <script src="metas.js" defer></script>
     <style>
-      
+        /* CSS para estilizar os botões */
         .menu-btn, .add-btn {
-            background: none; 
-            border: none; 
-            cursor: pointer; 
-            font-size: 2em; 
-            color: white; 
-            padding: 10px;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
+            background: none; /* Remove o fundo do botão */
+            border: none; /* Remove a borda do botão */
+            cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            font-size: 2em; /* Tamanho maior para o ícone */
+            color: white; /* Cor do ícone */
+            padding: 10px; /* Espaçamento ao redor do ícone */
+            display: flex; /* Usando flexbox para centralizar */
+            align-items: center; /* Alinhamento vertical */
+            justify-content: center; /* Alinhamento horizontal */
         }
         
         .menu-btn:hover, .add-btn:hover {
             opacity: 0.8; /* Efeito de hover */
+        }
+
+        .meta-item {
+            margin: 10px 0; /* Espaçamento entre as metas */
+        }
+
+        .meta-link {
+            text-decoration: none; /* Remove o sublinhado do link */
+            color: black; /* Cor do texto */
+            display: flex; /* Usando flexbox para alinhar ícones e texto */
+            align-items: center; /* Alinhamento vertical */
+        }
+
+        .meta-icon {
+            font-size: 2em; /* Tamanho do ícone */
+            margin-right: 10px; /* Espaçamento entre o ícone e o texto */
         }
     </style>
 </head>
@@ -44,39 +60,42 @@
                     <span>+</span> <!-- Ícone de adicionar -->
                 </button>
             </div>
-            <div class="meta-item">
-                <a href="padaria.html" class="meta-link">
-                    <span class="meta-icon">🍞</span>
-                    <div class="meta-text" id="meta-1">
-                        <p>Padaria</p>
-                    </div>
-                </a>
-            </div>
-            <div class="meta-item">
-                <a href="transporte.html" class="meta-link">
-                    <span class="meta-icon">🚌</span>
-                    <div class="meta-text" id="meta-2">
-                        <p>Transporte</p>
-                    </div>
-                </a>
-            </div>
-            <div class="meta-item">
-                <a href="servicos.html" class="meta-link">
-                    <span class="meta-icon">🤖</span>
-                    <div class="meta-text" id="meta-3">
-                        <p>Serviços</p>
-                    </div>
-                </a>
-            </div>
-            <div class="meta-item">
-                <a href="compras.html" class="meta-link">
-                    <span class="meta-icon">🛒</span>
-                    <div class="meta-text" id="meta-4">
-                        <p>Compras</p>
-                    </div>
-                </a>
+            <div id="metas-container">
+                <!-- As metas serão inseridas aqui dinamicamente -->
             </div>
         </div>
     </div>
+
+    <script>
+        // Função para carregar as metas do db.json
+        async function loadMetas() {
+            try {
+                const response = await fetch('http://localhost:3000/metas'); // URL do JSON Server
+                const metas = await response.json();
+
+                const metasContainer = document.getElementById('metas-container');
+                metasContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+                metas.forEach(meta => {
+                    const metaItem = document.createElement('div');
+                    metaItem.classList.add('meta-item');
+                    metaItem.innerHTML = `
+                        <a href="${meta.type}.html" class="meta-link">
+                            <span class="meta-icon">${meta.icon}</span> <!-- Ícone da meta -->
+                            <div class="meta-text" id="meta-${meta.id}">
+                                <p>${meta.label}</p>
+                            </div>
+                        </a>
+                    `;
+                    metasContainer.appendChild(metaItem);
+                });
+            } catch (error) {
+                console.error('Erro ao carregar metas:', error);
+            }
+        }
+
+        // Carrega as metas ao inicializar a página
+        document.addEventListener('DOMContentLoaded', loadMetas);
+    </script>
 </body>
 </html>
