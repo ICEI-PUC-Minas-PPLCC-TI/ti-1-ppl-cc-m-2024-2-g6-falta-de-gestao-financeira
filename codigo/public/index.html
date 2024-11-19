@@ -393,7 +393,7 @@
             class="form__field__input"
             type="number"
             step=".01"
-            name="label"
+            name="value"
             id="create-entrie-form--value"
             required
           />
@@ -405,7 +405,7 @@
           <input
             class="form__field__input"
             type="date"
-            name="label"
+            name="date"
             id="create-entrie-form--date"
             required
           />
@@ -413,12 +413,7 @@
 
         <div class="form__field">
           <div class="form__field__header">
-            <label
-              class="form__field__label"
-              for="create-entrie-form--category"
-            >
-              Categoria
-            </label>
+            <span class="form__field__label"> Categoria </span>
             <button data-popup-id="create-category-popup" class="open-popup">
               Criar Categoria
             </button>
@@ -526,7 +521,7 @@
             class="form__field__input"
             type="number"
             step=".01"
-            name="label"
+            name="value"
             id="edit-entrie-form--value"
             required
           />
@@ -538,7 +533,7 @@
           <input
             class="form__field__input"
             type="date"
-            name="label"
+            name="date"
             id="edit-entrie-form--date"
             required
           />
@@ -546,10 +541,8 @@
 
         <div class="form__field">
           <div class="form__field__header">
-            <label class="form__field__label" for="edit-entrie-form--category">
-              Categoria
-            </label>
-            <button data-popup-id="edit-category-popup" class="open-popup">
+            <span class="form__field__label"> Categoria </span>
+            <button data-popup-id="create-category-popup" class="open-popup">
               Criar Categoria
             </button>
             <button data-popup-id="view-categories-popup" class="open-popup">
@@ -578,6 +571,6 @@
       </form>
     </dialog>
 
-    <script src="assets/js/index.js" type="module"></script>
+    <script src="assets/js/pages/index.js" type="module"></script>
   </body>
 </html>

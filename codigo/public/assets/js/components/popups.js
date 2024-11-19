@@ -1,4 +1,4 @@
-export function createPopupEvents() {
+export function popups() {
   document.querySelectorAll(".open-popup").forEach((button) => {
     button.addEventListener("click", (e) => {
       const popupId = e.currentTarget.getAttribute("data-popup-id");

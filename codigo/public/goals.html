@@ -1,101 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metas</title>
-    <link rel="stylesheet" href="metas.css">
-    <script src="metas.js" defer></script>
-    <style>
-        /* CSS para estilizar os botões */
-        .menu-btn, .add-btn {
-            background: none; /* Remove o fundo do botão */
-            border: none; /* Remove a borda do botão */
-            cursor: pointer; /* Muda o cursor para indicar que é clicável */
-            font-size: 2em; /* Tamanho maior para o ícone */
-            color: white; /* Cor do ícone */
-            padding: 10px; /* Espaçamento ao redor do ícone */
-            display: flex; /* Usando flexbox para centralizar */
-            align-items: center; /* Alinhamento vertical */
-            justify-content: center; /* Alinhamento horizontal */
-        }
-        
-        .menu-btn:hover, .add-btn:hover {
-            opacity: 0.8; /* Efeito de hover */
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinUp | Início</title>
+    <link rel="stylesheet" href="assets/css/globals.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <nav class="navbar__container">
+        <a class="navbar__logo" href="./index.html">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m13.11 7.664 1.78 2.672" />
+            <path d="m14.162 12.788-3.324 1.424" />
+            <path d="m20 4-6.06 1.515" />
+            <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+            <circle cx="12" cy="6" r="2" />
+            <circle cx="16" cy="12" r="2" />
+            <circle cx="9" cy="15" r="2" />
+          </svg>
 
-        .meta-item {
-            margin: 10px 0; /* Espaçamento entre as metas */
-        }
+          <span>FinUp</span>
+        </a>
 
-        .meta-link {
-            text-decoration: none; /* Remove o sublinhado do link */
-            color: black; /* Cor do texto */
-            display: flex; /* Usando flexbox para alinhar ícones e texto */
-            align-items: center; /* Alinhamento vertical */
-        }
+        <div class="navbar__content">
+          <input id="navbar-menu-toggle" type="checkbox" />
 
-        .meta-icon {
-            font-size: 2em; /* Tamanho do ícone */
-            margin-right: 10px; /* Espaçamento entre o ícone e o texto */
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <h1>LOGO</h1>
-            <button class="menu-btn">
-                <span>☰</span> <!-- Ícone de menu -->
-            </button>
-        </header>
-        <div class="tab-menu">
-            <button class="tab-button">Evolução</button>
-            <button class="tab-button active">Metas</button>
+          <ul class="navbar__list">
+            <li class="navbar__list__item navbar__list__item--active">
+              <a class="navbar__link navbar__link--active" href="./index.html">
+                Registros
+              </a>
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./goals.html">Metas</a>
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./evolution.html">Evolução</a>
+            </li>
+          </ul>
         </div>
-        <div class="content">
-            <div class="metas-header">
-                <h2>Metas</h2>
-                <button class="add-btn">
-                    <span>+</span> <!-- Ícone de adicionar -->
-                </button>
-            </div>
-            <div id="metas-container">
-                <!-- As metas serão inseridas aqui dinamicamente -->
-            </div>
+
+        <div class="navbar__buttons">
+          <button id="logout-button">Sair</button>
+          <div class="navbar__menu"></div>
         </div>
-    </div>
+      </nav>
+    </header>
 
-    <script>
-        // Função para carregar as metas do db.json
-        async function loadMetas() {
-            try {
-                const response = await fetch('http://localhost:3000/metas'); // URL do JSON Server
-                const metas = await response.json();
+    <main>
+      <!-- Conteúdo -->
+    </main>
 
-                const metasContainer = document.getElementById('metas-container');
-                metasContainer.innerHTML = ''; // Limpa o conteúdo anterior
-
-                metas.forEach(meta => {
-                    const metaItem = document.createElement('div');
-                    metaItem.classList.add('meta-item');
-                    metaItem.innerHTML = `
-                        <a href="${meta.type}.html" class="meta-link">
-                            <span class="meta-icon">${meta.icon}</span> <!-- Ícone da meta -->
-                            <div class="meta-text" id="meta-${meta.id}">
-                                <p>${meta.label}</p>
-                            </div>
-                        </a>
-                    `;
-                    metasContainer.appendChild(metaItem);
-                });
-            } catch (error) {
-                console.error('Erro ao carregar metas:', error);
-            }
-        }
-
-        // Carrega as metas ao inicializar a página
-        document.addEventListener('DOMContentLoaded', loadMetas);
-    </script>
-</body>
+    <script src="assets/js/pages/goals.js" type="module"></script>
+  </body>
 </html>

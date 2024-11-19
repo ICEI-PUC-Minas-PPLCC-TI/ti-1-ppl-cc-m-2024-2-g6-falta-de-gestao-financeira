@@ -1,5 +1,6 @@
-import { auth } from "./auth.js";
-import { createIconsSelector } from "./icons-selector.js";
+import { auth } from "./lib/auth.js";
+import { iconsSelector } from "./components/icons-selector.js";
+import { popups } from "./components/popups.js";
 
 document.querySelector(".close-button").addEventListener("click", () => {
   document.querySelector(".modal").style.display = "none";
@@ -29,7 +30,8 @@ document
     cancel();
   });
 
-createIconsSelector();
+iconsSelector();
+popups();
 
 async function criarMeta({ nome, tempo, icone, valor }) {
   const user = auth();
@@ -57,44 +59,4 @@ async function criarMeta({ nome, tempo, icone, valor }) {
     alert("Erro ao criar a meta, tente novamente.");
     return null;
   }
-}
-
-// Função para excluir uma meta
-async function atualizarMeta({ id, nome, tempo, icone, valor }) {
-  const updatedAt = new Date().getTime();
-
-  const res = await fetch(`/goals/${id}`, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      name: nome,
-      time: tempo,
-      icon: icone,
-      value: valor,
-      updatedAt,
-    }),
-  });
-
-  if (res.ok) {
-    const metaAtualizada = await res.json();
-
-    return metaAtualizada;
-  } else {
-    alert("Erro ao criar a meta, tente novamente.");
-    return null;
-  }
-}
-
-// Função para excluir uma meta
-async function excluirMeta(id) {
-  const res = await fetch(`/goals/${id}`, {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-  });
-
-  if (!res.ok) {
-    alert("Erro ao deletar a meta, tente novamente.");
-  }
-
-  return res.ok;
 }
