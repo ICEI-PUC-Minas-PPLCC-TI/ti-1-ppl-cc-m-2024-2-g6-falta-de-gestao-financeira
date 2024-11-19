@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/popup.css" />
     <link rel="stylesheet" href="assets/css/form.css" />
+    <link rel="stylesheet" href="assets/css/card.css" />
     <link rel="stylesheet" href="assets/css/index.css" />
   </head>
   <body>
@@ -41,10 +42,7 @@
 
           <ul class="navbar__list">
             <li class="navbar__list__item navbar__list__item--active">
-              <a
-                class="navbar__link navbar__link--active"
-                href="./entries.html"
-              >
+              <a class="navbar__link navbar__link--active" href="./index.html">
                 Registros
               </a>
             </li>
@@ -65,12 +63,41 @@
     </header>
 
     <main>
-      <button data-popup-id="create-category-popup" class="open-popup">
-        Criar Categoria
-      </button>
-      <button data-popup-id="view-categories-popup" class="open-popup">
-        Visualizar categorias
-      </button>
+      <div class="card">
+        <div class="card__content">
+          <div class="container">
+            <span class="container__label">Mês Atual</span>
+
+            <span class="container__value" id="previous-month">-R$ 957,00</span>
+          </div>
+
+          <div class="container">
+            <span class="container__label">Último mês</span>
+
+            <span class="container__value" id="current-month">+R$ 662,00</span>
+          </div>
+
+          <div class="search-bar">
+            <img src="assets/img/icon/search.svg" alt="Ícone de pesquisa" />
+
+            <input id="search" placeholder="Pesquisar" type="search" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header">
+          <div class="card__title">Registros</div>
+
+          <button class="open-popup" data-popup-id="create-entrie-popup">
+            Adicionar
+          </button>
+        </div>
+
+        <div class="card__content">
+          <ul class="entries-list"></ul>
+        </div>
+      </div>
     </main>
 
     <!-- Popups -->
@@ -284,6 +311,269 @@
           </button>
 
           <button class="close-popup form__submit" type="submit">Salvar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="popup" id="create-entrie-popup">
+      <button
+        data-popup-id="create-entrie-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <form class="form" id="create-entrie-form" method="post">
+        <div class="form__header">
+          <h2>Criar Registro</h2>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-entrie-form--label">
+            Título
+          </label>
+          <input
+            class="form__field__input"
+            type="text"
+            name="label"
+            id="create-entrie-form--label"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <ul class="form__field__tab">
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="create-entrie-form--income"
+                checked
+              />
+              <label
+                class="form__field__tab__label"
+                for="create-entrie-form--income"
+              >
+                Receita
+              </label>
+            </li>
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="create-entrie-form--expense"
+              />
+              <label
+                class="form__field__tab__label"
+                for="create-entrie-form--expense"
+              >
+                Despesa
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-entrie-form--value">
+            Valor
+          </label>
+          <input
+            class="form__field__input"
+            type="number"
+            step=".01"
+            name="label"
+            id="create-entrie-form--value"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-entrie-form--date">
+            Data
+          </label>
+          <input
+            class="form__field__input"
+            type="date"
+            name="label"
+            id="create-entrie-form--date"
+            required
+          />
+        </div>
+
+        <div class="form__field">
+          <div class="form__field__header">
+            <label
+              class="form__field__label"
+              for="create-entrie-form--category"
+            >
+              Categoria
+            </label>
+            <button data-popup-id="create-category-popup" class="open-popup">
+              Criar Categoria
+            </button>
+            <button data-popup-id="view-categories-popup" class="open-popup">
+              Visualizar categorias
+            </button>
+          </div>
+
+          <select
+            class="form__field__input"
+            name="category"
+            id="create-entrie-form--category"
+          ></select>
+        </div>
+
+        <div class="form__footer">
+          <button
+            class="close-popup form__cancel"
+            data-popup-id="create-entrie-popup"
+            type="reset"
+          >
+            Cancelar
+          </button>
+
+          <button class="close-popup form__submit" type="submit">Criar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="popup" id="edit-entrie-popup">
+      <button
+        data-popup-id="edit-entrie-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <form class="form" id="edit-entrie-form" method="post">
+        <div class="form__header">
+          <h2>Editar Registro</h2>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="edit-entrie-form--label">
+            Título
+          </label>
+          <input
+            class="form__field__input"
+            type="text"
+            name="label"
+            id="edit-entrie-form--label"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <ul class="form__field__tab">
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="edit-entrie-form--income"
+                checked
+              />
+              <label
+                class="form__field__tab__label"
+                for="edit-entrie-form--income"
+              >
+                Receita
+              </label>
+            </li>
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="edit-entrie-form--expense"
+              />
+              <label
+                class="form__field__tab__label"
+                for="edit-entrie-form--expense"
+              >
+                Despesa
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="edit-entrie-form--value">
+            Valor
+          </label>
+          <input
+            class="form__field__input"
+            type="number"
+            step=".01"
+            name="label"
+            id="edit-entrie-form--value"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="edit-entrie-form--date">
+            Data
+          </label>
+          <input
+            class="form__field__input"
+            type="date"
+            name="label"
+            id="edit-entrie-form--date"
+            required
+          />
+        </div>
+
+        <div class="form__field">
+          <div class="form__field__header">
+            <label class="form__field__label" for="edit-entrie-form--category">
+              Categoria
+            </label>
+            <button data-popup-id="edit-category-popup" class="open-popup">
+              Criar Categoria
+            </button>
+            <button data-popup-id="view-categories-popup" class="open-popup">
+              Visualizar categorias
+            </button>
+          </div>
+
+          <select
+            class="form__field__input"
+            name="category"
+            id="edit-entrie-form--category"
+          ></select>
+        </div>
+
+        <div class="form__footer">
+          <button
+            class="close-popup form__cancel"
+            data-popup-id="edit-entrie-popup"
+            type="reset"
+          >
+            Cancelar
+          </button>
+
+          <button class="close-popup form__submit" type="submit">Editar</button>
         </div>
       </form>
     </dialog>

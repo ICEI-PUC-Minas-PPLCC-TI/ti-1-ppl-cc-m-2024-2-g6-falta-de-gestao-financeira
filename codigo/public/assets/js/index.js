@@ -1,22 +1,30 @@
-import { auth, logout } from "./auth.js";
+import { auth, createLogoutEvent } from "./auth.js";
 import { createCategoryEvents } from "./categories.js";
+import {
+  createEntriesEvents,
+  getAllUserEntries,
+  updateCreateEntriesSelectCategories,
+  updateEditEntriesSelectCategories,
+  updateUserEntries,
+} from "./entries.js";
 import { createIconsSelector } from "./icons-selector.js";
 import { createPopupEvents } from "./popup.js";
 
+createLogoutEvent();
+
 const user = auth();
 
-if (!auth()) window.location.replace("./login.html");
-
-const logoutButton = document.getElementById("logout-button");
-
-logoutButton.addEventListener("click", (event) => {
-  event.preventDefault;
-
-  logout();
-});
-
-createCategoryEvents();
+if (!user) {
+  window.location.replace("./login.html");
+}
 
 createPopupEvents();
-
 createIconsSelector();
+
+createCategoryEvents();
+createEntriesEvents();
+
+updateCreateEntriesSelectCategories();
+updateEditEntriesSelectCategories();
+
+updateUserEntries(await getAllUserEntries(user.id));

@@ -8,6 +8,10 @@
   padding: 1rem 2rem;
 }
 
+.popup::backdrop {
+  background-color: var(--background);
+}
+
 .popup__header {
   text-align: center;
 }

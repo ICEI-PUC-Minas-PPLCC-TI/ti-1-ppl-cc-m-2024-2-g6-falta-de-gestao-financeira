@@ -1,0 +1,26 @@
+.card {
+  background-color: var(--card);
+  color: var(--foreground);
+  border: 1px solid currentColor;
+  width: 100%;
+  max-width: 1280px;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card__title {
+  font-size: var(--text-3xl);
+}
+
+.card__content {
+  display: grid;
+  gap: 1rem;
+}

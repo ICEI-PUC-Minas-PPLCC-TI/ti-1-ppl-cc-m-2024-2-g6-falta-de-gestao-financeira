@@ -3,4 +3,71 @@ main {
   max-width: 1280px;
   padding-inline: 1rem;
   margin-inline: auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-3xl);
+}
+
+.container--destructive {
+  background-color: var(--success-background);
+}
+
+.container--success {
+  background-color: var(--destructive-background);
+}
+
+.search-bar {
+  display: flex;
+  gap: 1rem;
+}
+
+.search-bar>img {
+  width: 48px;
+  aspect-ratio: 1;
+  background-color: var(--input);
+  border-radius: .5rem;
+  padding: 8px;
+}
+
+.search-bar>input {
+  width: 100%;
+  padding-block: .25em;
+  padding-inline: .5em;
+  font-size: var(--text-2xl);
+}
+
+.entries-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.entries-list__day__item {
+  display: grid;
+  grid-template-columns: 32px 192px 1fr 32px 32px;
+  gap: 1rem;
+  font-size: var(--text-2xl);
+  align-items: center;
+}
+
+.entries-list__day__item__value--income {
+  color: var(--foreground-success);
+}
+
+.entries-list__day__item__value--expense {
+  color: var(--foreground-destructive);
+}
+
+.entries-list__day__item__button {
+  width: 32px;
+  aspect-ratio: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
 }

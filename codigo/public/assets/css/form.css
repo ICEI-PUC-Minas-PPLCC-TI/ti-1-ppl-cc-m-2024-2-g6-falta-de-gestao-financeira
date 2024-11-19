@@ -11,7 +11,6 @@
 .form {
   display: grid;
   gap: 1rem;
-  color-scheme: dark;
 }
 
 .form__header {
@@ -23,8 +22,15 @@
   gap: .5rem;
 }
 
+.form__field__header {
+  display: flex;
+  gap: 1rem;
+  white-space: nowrap;
+}
+
 .form__field__label {
   font-size: var(--text-xl);
+  width: 100%;
 }
 
 .form__field__input {
@@ -81,7 +87,6 @@
   overflow-x: auto;
   padding: .25rem;
   padding-bottom: .5rem;
-  color-scheme: dark;
 }
 
 .form__field__icons__item {

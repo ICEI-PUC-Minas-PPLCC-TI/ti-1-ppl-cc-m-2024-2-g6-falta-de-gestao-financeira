@@ -16,3 +16,13 @@ export function logout() {
   sessionStorage.removeItem("user");
   window.location.replace("/");
 }
+
+export function createLogoutEvent() {
+  const logoutButton = document.getElementById("logout-button");
+
+  logoutButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    logout();
+  });
+}
