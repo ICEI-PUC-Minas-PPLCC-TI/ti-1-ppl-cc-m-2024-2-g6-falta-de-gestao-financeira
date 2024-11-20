@@ -15,7 +15,7 @@ export function createEntriePopup() {
     event.preventDefault();
 
     const formData = {
-      categoryId: parseInt(categoryId.value),
+      categoryId: parseInt(categoryId.value) || undefined,
       label: label.value,
       type: type.checked ? "income" : "expense",
       value: value.value,

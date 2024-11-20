@@ -26,7 +26,7 @@ export function editEntriePopup() {
       value: value.value,
       type: type.checked ? "income" : "expense",
       date: new Date(date.value).getTime() + MILLISECCONDS_IN_DAY,
-      categoryId: parseInt(categoryId.value),
+      categoryId: parseInt(categoryId.value) || undefined,
     };
 
     const updatedEntrie = await entrie.update(formData);

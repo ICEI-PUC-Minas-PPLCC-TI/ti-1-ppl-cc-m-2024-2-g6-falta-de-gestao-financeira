@@ -27,7 +27,7 @@ export function editCategoryPopup() {
       return;
     }
 
-    const categoryId = parseInt(id);
+    const categoryId = parseInt(id) || undefined;
 
     const label = document.getElementById("edit-category-form--label").value;
 
