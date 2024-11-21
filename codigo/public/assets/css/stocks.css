@@ -1,0 +1,24 @@
+main .botoes
+{
+    background-color:  #1f1f1f;
+    color: white;
+    border-radius: 15px;
+}
+
+main .botoes button
+{
+    color: white;
+}
+
+main .card
+{
+    color: white;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+}
+
+main .botoes .selecionado
+{
+    background-color: #f8f8f8;
+    color: #000;
+}
