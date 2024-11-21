@@ -315,15 +315,6 @@
       "value": 80
     },
     {
-      "id": 6,
-      "ownerId": 1,
-      "categoryId": 5,
-      "label": "Farmácia",
-      "type": "expense",
-      "date": "1704412800000",
-      "value": 150
-    },
-    {
       "id": 7,
       "ownerId": 2,
       "categoryId": 12,
