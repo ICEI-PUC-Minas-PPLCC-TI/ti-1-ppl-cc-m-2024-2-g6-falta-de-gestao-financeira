@@ -1,20 +1,9 @@
-main .botoes
-{
-    background-color:  #1f1f1f;
-    color: white;
-    border-radius: 15px;
-}
-
-main .botoes button
-{
-    color: white;
-}
-
 main .card
 {
     color: white;
     background-color: #1f1f1f;
     border-radius: 10px;
+    border: white 1px solid;
 }
 
 main .botoes .selecionado

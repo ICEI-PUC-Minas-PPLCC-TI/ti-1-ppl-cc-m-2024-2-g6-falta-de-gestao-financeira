@@ -17,13 +17,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    // Obter a chave da API do servidor
-    const response = await fetch('/api/config');
-    const config = await response.json();
-    const apiKey = config.apiKey;
-
     // Declarar a variável API_URL
-    const API_URL = `https://api.twelvedata.com/exchanges?type=stock&apikey=${apiKey}`;
+    const API_URL = `https://api.twelvedata.com/exchanges?type=stock&apikey=${API_KEY}`;
 
     // Fazer a requisição à API
     fetch(API_URL)
@@ -61,16 +56,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         .catch(error => {
             console.error('Erro:', error);
         });
-
-    const buttons = document.querySelectorAll('.btn'); // Seleciona todos os botões com a classe 'btn'
-    
-    buttons.forEach(button => {
-        button.addEventListener('click', function () {
-            // Remove a classe 'selecionado' de todos os botões
-            buttons.forEach(btn => btn.classList.remove('selecionado'));
-
-            // Adiciona a classe 'selecionado' ao botão clicado
-            this.classList.add('selecionado');
-        });
-    });
 });
