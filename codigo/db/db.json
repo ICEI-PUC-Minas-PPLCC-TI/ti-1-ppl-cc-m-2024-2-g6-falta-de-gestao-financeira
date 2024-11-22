@@ -628,6 +628,17 @@
       "date": 1727827200000,
       "category": "none",
       "id": 293
+    },
+    {
+      "ownerId": 5,
+      "categoryId": 20,
+      "label": "add1",
+      "type": "income",
+      "value": "100",
+      "date": 1729555200000,
+      "createdAt": 1732317210265,
+      "updatedAt": 1732317210265,
+      "id": 294
     }
   ],
   "goals": [
