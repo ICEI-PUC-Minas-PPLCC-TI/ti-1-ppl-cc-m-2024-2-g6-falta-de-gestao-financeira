@@ -1,13 +1,11 @@
-import { updateUserCategoriesList } from "./categories-list.js";
+import { updateCategoriesList } from "./categories-list.js";
 import category from "../controllers/category.js";
 import { auth } from "../lib/auth.js";
+import { updateCategorySelect } from "./select-category.js";
 
 export function editCategoryPopup() {
   const editCategoryForm = document.getElementById("edit-category-form");
   const editCategoryPopup = document.getElementById("edit-category-popup");
-  const typeSelectors = document.querySelectorAll(
-    "#edit-entrie-form .form__field__tab__input"
-  );
 
   editCategoryForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -60,39 +58,37 @@ export function editCategoryPopup() {
       return;
     }
 
-    updateUserCategoriesList();
+    updateCategoriesList();
+
+    await updateCategorySelect(
+      "edit-entrie-form--category",
+      document.getElementById("edit-entrie-form--income").checked
+        ? "income"
+        : "expense"
+    );
+
+    await updateCategorySelect(
+      "create-entrie-form--category",
+      document.getElementById("create-entrie-form--income").checked
+        ? "income"
+        : "expense"
+    );
+
+    await updateCategorySelect(
+      "create-recurrent-form--category",
+      document.getElementById("create-recurrent-form--income").checked
+        ? "income"
+        : "expense"
+    );
+
+    await updateCategorySelect(
+      "edit-recurrent-form--category",
+      document.getElementById("edit-recurrent-form--income").checked
+        ? "income"
+        : "expense"
+    );
 
     editCategoryPopup.close();
     editCategoryForm.reset();
-  });
-
-  typeSelectors.forEach((input) => {
-    input.addEventListener("change", async () => {
-      updateSelectCategories();
-    });
-  });
-
-  updateSelectCategories();
-}
-
-async function updateSelectCategories() {
-  const entrieType = document.getElementById("edit-entrie-form--income").checked
-    ? "income"
-    : "expense";
-
-  const userCategories = await category.getAllFromUser();
-
-  const select = document.getElementById("edit-entrie-form--category");
-  select.innerHTML = `
-    <option value="none">Sem categoria</option>
-  `;
-
-  userCategories.forEach(({ id, label, type }) => {
-    if (type === entrieType) {
-      select.insertAdjacentHTML(
-        "beforeend",
-        `<option value="${id}">${label}</option>`
-      );
-    }
   });
 }

@@ -1,6 +1,6 @@
 import category from "../controllers/category.js";
 import { auth } from "../lib/auth.js";
-import { updateUserCategoriesList } from "./categories-list.js";
+import { updateCategoriesList } from "./categories-list.js";
 
 export function createCategoryPopup() {
   const createCategoryForm = document.getElementById("create-category-form");
@@ -42,7 +42,7 @@ export function createCategoryPopup() {
       return;
     }
 
-    updateUserCategoriesList();
+    updateCategoriesList();
 
     createCategoryPopup.close();
     createCategoryForm.reset();

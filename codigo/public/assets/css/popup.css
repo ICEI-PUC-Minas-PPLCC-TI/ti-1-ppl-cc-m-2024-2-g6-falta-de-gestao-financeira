@@ -53,6 +53,10 @@
   background-color: var(--background-destructive);
 }
 
+.popup__content__list__item__title div {
+  font-size: var(--text-lg);
+}
+
 .popup__content__list__item__icon,
 .popup__content__list__item__edit,
 .popup__content__list__item__delete {

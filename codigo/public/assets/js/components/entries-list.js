@@ -2,6 +2,7 @@ import category from "../controllers/category.js";
 import entrie from "../controllers/entrie.js";
 import { ICONS_NAMES } from "../lib/constants.js";
 import { formatDateToInput, toMoney } from "../lib/util.js";
+import { updateCategorySelect } from "./select-category.js";
 
 export async function updateEntriesList(entries) {
   const entriesList = document.querySelector(".entries-list");
@@ -116,7 +117,7 @@ export async function updateEntriesList(entries) {
     const editButton = document.getElementById(`button-edit-entrie-${id}`);
     const deleteButton = document.getElementById(`button-delete-entrie-${id}`);
 
-    editButton.addEventListener("click", () => {
+    editButton.addEventListener("click", async () => {
       editEntrieForm.setAttribute("data-entrie-id", id);
 
       document.getElementById("edit-entrie-form--label").value = label;
@@ -124,13 +125,15 @@ export async function updateEntriesList(entries) {
         formatDateToInput(new Date(date));
       document.getElementById("edit-entrie-form--value").value = value;
 
+      await updateCategorySelect("edit-entrie-form--category", type);
+
+      document.getElementById("edit-entrie-form--category").value = categoryId;
+
       if (type === "income") {
         document.getElementById("edit-entrie-form--income").checked = true;
       } else {
         document.getElementById("edit-entrie-form--expense").checked = true;
       }
-
-      document.querySelector(".edit-entrie-form");
 
       editEntriePopup.showModal();
     });

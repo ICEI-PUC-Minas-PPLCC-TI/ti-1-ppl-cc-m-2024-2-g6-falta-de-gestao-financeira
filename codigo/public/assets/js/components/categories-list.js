@@ -1,7 +1,7 @@
 import category from "../controllers/category.js";
 import { ICONS_NAMES } from "../lib/constants.js";
 
-export async function updateUserCategoriesList() {
+export async function updateCategoriesList() {
   const userCategories = await category.getAllFromUser();
 
   const categoriesList = document.getElementById("user-categories");
@@ -111,7 +111,7 @@ export async function updateUserCategoriesList() {
         const deleted = await category.delete(id);
 
         if (deleted) {
-          updateUserCategoriesList();
+          updateCategoriesList();
         } else {
           alert("Não foi possível deletar a categoria, tente novamente.");
         }

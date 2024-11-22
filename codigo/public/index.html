@@ -89,9 +89,17 @@
         <div class="card__header">
           <div class="card__title">Registros</div>
 
-          <button class="open-popup" data-popup-id="create-entrie-popup">
-            Adicionar
-          </button>
+          <div>
+            <button class="open-popup" data-popup-id="view-recurring-popup">
+              Visualizar Recorrentes
+            </button>
+            <button class="open-popup" data-popup-id="create-recurrent-popup">
+              Adicionar Recorrente
+            </button>
+            <button class="open-popup" data-popup-id="create-entrie-popup">
+              Adicionar
+            </button>
+          </div>
         </div>
 
         <div class="card__content">
@@ -172,9 +180,7 @@
           </ul>
         </div>
         <div class="form__field">
-          <label class="form__field__label" for="create-category-form-icon">
-            Ícone
-          </label>
+          <span class="form__field__label">Ícone</span>
           <ul data-for="create-category" class="form__field__icons"></ul>
         </div>
         <div class="form__footer">
@@ -296,9 +302,7 @@
           </ul>
         </div>
         <div class="form__field">
-          <label class="form__field__label" for="edit-category-form-icon">
-            Ícone
-          </label>
+          <span class="form__field__label">Ícone</span>
           <ul data-for="edit-category" class="form__field__icons"></ul>
         </div>
         <div class="form__footer">
@@ -541,7 +545,9 @@
 
         <div class="form__field">
           <div class="form__field__header">
-            <span class="form__field__label"> Categoria </span>
+            <label class="form__field__label" for="edit-entrie-form--category">
+              Categoria
+            </label>
             <button data-popup-id="create-category-popup" class="open-popup">
               Criar Categoria
             </button>
@@ -561,6 +567,380 @@
           <button
             class="close-popup form__cancel"
             data-popup-id="edit-entrie-popup"
+            type="reset"
+          >
+            Cancelar
+          </button>
+
+          <button class="close-popup form__submit" type="submit">Editar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="popup" id="create-recurrent-popup">
+      <button
+        data-popup-id="create-recurrent-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <form class="form" id="create-recurrent-form" method="post">
+        <div class="form__header">
+          <h2>Criar Registro Recorrente</h2>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-recurrent-form--label">
+            Título
+          </label>
+          <input
+            class="form__field__input"
+            type="text"
+            name="label"
+            id="create-recurrent-form--label"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <ul class="form__field__tab">
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="create-recurrent-form--income"
+                checked
+              />
+              <label
+                class="form__field__tab__label"
+                for="create-recurrent-form--income"
+              >
+                Receita
+              </label>
+            </li>
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="create-recurrent-form--expense"
+              />
+              <label
+                class="form__field__tab__label"
+                for="create-recurrent-form--expense"
+              >
+                Despesa
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-recurrent-form--value">
+            Valor
+          </label>
+          <input
+            class="form__field__input"
+            type="number"
+            step=".01"
+            name="value"
+            id="create-recurrent-form--value"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label
+            class="form__field__label"
+            for="create-recurrent-form--frequency"
+          >
+            Recorrencia (em dias)
+          </label>
+          <input
+            class="form__field__input"
+            type="number"
+            step="1"
+            name="frequency"
+            id="create-recurrent-form--frequency"
+            required
+          />
+        </div>
+        <div class="form__field form__field--cols">
+          <div>
+            <label
+              class="form__field__label"
+              for="create-recurrent-form--initial-date"
+            >
+              Data Inicial:
+            </label>
+            <input
+              class="form__field__input"
+              type="date"
+              name="initial-date"
+              id="create-recurrent-form--initial-date"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="form__field__label"
+              for="create-recurrent-form--final-date"
+            >
+              Data Final:
+            </label>
+            <input
+              class="form__field__input"
+              type="date"
+              name="final-date"
+              id="create-recurrent-form--final-date"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form__field">
+          <div class="form__field__header">
+            <label
+              class="form__field__label"
+              for="create-recurrent-form--category"
+            >
+              Categoria
+            </label>
+            <button data-popup-id="create-category-popup" class="open-popup">
+              Criar Categoria
+            </button>
+            <button data-popup-id="view-categories-popup" class="open-popup">
+              Visualizar categorias
+            </button>
+          </div>
+
+          <select
+            class="form__field__input"
+            name="category"
+            id="create-recurrent-form--category"
+          ></select>
+        </div>
+
+        <div class="form__footer">
+          <button
+            class="close-popup form__cancel"
+            data-popup-id="create-recurrent-popup"
+            type="reset"
+          >
+            Cancelar
+          </button>
+
+          <button class="close-popup form__submit" type="submit">Criar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="popup" id="view-recurring-popup">
+      <button
+        data-popup-id="view-recurring-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <header class="popup__header">
+        <h2>Seus Registros Recorrentes</h2>
+      </header>
+
+      <div class="popup__content">
+        <ul class="popup__content__list" id="user-recurring"></ul>
+
+        <span class="popup__content__empty">
+          Você ainda não tem nenhum registro recorrente
+        </span>
+      </div>
+    </dialog>
+
+    <dialog class="popup" id="edit-recurrent-popup">
+      <button
+        data-popup-id="edit-recurrent-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <form class="form" id="edit-recurrent-form" method="post">
+        <div class="form__header">
+          <h2>Editar Registro Recorrente</h2>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="edit-recurrent-form--label">
+            Título
+          </label>
+          <input
+            class="form__field__input"
+            type="text"
+            name="label"
+            id="edit-recurrent-form--label"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <ul class="form__field__tab">
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="edit-recurrent-form--income"
+                checked
+              />
+              <label
+                class="form__field__tab__label"
+                for="edit-recurrent-form--income"
+              >
+                Receita
+              </label>
+            </li>
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="edit-recurrent-form--expense"
+              />
+              <label
+                class="form__field__tab__label"
+                for="edit-recurrent-form--expense"
+              >
+                Despesa
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="edit-recurrent-form--value">
+            Valor
+          </label>
+          <input
+            class="form__field__input"
+            type="number"
+            step=".01"
+            name="value"
+            id="edit-recurrent-form--value"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label
+            class="form__field__label"
+            for="edit-recurrent-form--frequency"
+          >
+            Recorrencia (em dias)
+          </label>
+          <input
+            class="form__field__input"
+            type="number"
+            step="1"
+            name="frequency"
+            id="edit-recurrent-form--frequency"
+            required
+          />
+        </div>
+        <div class="form__field form__field--cols">
+          <div>
+            <label
+              class="form__field__label"
+              for="edit-recurrent-form--initial-date"
+            >
+              Data Inicial:
+            </label>
+            <input
+              class="form__field__input"
+              type="date"
+              name="initial-date"
+              id="edit-recurrent-form--initial-date"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="form__field__label"
+              for="edit-recurrent-form--final-date"
+            >
+              Data Final:
+            </label>
+            <input
+              class="form__field__input"
+              type="date"
+              name="final-date"
+              id="edit-recurrent-form--final-date"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form__field">
+          <div class="form__field__header">
+            <label
+              class="form__field__label"
+              for="edit-recurrent-form--category"
+            >
+              Categoria
+            </label>
+            <button data-popup-id="create-category-popup" class="open-popup">
+              Criar Categoria
+            </button>
+            <button data-popup-id="view-categories-popup" class="open-popup">
+              Visualizar categorias
+            </button>
+          </div>
+
+          <select
+            class="form__field__input"
+            name="category"
+            id="edit-recurrent-form--category"
+          ></select>
+        </div>
+
+        <div class="form__footer">
+          <button
+            class="close-popup form__cancel"
+            data-popup-id="edit-recurrent-popup"
             type="reset"
           >
             Cancelar

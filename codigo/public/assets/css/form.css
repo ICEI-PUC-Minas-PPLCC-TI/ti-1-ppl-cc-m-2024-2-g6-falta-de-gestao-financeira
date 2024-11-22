@@ -22,6 +22,16 @@
   gap: .5rem;
 }
 
+.form__field--cols {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__field--cols>div {
+  display: flex;
+  gap: .5rem;
+}
+
 .form__field__header {
   display: flex;
   gap: 1rem;

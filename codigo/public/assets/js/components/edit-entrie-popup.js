@@ -1,6 +1,6 @@
 import { updateEntriesList } from "../components/entries-list.js";
-import category from "../controllers/category.js";
 import entrie from "../controllers/entrie.js";
+import { updateCategorySelect } from "./select-category.js";
 
 export function editEntriePopup() {
   const editEntrieForm = document.getElementById("edit-entrie-form");
@@ -45,33 +45,11 @@ export function editEntriePopup() {
   });
 
   typeSelectors.forEach((input) => {
-    input.addEventListener("change", async () => {
-      updateSelectCategories();
-    });
-  });
-
-  updateSelectCategories();
-}
-
-async function updateSelectCategories() {
-  const entrieType = document.getElementById("create-entrie-form--income")
-    .checked
-    ? "income"
-    : "expense";
-
-  const userCategories = await category.getAllFromUser();
-
-  const select = document.getElementById("create-entrie-form--category");
-  select.innerHTML = `
-    <option value="none">Sem categoria</option>
-  `;
-
-  userCategories.forEach(({ id, label, type }) => {
-    if (type === entrieType) {
-      select.insertAdjacentHTML(
-        "beforeend",
-        `<option value="${id}">${label}</option>`
+    input.addEventListener("change", () => {
+      updateCategorySelect(
+        "edit-entrie-form--category",
+        type.checked ? "icome" : "expense"
       );
-    }
+    });
   });
 }

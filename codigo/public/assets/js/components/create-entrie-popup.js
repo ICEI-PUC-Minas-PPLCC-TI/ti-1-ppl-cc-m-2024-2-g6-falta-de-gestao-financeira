@@ -1,9 +1,13 @@
-import entrie from "../controllers/entrie.js";
 import { updateEntriesList } from "./entries-list.js";
+import entrie from "../controllers/entrie.js";
+import { updateCategorySelect } from "./select-category.js";
 
 export function createEntriePopup() {
   const createEntrieForm = document.getElementById("create-entrie-form");
   const createEntriePopup = document.getElementById("create-entrie-popup");
+  const typeSelectors = document.querySelectorAll(
+    "#create-entrie-form .form__field__tab__input"
+  );
 
   const label = document.getElementById("create-entrie-form--label");
   const type = document.getElementById("create-entrie-form--income");
@@ -36,4 +40,15 @@ export function createEntriePopup() {
 
     updateEntriesList(updatedEntries);
   });
+
+  typeSelectors.forEach((input) => {
+    input.addEventListener("change", () => {
+      updateCategorySelect(
+        "create-entrie-form--category",
+        type.checked ? "income" : "expense"
+      );
+    });
+  });
+
+  updateCategorySelect("create-entrie-form--category", "income");
 }
