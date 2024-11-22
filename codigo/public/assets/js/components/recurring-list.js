@@ -1,12 +1,15 @@
-import { ICONS_NAMES } from "../lib/constants.js";
 import category from "../controllers/category.js";
 import recurrent from "../controllers/recurrent.js";
+
+import { ICONS_NAMES } from "../lib/constants.js";
 import {
   formatDateToDisplay,
   formatDateToInput,
   toMoney,
 } from "../lib/util.js";
+
 import { updateCategorySelect } from "./select-category.js";
+import { updateCategoriesList } from "./categories-list.js";
 
 export async function updateRecurringList() {
   const categories = await category.getAllFromUser();

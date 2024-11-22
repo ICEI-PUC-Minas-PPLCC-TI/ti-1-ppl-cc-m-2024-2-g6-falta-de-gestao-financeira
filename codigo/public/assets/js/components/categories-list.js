@@ -1,5 +1,6 @@
 import category from "../controllers/category.js";
 import { ICONS_NAMES } from "../lib/constants.js";
+import { updateCategorySelect } from "./select-category.js";
 
 export async function updateCategoriesList() {
   const userCategories = await category.getAllFromUser();
@@ -112,6 +113,34 @@ export async function updateCategoriesList() {
 
         if (deleted) {
           updateCategoriesList();
+
+          await updateCategorySelect(
+            "edit-entrie-form--category",
+            document.getElementById("edit-entrie-form--income").checked
+              ? "income"
+              : "expense"
+          );
+
+          await updateCategorySelect(
+            "create-entrie-form--category",
+            document.getElementById("create-entrie-form--income").checked
+              ? "income"
+              : "expense"
+          );
+
+          await updateCategorySelect(
+            "create-recurrent-form--category",
+            document.getElementById("create-recurrent-form--income").checked
+              ? "income"
+              : "expense"
+          );
+
+          await updateCategorySelect(
+            "edit-recurrent-form--category",
+            document.getElementById("edit-recurrent-form--income").checked
+              ? "income"
+              : "expense"
+          );
         } else {
           alert("Não foi possível deletar a categoria, tente novamente.");
         }

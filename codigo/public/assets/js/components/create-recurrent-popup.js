@@ -1,4 +1,6 @@
 import recurrent from "../controllers/recurrent.js";
+
+import { updateRecurringList } from "./recurring-list.js";
 import { updateCategorySelect } from "./select-category.js";
 
 export function createRecurrentPopup() {
@@ -45,6 +47,8 @@ export function createRecurrentPopup() {
       alert("Erro ao criar o registro recorrente.");
       return;
     }
+
+    updateRecurringList();
 
     createRecurrentPopup.close();
     createRecurrentForm.reset();
