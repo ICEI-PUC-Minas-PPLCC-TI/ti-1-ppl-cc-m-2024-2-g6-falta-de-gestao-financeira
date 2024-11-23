@@ -408,6 +408,52 @@
       "createdAt": 1732379157490,
       "updatedAt": 1732379157490,
       "id": 33
+    },
+    {
+      "label": "just",
+      "type": "income",
+      "value": "123",
+      "date": 1729641600000,
+      "category": "20",
+      "id": 291
+    },
+    {
+      "label": "teste23",
+      "type": "income",
+      "value": "123",
+      "date": 1728432000000,
+      "category": "22",
+      "id": 292
+    },
+    {
+      "label": "teste",
+      "type": "expense",
+      "value": "13434",
+      "date": 1727827200000,
+      "category": "none",
+      "id": 293
+    },
+    {
+      "ownerId": 5,
+      "categoryId": 20,
+      "label": "add1",
+      "type": "income",
+      "value": "100",
+      "date": 1729555200000,
+      "createdAt": 1732317210265,
+      "updatedAt": 1732317210265,
+      "id": 294
+    },
+    {
+      "ownerId": 5,
+      "categoryId": 22,
+      "label": "teste10",
+      "type": "income",
+      "value": 10,
+      "date": 1732320000000,
+      "createdAt": 1732387503734,
+      "updatedAt": 1732387503734,
+      "id": 295
     }
   ],
   "goals": [],

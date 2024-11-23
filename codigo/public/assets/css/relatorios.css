@@ -1,0 +1,8 @@
+main {
+    margin-top: 4rem;
+    max-width: 1280px;
+    padding-inline: 1rem;
+    margin-inline: auto;
+    display: grid;
+    gap: 2rem;
+  }
