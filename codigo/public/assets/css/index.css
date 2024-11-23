@@ -71,3 +71,11 @@ main {
   justify-content: center;
   background-color: transparent;
 }
+
+.text-success {
+  color: var(--foreground-success);
+}
+
+.text-destructive {
+  color: var(--foreground-destructive);
+}

@@ -4,6 +4,7 @@ import { insertMissingRecurringEntries } from "../controllers/recurrent.js";
 
 import { ICONS_NAMES } from "../lib/constants.js";
 import { formatDateToInput, toMoney } from "../lib/util.js";
+import { updateMonthTotal } from "./month-total.js";
 
 import { updateCategorySelect } from "./select-category.js";
 
@@ -13,6 +14,11 @@ export async function updateEntriesList(entries) {
 
     entries = await entrie.getAllFromUser();
   }
+
+  const today = new Date();
+
+  updateMonthTotal("current-month");
+  updateMonthTotal("previous-month", today.getMonth() - 1, today.getFullYear());
 
   const entriesList = document.querySelector(".entries-list");
   entriesList.innerHTML = "";
