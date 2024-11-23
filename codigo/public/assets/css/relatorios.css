@@ -5,4 +5,11 @@ main {
     margin-inline: auto;
     display: grid;
     gap: 2rem;
-  }
+}
+
+.year-button{
+  background-color: var(--foreground);
+  color: var(--background);
+  padding: .5rem 1rem;
+  
+}
