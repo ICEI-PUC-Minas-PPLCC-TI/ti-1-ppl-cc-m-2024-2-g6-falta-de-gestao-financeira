@@ -1,5 +1,6 @@
-import { updateEntriesList } from "./entries-list.js";
 import entrie from "../controllers/entrie.js";
+
+import { updateEntriesList } from "./entries-list.js";
 import { updateCategorySelect } from "./select-category.js";
 
 export function createEntriePopup() {
@@ -22,7 +23,7 @@ export function createEntriePopup() {
       categoryId: parseInt(categoryId.value) || undefined,
       label: label.value,
       type: type.checked ? "income" : "expense",
-      value: value.value,
+      value: parseInt(value.value),
       date: new Date(date.value).getTime(),
     };
 
@@ -36,9 +37,7 @@ export function createEntriePopup() {
     createEntriePopup.close();
     createEntrieForm.reset();
 
-    const updatedEntries = await entrie.getAllFromUser();
-
-    updateEntriesList(updatedEntries);
+    updateEntriesList();
   });
 
   typeSelectors.forEach((input) => {

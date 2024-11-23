@@ -1,6 +1,10 @@
-import { updateCategorySelect } from "./select-category.js";
-import { updateRecurringList } from "./recurring-list.js";
 import recurrent from "../controllers/recurrent.js";
+
+import { MILLISECCONDS_IN_DAY } from "../lib/constants.js";
+
+import { updateRecurringList } from "./recurring-list.js";
+import { updateCategorySelect } from "./select-category.js";
+import { updateEntriesList } from "./entries-list.js";
 
 export function editRecurrentPopup() {
   const editRecurrentForm = document.getElementById("edit-recurrent-form");
@@ -22,15 +26,13 @@ export function editRecurrentPopup() {
   editRecurrentForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const MILLISECCONDS_IN_DAY = 86_400_000;
-
     const formData = {
       recurrentId: editRecurrentForm.getAttribute("data-recurrent-id"),
       categoryId: parseInt(categoryId.value) || undefined,
       type: type.checked ? "income" : "expense",
       label: label.value,
-      value: value.value,
-      frequency: frequency.value,
+      value: parseInt(value.value),
+      frequency: parseInt(frequency.value) || 99999,
       initialDate: new Date(initialDate.value).getTime() + MILLISECCONDS_IN_DAY,
       finalDate: new Date(finalDate.value).getTime() + MILLISECCONDS_IN_DAY,
     };
@@ -42,10 +44,11 @@ export function editRecurrentPopup() {
       return;
     }
 
+    updateRecurringList();
+    updateEntriesList();
+
     editRecurrentPopup.close();
     editRecurrentForm.reset();
-
-    updateRecurringList();
   });
 
   typeSelectors.forEach((input) => {

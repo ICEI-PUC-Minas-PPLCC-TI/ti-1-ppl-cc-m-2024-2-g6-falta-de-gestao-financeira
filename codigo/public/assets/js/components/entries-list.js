@@ -1,10 +1,19 @@
 import category from "../controllers/category.js";
 import entrie from "../controllers/entrie.js";
+import { insertMissingRecurringEntries } from "../controllers/recurrent.js";
+
 import { ICONS_NAMES } from "../lib/constants.js";
 import { formatDateToInput, toMoney } from "../lib/util.js";
+
 import { updateCategorySelect } from "./select-category.js";
 
 export async function updateEntriesList(entries) {
+  if (!entries) {
+    await insertMissingRecurringEntries();
+
+    entries = await entrie.getAllFromUser();
+  }
+
   const entriesList = document.querySelector(".entries-list");
   entriesList.innerHTML = "";
 
@@ -146,9 +155,7 @@ export async function updateEntriesList(entries) {
         return;
       }
 
-      const updatedEntries = await entrie.getAllFromUser();
-
-      updateEntriesList(updatedEntries);
+      updateEntriesList();
     });
   });
 }

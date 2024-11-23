@@ -1,5 +1,8 @@
-import { updateEntriesList } from "../components/entries-list.js";
 import entrie from "../controllers/entrie.js";
+
+import { MILLISECCONDS_IN_DAY } from "../lib/constants.js";
+
+import { updateEntriesList } from "./entries-list.js";
 import { updateCategorySelect } from "./select-category.js";
 
 export function editEntriePopup() {
@@ -18,12 +21,10 @@ export function editEntriePopup() {
   editEntrieForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const MILLISECCONDS_IN_DAY = 86_400_000;
-
     const formData = {
       entrieId: editEntrieForm.getAttribute("data-entrie-id"),
       label: label.value,
-      value: value.value,
+      value: parseInt(value.value),
       type: type.checked ? "income" : "expense",
       date: new Date(date.value).getTime() + MILLISECCONDS_IN_DAY,
       categoryId: parseInt(categoryId.value) || undefined,
@@ -39,9 +40,7 @@ export function editEntriePopup() {
     editEntriePopup.close();
     editEntrieForm.reset();
 
-    const updatedEntries = await entrie.getAllFromUser();
-
-    updateEntriesList(updatedEntries);
+    updateEntriesList();
   });
 
   typeSelectors.forEach((input) => {

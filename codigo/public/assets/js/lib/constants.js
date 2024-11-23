@@ -1,5 +1,8 @@
+export const MILLISECCONDS_IN_DAY = 86_400_000;
+
 export const TIME_ENUM = ["daily", "weakly", "montly", "yearly"];
 export const TYPE_ENUM = ["income", "expense"];
+
 export const ICONS_NAMES = [
   "plane",
   "utensils",

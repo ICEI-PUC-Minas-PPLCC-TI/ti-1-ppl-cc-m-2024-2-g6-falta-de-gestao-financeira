@@ -33,10 +33,10 @@ export function createRecurrentPopup() {
       categoryId: parseInt(categoryId.value) || undefined,
       label: label.value,
       type: type.checked ? "income" : "expense",
-      frequency: frequency.value,
+      frequency: parseInt(frequency.value) || 99999,
       initialDate: new Date(initialDate.value).getTime(),
       finalDate: new Date(finalDate.value).getTime(),
-      value: value.value,
+      value: parseInt(value.value),
       createdAt: time,
       updatedAt: time,
     };
@@ -49,6 +49,7 @@ export function createRecurrentPopup() {
     }
 
     updateRecurringList();
+    updateEntriesList();
 
     createRecurrentPopup.close();
     createRecurrentForm.reset();

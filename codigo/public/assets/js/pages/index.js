@@ -35,5 +35,5 @@ createRecurrentPopup();
 editRecurrentPopup();
 
 updateCategoriesList();
-updateEntriesList(await entrie.getAllFromUser());
+updateEntriesList();
 updateRecurringList();

@@ -1,5 +1,8 @@
+import entrie from "./entrie.js";
+
 import { auth } from "../lib/auth.js";
-import { TYPE_ENUM } from "../lib/constants.js";
+import { MILLISECCONDS_IN_DAY, TYPE_ENUM } from "../lib/constants.js";
+import { daysDiffrence } from "../lib/util.js";
 
 /*
   recurrent: {
@@ -128,6 +131,13 @@ const recurrent = {
       return null;
     }
 
+    const oldRecurrent = await recurrent.getById(recurrentId);
+
+    if (!oldRecurrent) {
+      console.error(`Erro, recorrente não encontrado.`);
+      return null;
+    }
+
     const res = await fetch(`/recurring/${recurrentId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -150,6 +160,8 @@ const recurrent = {
 
     const updatedRecurrent = await res.json();
 
+    await deleteOldRecurrentEntries(oldRecurrent);
+
     return updatedRecurrent;
   },
   delete: async (recurrentId) => {
@@ -169,5 +181,110 @@ const recurrent = {
     return res.ok;
   },
 };
+
+export async function deleteOldRecurrentEntries(oldRecurrent) {
+  const entries = await entrie.getAllFromUser();
+
+  entries.forEach(async ({ id, categoryId, label, type, value }) => {
+    if (
+      oldRecurrent.categoryId === categoryId &&
+      oldRecurrent.label === label &&
+      oldRecurrent.type === type &&
+      oldRecurrent.value === value
+    ) {
+      await entrie.delete(id);
+    }
+  });
+}
+
+export async function insertMissingRecurringEntries() {
+  const recurring = await recurrent.getAllFromUser();
+
+  const entries = await entrie.getAllFromUser();
+
+  const today = new Date().getTime() + MILLISECCONDS_IN_DAY;
+
+  for (const {
+    initialDate,
+    finalDate,
+    frequency,
+    label,
+    type,
+    value,
+    categoryId,
+  } of recurring) {
+    const timeSpan = daysDiffrence(Math.min(finalDate, today), initialDate);
+
+    let insertDay = Math.floor(timeSpan / frequency) * frequency;
+
+    if (entries.length < 1) {
+      while (insertDay >= 0) {
+        await entrie.create({
+          categoryId,
+          label,
+          type,
+          value,
+          date: initialDate + insertDay * MILLISECCONDS_IN_DAY,
+        });
+
+        insertDay -= frequency;
+      }
+    } else {
+      let i = 0;
+
+      while (i < entries.length) {
+        const timeSpanFromStart = daysDiffrence(entries[i].date, initialDate);
+
+        while (timeSpanFromStart < insertDay && insertDay >= 0) {
+          await entrie.create({
+            categoryId,
+            label,
+            type,
+            value,
+            date: initialDate + insertDay * MILLISECCONDS_IN_DAY,
+          });
+
+          insertDay -= frequency;
+        }
+
+        if (timeSpanFromStart === insertDay) {
+          const currentDate = entries[i].date;
+          let create = true;
+
+          while (
+            create &&
+            i < entries.length &&
+            entries[i].date === currentDate
+          ) {
+            if (
+              categoryId === entries[i].categoryId &&
+              label === entries[i].label &&
+              type === entries[i].type &&
+              value === entries[i].value
+            ) {
+              create = false;
+            } else i++;
+          }
+
+          if (create) {
+            await entrie.create({
+              categoryId,
+              label,
+              type,
+              value,
+              date: initialDate + insertDay * MILLISECCONDS_IN_DAY,
+            });
+
+            i--;
+          }
+
+          insertDay -= frequency;
+        }
+
+        i++;
+      }
+    }
+  }
+}
 
 export default recurrent;
