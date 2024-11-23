@@ -85,17 +85,27 @@
             <div id="rowReceita">Receita</div>
             <div id="rowGastos">Gastos</div>
             <div id="rowGastoPercentual">% da receita gasta</div>
-            <div id="rowLucro">Lucro</div>
+            <div id="rowbalanco">Balanço</div>
             <div id="rowMargemDeLucro">% Margem de lucro</div>
         </div>
 
         <div class="card__content">
             <div class="categoryHeader">
-                <div>Categoria</div>
-                <div>Quantidade</div>
-                <div>% Total</div>
+                <div >Categoria</div>
+                <div >Quantidade</div>
+                <div >% Total</div>
+            </div>
+            <div class="categoryBody">
+                <div id="categories"></div>
+                <div id="amount"></div>
+                <div id="%total"></div>
             </div>
         </div>
+
+        <div class="card__content">
+            <canvas id="chartCanvas" width="400" height="200"></canvas>
+        </div>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
