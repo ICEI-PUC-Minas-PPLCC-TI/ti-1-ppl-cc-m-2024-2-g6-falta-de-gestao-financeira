@@ -1,17 +1,15 @@
 import category from "../controllers/category.js";
 import recurrent from "../controllers/recurrent.js";
-import entrie from "../controllers/entrie.js";
 
-import { ICONS_NAMES, MILLISECCONDS_IN_DAY } from "../lib/constants.js";
+import { ICONS_NAMES } from "../lib/constants.js";
 import {
-  daysDiffrence,
   formatDateToDisplay,
   formatDateToInput,
   toMoney,
 } from "../lib/util.js";
 
 import { updateCategorySelect } from "./select-category.js";
-import { updateCategoriesList } from "./categories-list.js";
+import { updateEntriesList } from "./entries-list.js";
 
 export async function updateRecurringList() {
   const categories = await category.getAllFromUser();
@@ -163,13 +161,14 @@ export async function updateRecurringList() {
       deleteButton.addEventListener("click", async () => {
         if (
           confirm(
-            `Você tem certeza que quer deletar a categoria: "${label}"? Essa ação não pode ser desfeita!`
+            `Você tem certeza que quer deletar o recorrente: "${label}"? Essa ação não pode ser desfeita! Todos os registros desse tipo serão excluídos!`
           )
         ) {
           const deleted = await recurrent.delete(id);
 
           if (deleted) {
-            updateCategoriesList();
+            await updateRecurringList();
+            await updateEntriesList();
           } else {
             alert("Não foi possível deletar a categoria, tente novamente.");
           }

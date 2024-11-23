@@ -1,4 +1,5 @@
 import recurrent from "../controllers/recurrent.js";
+import { updateEntriesList } from "./entries-list.js";
 
 import { updateRecurringList } from "./recurring-list.js";
 import { updateCategorySelect } from "./select-category.js";

@@ -170,12 +170,21 @@ const recurrent = {
       return null;
     }
 
+    const oldRecurrent = await recurrent.getById(recurrentId);
+
+    if (!oldRecurrent) {
+      console.error(`Erro, recorrente não encontrado.`);
+      return null;
+    }
+
     const res = await fetch(`/recurring/${recurrentId}`, {
       method: "DELETE",
     });
 
     if (!res.ok) {
       console.error("Erro Interno do JSON Server.");
+    } else {
+      await deleteOldRecurrentEntries(oldRecurrent);
     }
 
     return res.ok;
