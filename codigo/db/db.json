@@ -1,708 +1,455 @@
 {
   "users": [
     {
-      "id": 1,
+      "name": "admin",
+      "email": "admin@admin.com",
+      "password": "123",
+      "createdAt": 1732369542888,
+      "updatedAt": 1732369542888,
+      "id": 1
+    },
+    {
       "name": "João Silva",
       "email": "joao@email.com",
       "password": "123456",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
+      "createdAt": 1732379269463,
+      "updatedAt": 1732379269463,
+      "id": 2
     },
     {
-      "id": 2,
-      "name": "Maria Santos",
-      "email": "maria@email.com",
-      "password": "123456",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 4,
-      "name": "Adalberto",
-      "email": "A@email.com",
-      "password": "123456",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 3,
-      "name": "Pedro Oliveira",
-      "email": "pedro@email.com",
-      "password": "123456",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "name": "1",
-      "email": "1@1",
+      "name": "Teste",
+      "email": "test@test.com",
       "password": "1",
-      "createdAt": 1730304796753,
-      "updatedAt": 1730304796753,
-      "id": 5
+      "createdAt": 1732379299548,
+      "updatedAt": 1732379299548,
+      "id": 3
     }
   ],
   "categories": [
     {
-      "id": 1,
-      "ownerId": 1,
-      "label": "Mercado",
-      "type": "expense",
-      "icon": "basket",
-      "createdAt": 1704067200000,
-      "updatedAt": 1730314806784
-    },
-    {
-      "id": 2,
-      "ownerId": 1,
-      "label": "Aluguel",
-      "type": "expense",
-      "icon": "home",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 3,
-      "ownerId": 1,
-      "label": "Transporte",
-      "type": "expense",
-      "icon": "bike",
-      "createdAt": 1704067200000,
-      "updatedAt": 1730314829857
-    },
-    {
-      "id": 4,
-      "ownerId": 1,
-      "label": "Lazer",
-      "type": "expense",
-      "icon": "drama",
-      "createdAt": 1704067200000,
-      "updatedAt": 1730314837579
-    },
-    {
-      "id": 5,
-      "ownerId": 1,
-      "label": "Saúde",
-      "type": "expense",
-      "icon": "dumbbell",
-      "createdAt": 1704067200000,
-      "updatedAt": 1730314847305
-    },
-    {
-      "id": 6,
       "ownerId": 1,
       "label": "Salário",
       "type": "income",
       "icon": "briefcase",
-      "createdAt": 1704067200000,
-      "updatedAt": 1730314874058
-    },
-    {
-      "id": 7,
-      "ownerId": 2,
-      "label": "Alimentação",
-      "type": "expense",
-      "icon": "coffee",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 8,
-      "ownerId": 2,
-      "label": "Internet",
-      "type": "expense",
-      "icon": "wifi",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 9,
-      "ownerId": 2,
-      "label": "Energia",
-      "type": "expense",
-      "icon": "zap",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 10,
-      "ownerId": 2,
-      "label": "Academia",
-      "type": "expense",
-      "icon": "activity",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 11,
-      "ownerId": 2,
-      "label": "Educação",
-      "type": "expense",
-      "icon": "book",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 12,
-      "ownerId": 2,
-      "label": "Freelance",
-      "type": "income",
-      "icon": "briefcase",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 13,
-      "ownerId": 3,
-      "label": "Moradia",
-      "type": "expense",
-      "icon": "home",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 14,
-      "ownerId": 3,
-      "label": "Vestuário",
-      "type": "expense",
-      "icon": "shopping-bag",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 15,
-      "ownerId": 3,
-      "label": "Transporte",
-      "type": "expense",
-      "icon": "truck",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 16,
-      "ownerId": 3,
-      "label": "Alimentação",
-      "type": "expense",
-      "icon": "coffee",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 17,
-      "ownerId": 3,
-      "label": "Assinaturas",
-      "type": "expense",
-      "icon": "tv",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 18,
-      "ownerId": 3,
-      "label": "Investimentos",
-      "type": "income",
-      "icon": "trending-up",
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
+      "createdAt": 1732378821848,
+      "updatedAt": 1732378821848,
+      "id": 1
     },
     {
       "ownerId": 1,
-      "label": "Jogos",
+      "label": "Alugel",
       "type": "expense",
-      "icon": "gamepad",
-      "createdAt": 1730314889341,
-      "updatedAt": 1730314889341,
-      "id": 19
-    },
-    {
-      "ownerId": 5,
-      "label": "receita",
-      "type": "income",
-      "icon": "tent-tree",
-      "createdAt": 1730337182249,
-      "updatedAt": 1730337182249,
-      "id": 20
-    },
-    {
-      "ownerId": 5,
-      "label": "despesa",
-      "type": "expense",
-      "createdAt": 1730337187311,
-      "updatedAt": 1730337191754,
-      "id": 21,
-      "icon": "landmark"
-    },
-    {
-      "ownerId": 5,
-      "label": "receitaTeste123",
-      "type": "income",
-      "icon": "plane",
-      "createdAt": 1730338071528,
-      "updatedAt": 1730338071528,
-      "id": 22
-    },
-    {
-      "ownerId": 5,
-      "label": "ReceitaTeste9234",
-      "type": "income",
-      "icon": "laptop",
-      "createdAt": 1730338081694,
-      "updatedAt": 1730338081694,
-      "id": 23
-    },
-    {
-      "ownerId": 5,
-      "label": "DespesaTeste123",
-      "type": "expense",
-      "icon": "plane",
-      "createdAt": 1730338092621,
-      "updatedAt": 1730338092621,
-      "id": 24
-    },
-    {
-      "ownerId": 5,
-      "label": "Despesateste324",
-      "type": "expense",
-      "icon": "gamepad",
-      "createdAt": 1730338106868,
-      "updatedAt": 1730338106868,
-      "id": 25
+      "icon": "landmark",
+      "createdAt": 1732379109551,
+      "updatedAt": 1732379109551,
+      "id": 2
     }
   ],
   "entries": [
     {
-      "id": 1,
-      "ownerId": 1,
-      "categoryId": 6,
-      "label": "Salário Janeiro",
-      "type": "income",
-      "date": "1704067200000",
-      "value": 5000
-    },
-    {
-      "id": 2,
       "ownerId": 1,
       "categoryId": 1,
-      "label": "Supermercado",
-      "type": "expense",
-      "date": "1704153600000",
-      "value": 800.5
-    },
-    {
-      "id": 3,
-      "ownerId": 1,
-      "categoryId": 2,
-      "label": "Aluguel Janeiro",
-      "type": "expense",
-      "date": "1704067200000",
-      "value": 1500
-    },
-    {
-      "id": 4,
-      "ownerId": 1,
-      "categoryId": 3,
-      "label": "Combustível",
-      "type": "expense",
-      "date": "1704240000000",
-      "value": 300
-    },
-    {
-      "id": 5,
-      "ownerId": 1,
-      "categoryId": 4,
-      "label": "Cinema",
-      "type": "expense",
-      "date": "1704326400000",
-      "value": 80
-    },
-    {
-      "id": 6,
-      "ownerId": 1,
-      "categoryId": 5,
-      "label": "Farmácia",
-      "type": "expense",
-      "date": "1704412800000",
-      "value": 150
-    },
-    {
-      "id": 7,
-      "ownerId": 2,
-      "categoryId": 12,
-      "label": "Projeto Website",
+      "label": "Salário, Parcela 1",
       "type": "income",
-      "date": "1704067200000",
-      "value": 3000
+      "value": 3000,
+      "date": 1729987200000,
+      "createdAt": 1732378962500,
+      "updatedAt": 1732378962500,
+      "id": 1
     },
     {
-      "id": 8,
-      "ownerId": 2,
-      "categoryId": 7,
-      "label": "Restaurante",
-      "type": "expense",
-      "date": "1704153600000",
-      "value": 200
-    },
-    {
-      "id": 9,
-      "ownerId": 2,
-      "categoryId": 8,
-      "label": "Internet",
-      "type": "expense",
-      "date": "1704067200000",
-      "value": 120
-    },
-    {
-      "id": 10,
-      "ownerId": 2,
-      "categoryId": 9,
-      "label": "Conta de Luz",
-      "type": "expense",
-      "date": "1704240000000",
-      "value": 180
-    },
-    {
-      "id": 11,
-      "ownerId": 2,
-      "categoryId": 10,
-      "label": "Academia",
-      "type": "expense",
-      "date": "1704326400000",
-      "value": 100
-    },
-    {
-      "id": 12,
-      "ownerId": 2,
-      "categoryId": 11,
-      "label": "Curso Online",
-      "type": "expense",
-      "date": "1704412800000",
-      "value": 250
-    },
-    {
-      "id": 13,
-      "ownerId": 3,
-      "categoryId": 18,
-      "label": "Dividendos",
-      "type": "income",
-      "date": "1704067200000",
-      "value": 2000
-    },
-    {
-      "id": 14,
-      "ownerId": 3,
-      "categoryId": 13,
-      "label": "Condomínio",
-      "type": "expense",
-      "date": "1704067200000",
-      "value": 500
-    },
-    {
-      "id": 15,
-      "ownerId": 3,
-      "categoryId": 14,
-      "label": "Roupas",
-      "type": "expense",
-      "date": "1704153600000",
-      "value": 300
-    },
-    {
-      "id": 16,
-      "ownerId": 3,
-      "categoryId": 15,
-      "label": "Uber",
-      "type": "expense",
-      "date": "1704240000000",
-      "value": 150
-    },
-    {
-      "id": 17,
-      "ownerId": 3,
-      "categoryId": 16,
-      "label": "Delivery",
-      "type": "expense",
-      "date": "1704326400000",
-      "value": 100
-    },
-    {
-      "id": 18,
-      "ownerId": 3,
-      "categoryId": 17,
-      "label": "Netflix",
-      "type": "expense",
-      "date": "1704412800000",
-      "value": 55.9
-    },
-    {
-      "id": 271,
-      "ownerId": 1,
-      "categoryId": 6,
-      "label": "Salário Outubro",
-      "type": "income",
-      "date": "1696118400000",
-      "value": 5000
-    },
-    {
-      "id": 272,
       "ownerId": 1,
       "categoryId": 1,
-      "label": "Supermercado",
-      "type": "expense",
-      "date": "1696204800000",
-      "value": 850
+      "label": "Salário, Parcela 1",
+      "type": "income",
+      "value": 3000,
+      "date": 1727395200000,
+      "createdAt": 1732378962531,
+      "updatedAt": 1732378962531,
+      "id": 2
     },
     {
-      "id": 273,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 1",
+      "type": "income",
+      "value": 3000,
+      "date": 1724803200000,
+      "createdAt": 1732378962562,
+      "updatedAt": 1732378962562,
+      "id": 3
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 1",
+      "type": "income",
+      "value": 3000,
+      "date": 1722211200000,
+      "createdAt": 1732378962592,
+      "updatedAt": 1732378962592,
+      "id": 4
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 1",
+      "type": "income",
+      "value": 3000,
+      "date": 1719619200000,
+      "createdAt": 1732378962607,
+      "updatedAt": 1732378962607,
+      "id": 5
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 1",
+      "type": "income",
+      "value": 3000,
+      "date": 1717027200000,
+      "createdAt": 1732378962638,
+      "updatedAt": 1732378962638,
+      "id": 6
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 1",
+      "type": "income",
+      "value": 3000,
+      "date": 1714435200000,
+      "createdAt": 1732378962670,
+      "updatedAt": 1732378962670,
+      "id": 7
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 1",
+      "type": "income",
+      "value": 3000,
+      "date": 1711843200000,
+      "createdAt": 1732378962700,
+      "updatedAt": 1732378962700,
+      "id": 8
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 1",
+      "type": "income",
+      "value": 3000,
+      "date": 1709251200000,
+      "createdAt": 1732378962731,
+      "updatedAt": 1732378962731,
+      "id": 9
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 1",
+      "type": "income",
+      "value": 3000,
+      "date": 1706659200000,
+      "createdAt": 1732378962763,
+      "updatedAt": 1732378962763,
+      "id": 10
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 1",
+      "type": "income",
+      "value": 3000,
+      "date": 1704067200000,
+      "createdAt": 1732378962795,
+      "updatedAt": 1732378962795,
+      "id": 11
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1731196800000,
+      "createdAt": 1732379010496,
+      "updatedAt": 1732379010496,
+      "id": 12
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1728604800000,
+      "createdAt": 1732379010513,
+      "updatedAt": 1732379010513,
+      "id": 13
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1726012800000,
+      "createdAt": 1732379010543,
+      "updatedAt": 1732379010543,
+      "id": 14
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1723420800000,
+      "createdAt": 1732379010574,
+      "updatedAt": 1732379010574,
+      "id": 15
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1720828800000,
+      "createdAt": 1732379010605,
+      "updatedAt": 1732379010605,
+      "id": 16
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1718236800000,
+      "createdAt": 1732379010636,
+      "updatedAt": 1732379010636,
+      "id": 17
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1715644800000,
+      "createdAt": 1732379010668,
+      "updatedAt": 1732379010668,
+      "id": 18
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1713052800000,
+      "createdAt": 1732379010699,
+      "updatedAt": 1732379010699,
+      "id": 19
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1710460800000,
+      "createdAt": 1732379010730,
+      "updatedAt": 1732379010730,
+      "id": 20
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1707868800000,
+      "createdAt": 1732379010761,
+      "updatedAt": 1732379010761,
+      "id": 21
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "value": 2000,
+      "date": 1705276800000,
+      "createdAt": 1732379010792,
+      "updatedAt": 1732379010792,
+      "id": 22
+    },
+    {
       "ownerId": 1,
       "categoryId": 2,
-      "label": "Aluguel Outubro",
+      "label": "Alugel",
       "type": "expense",
-      "date": "1696118400000",
-      "value": 1500
+      "value": 1500,
+      "date": 1731628800000,
+      "createdAt": 1732379157196,
+      "updatedAt": 1732379157196,
+      "id": 23
     },
     {
-      "id": 274,
       "ownerId": 1,
-      "categoryId": 3,
-      "label": "Combustível",
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "date": "1696291200000",
-      "value": 320
+      "value": 1500,
+      "date": 1729036800000,
+      "createdAt": 1732379157212,
+      "updatedAt": 1732379157212,
+      "id": 24
     },
     {
-      "id": 275,
       "ownerId": 1,
-      "categoryId": 4,
-      "label": "Show",
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "date": "1696377600000",
-      "value": 150
+      "value": 1500,
+      "date": 1726444800000,
+      "createdAt": 1732379157243,
+      "updatedAt": 1732379157243,
+      "id": 25
     },
     {
-      "id": 276,
       "ownerId": 1,
-      "categoryId": 5,
-      "label": "Consulta Médica",
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "date": "1696464000000",
-      "value": 200
+      "value": 1500,
+      "date": 1723852800000,
+      "createdAt": 1732379157273,
+      "updatedAt": 1732379157273,
+      "id": 26
     },
     {
-      "id": 277,
-      "ownerId": 2,
-      "categoryId": 12,
-      "label": "Projeto App",
-      "type": "income",
-      "date": "1696118400000",
-      "value": 4000
-    },
-    {
-      "id": 278,
-      "ownerId": 2,
-      "categoryId": 7,
-      "label": "Restaurante",
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "date": "1696204800000",
-      "value": 180
+      "value": 1500,
+      "date": 1721260800000,
+      "createdAt": 1732379157304,
+      "updatedAt": 1732379157304,
+      "id": 27
     },
     {
-      "id": 279,
-      "ownerId": 2,
-      "categoryId": 8,
-      "label": "Internet",
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "date": "1696118400000",
-      "value": 120
+      "value": 1500,
+      "date": 1718668800000,
+      "createdAt": 1732379157335,
+      "updatedAt": 1732379157335,
+      "id": 28
     },
     {
-      "id": 280,
-      "ownerId": 2,
-      "categoryId": 9,
-      "label": "Conta de Luz",
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "date": "1696291200000",
-      "value": 200
+      "value": 1500,
+      "date": 1716076800000,
+      "createdAt": 1732379157366,
+      "updatedAt": 1732379157366,
+      "id": 29
     },
     {
-      "id": 281,
-      "ownerId": 2,
-      "categoryId": 10,
-      "label": "Academia",
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "date": "1696377600000",
-      "value": 100
+      "value": 1500,
+      "date": 1713484800000,
+      "createdAt": 1732379157398,
+      "updatedAt": 1732379157398,
+      "id": 30
     },
     {
-      "id": 282,
-      "ownerId": 2,
-      "categoryId": 11,
-      "label": "Livros",
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "date": "1696464000000",
-      "value": 150
+      "value": 1500,
+      "date": 1710892800000,
+      "createdAt": 1732379157428,
+      "updatedAt": 1732379157428,
+      "id": 31
     },
     {
-      "id": 283,
-      "ownerId": 3,
-      "categoryId": 18,
-      "label": "Dividendos",
-      "type": "income",
-      "date": "1696118400000",
-      "value": 2500
-    },
-    {
-      "id": 284,
-      "ownerId": 3,
-      "categoryId": 13,
-      "label": "Condomínio",
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "date": "1696118400000",
-      "value": 500
+      "value": 1500,
+      "date": 1708300800000,
+      "createdAt": 1732379157460,
+      "updatedAt": 1732379157460,
+      "id": 32
     },
     {
-      "label": "teste",
-      "type": "income",
-      "value": "126",
-      "date": "2024-10-29",
-      "category": "none",
-      "id": 285
-    },
-    {
-      "label": "teste",
-      "type": "income",
-      "value": "126",
-      "date": "2024-10-29",
-      "category": "none",
-      "id": 286
-    },
-    {
-      "label": "teste",
-      "type": "income",
-      "value": "126",
-      "date": "2024-10-29",
-      "category": "none",
-      "id": 287
-    },
-    {
-      "label": "teste",
-      "type": "income",
-      "value": "2",
-      "date": "2024-10-31",
-      "category": "20",
-      "id": 288
-    },
-    {
-      "label": "teste",
-      "type": "income",
-      "value": "2",
-      "date": "2024-10-31",
-      "category": "20",
-      "id": 289
-    },
-    {
-      "label": "ra",
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "value": "12",
-      "date": "2024-10-21",
-      "category": "21",
-      "id": 290
-    },
-    {
-      "label": "just",
-      "type": "income",
-      "value": "123",
-      "date": 1729641600000,
-      "category": "20",
-      "id": 291
-    },
-    {
-      "label": "teste23",
-      "type": "income",
-      "value": "123",
-      "date": 1728432000000,
-      "category": "22",
-      "id": 292
-    },
-    {
-      "label": "teste",
-      "type": "expense",
-      "value": "13434",
-      "date": 1727827200000,
-      "category": "none",
-      "id": 293
-    },
-    {
-      "ownerId": 5,
-      "categoryId": 20,
-      "label": "add1",
-      "type": "income",
-      "value": "100",
-      "date": 1729555200000,
-      "createdAt": 1732317210265,
-      "updatedAt": 1732317210265,
-      "id": 294
+      "value": 1500,
+      "date": 1705708800000,
+      "createdAt": 1732379157490,
+      "updatedAt": 1732379157490,
+      "id": 33
     }
   ],
-  "goals": [
+  "goals": [],
+  "recurring": [
     {
-      "id": 1,
       "ownerId": 1,
-      "label": "Padaria",
+      "categoryId": 1,
+      "label": "Salário, Parcela 1",
       "type": "income",
-      "category": "Mercado",
-      "valor": "R$ 200,00 a.m."
+      "frequency": 30,
+      "initialDate": 1704067200000,
+      "finalDate": 1735603200000,
+      "value": 3000,
+      "updatedAt": 1732378962402,
+      "createdAt": 1732378962402,
+      "id": 1
     },
     {
-      "id": 2,
       "ownerId": 1,
-      "label": "Transporte",
-      "type": "expense",
-      "category": "Transporte",
-      "valor": "R$ 10,00 d."
+      "categoryId": 1,
+      "label": "Salário, Parcela 2",
+      "type": "income",
+      "frequency": 30,
+      "initialDate": 1705276800000,
+      "finalDate": 1735603200000,
+      "value": 2000,
+      "updatedAt": 1732379010416,
+      "createdAt": 1732379010416,
+      "id": 2
     },
     {
-      "id": 3,
       "ownerId": 1,
-      "label": "Serviços",
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "category": "Serviços",
-      "valor": "R$ 60,00 a.m."
-    },
-    {
-      "id": 4,
-      "ownerId": 1,
-      "label": "Compras",
-      "type": "expense",
-      "category": "Compras",
-      "valor": "R$ 400,00 a.m."
-    }
-  ],
-  "metas": [
-    {
-      "id": 1,
-      "nome": "viagem",
-      "valor": 3000,
-      "tempo": "mensal",
-      "icone": "Carro"
-    },
-    {
-      "id": 2,
-      "nome": "Mercado",
-      "valor": 150,
-      "tempo": "semanal",
-      "icone": "cesto"
-    },
-    {
-      "id": 3,
-      "nome": "Fundo de emergência",
-      "valor": 2500,
-      "tempo": "anual",
-      "icone": "dinheiro"
-    },
-    {
-      "id": 4,
-      "nome": "dividas",
-      "valor": 1500,
-      "tempo": "mensal",
-      "icone": "maleta"
+      "frequency": 30,
+      "initialDate": 1705708800000,
+      "finalDate": 1735603200000,
+      "value": 1500,
+      "updatedAt": 1732379157144,
+      "createdAt": 1732379157144,
+      "id": 3
     }
   ]
 }
