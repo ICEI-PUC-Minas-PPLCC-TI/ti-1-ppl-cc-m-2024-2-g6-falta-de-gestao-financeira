@@ -36,7 +36,7 @@ export function createRecurrentPopup() {
       frequency: parseInt(frequency.value) || 99999,
       initialDate: new Date(initialDate.value).getTime(),
       finalDate: new Date(finalDate.value).getTime(),
-      value: parseInt(value.value),
+      value: parseFloat(value.value),
       createdAt: time,
       updatedAt: time,
     };

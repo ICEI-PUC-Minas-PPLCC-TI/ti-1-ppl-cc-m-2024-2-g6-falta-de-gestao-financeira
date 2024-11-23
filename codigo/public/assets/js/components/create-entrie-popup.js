@@ -23,7 +23,7 @@ export function createEntriePopup() {
       categoryId: parseInt(categoryId.value) || undefined,
       label: label.value,
       type: type.checked ? "income" : "expense",
-      value: parseInt(value.value),
+      value: parseFloat(value.value),
       date: new Date(date.value).getTime(),
     };
 

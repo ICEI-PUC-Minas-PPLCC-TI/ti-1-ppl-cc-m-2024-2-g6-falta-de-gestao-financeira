@@ -31,7 +31,7 @@ export function editRecurrentPopup() {
       categoryId: parseInt(categoryId.value) || undefined,
       type: type.checked ? "income" : "expense",
       label: label.value,
-      value: parseInt(value.value),
+      value: parseFloat(value.value),
       frequency: parseInt(frequency.value) || 99999,
       initialDate: new Date(initialDate.value).getTime() + MILLISECCONDS_IN_DAY,
       finalDate: new Date(finalDate.value).getTime() + MILLISECCONDS_IN_DAY,

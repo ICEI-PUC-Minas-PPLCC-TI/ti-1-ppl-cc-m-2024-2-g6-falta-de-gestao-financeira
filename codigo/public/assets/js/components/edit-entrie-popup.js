@@ -24,7 +24,7 @@ export function editEntriePopup() {
     const formData = {
       entrieId: editEntrieForm.getAttribute("data-entrie-id"),
       label: label.value,
-      value: parseInt(value.value),
+      value: parseFloat(value.value),
       type: type.checked ? "income" : "expense",
       date: new Date(date.value).getTime() + MILLISECCONDS_IN_DAY,
       categoryId: parseInt(categoryId.value) || undefined,
