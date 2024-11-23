@@ -1,6 +1,7 @@
 import category from "../controllers/category.js";
 import { auth } from "../lib/auth.js";
 import { updateCategoriesList } from "./categories-list.js";
+import { updateCategorySelect } from "./select-category.js";
 
 export function createCategoryPopup() {
   const createCategoryForm = document.getElementById("create-category-form");
@@ -43,6 +44,34 @@ export function createCategoryPopup() {
     }
 
     updateCategoriesList();
+
+    await updateCategorySelect(
+      "edit-entry-form--category",
+      document.getElementById("edit-entry-form--income").checked
+        ? "income"
+        : "expense"
+    );
+
+    await updateCategorySelect(
+      "create-entry-form--category",
+      document.getElementById("create-entry-form--income").checked
+        ? "income"
+        : "expense"
+    );
+
+    await updateCategorySelect(
+      "create-recurrent-form--category",
+      document.getElementById("create-recurrent-form--income").checked
+        ? "income"
+        : "expense"
+    );
+
+    await updateCategorySelect(
+      "edit-recurrent-form--category",
+      document.getElementById("edit-recurrent-form--income").checked
+        ? "income"
+        : "expense"
+    );
 
     createCategoryPopup.close();
     createCategoryForm.reset();

@@ -61,15 +61,15 @@ export function editCategoryPopup() {
     updateCategoriesList();
 
     await updateCategorySelect(
-      "edit-entrie-form--category",
-      document.getElementById("edit-entrie-form--income").checked
+      "edit-entry-form--category",
+      document.getElementById("edit-entry-form--income").checked
         ? "income"
         : "expense"
     );
 
     await updateCategorySelect(
-      "create-entrie-form--category",
-      document.getElementById("create-entrie-form--income").checked
+      "create-entry-form--category",
+      document.getElementById("create-entry-form--income").checked
         ? "income"
         : "expense"
     );

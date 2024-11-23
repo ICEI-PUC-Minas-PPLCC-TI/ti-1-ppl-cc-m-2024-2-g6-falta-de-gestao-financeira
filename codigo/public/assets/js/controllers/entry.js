@@ -2,7 +2,7 @@ import { auth } from "../lib/auth.js";
 import { TYPE_ENUM } from "../lib/constants.js";
 
 /*
-  entrie: {
+  entry: {
     id: number;
     ownerId: number;
     categoryId: number;
@@ -15,7 +15,7 @@ import { TYPE_ENUM } from "../lib/constants.js";
   }
 */
 
-const entrie = {
+const entry = {
   create: async ({ label, type, value, date, categoryId }) => {
     if (!label || !type || !value || !date) {
       console.error("Campos obrigatórios não enviados.");
@@ -60,22 +60,22 @@ const entrie = {
 
     return newEntrie;
   },
-  getById: async (entrieId) => {
-    if (!entrieId) {
+  getById: async (entryId) => {
+    if (!entryId) {
       console.error("Campos obrigatórios não enviados.");
       return null;
     }
 
-    const res = await fetch(`/entries/${entrieId}`);
+    const res = await fetch(`/entries/${entryId}`);
 
     if (!res.ok) {
       console.error("Erro Interno do JSON Server.");
       return null;
     }
 
-    const entrie = await res.json();
+    const entry = await res.json();
 
-    return entrie;
+    return entry;
   },
   getAllFromUser: async () => {
     const user = auth();
@@ -98,8 +98,8 @@ const entrie = {
 
     return entries;
   },
-  update: async ({ entrieId, label, date, type, value, categoryId }) => {
-    if (!entrieId) {
+  update: async ({ entryId, label, date, type, value, categoryId }) => {
+    if (!entryId) {
       console.error("Campos obrigatórios não enviados.");
       return null;
     }
@@ -109,7 +109,7 @@ const entrie = {
       return null;
     }
 
-    const res = await fetch(`/entries/${entrieId}`, {
+    const res = await fetch(`/entries/${entryId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -127,17 +127,17 @@ const entrie = {
       return null;
     }
 
-    const updatedEntrie = await res.json();
+    const updatedEntry = await res.json();
 
-    return updatedEntrie;
+    return updatedEntry;
   },
-  delete: async (entrieId) => {
-    if (!entrieId) {
+  delete: async (entryId) => {
+    if (!entryId) {
       console.error("Campos obrigatórios não enviados.");
       return null;
     }
 
-    const res = await fetch(`/entries/${entrieId}`, {
+    const res = await fetch(`/entries/${entryId}`, {
       method: "DELETE",
     });
 
@@ -149,4 +149,4 @@ const entrie = {
   },
 };
 
-export default entrie;
+export default entry;

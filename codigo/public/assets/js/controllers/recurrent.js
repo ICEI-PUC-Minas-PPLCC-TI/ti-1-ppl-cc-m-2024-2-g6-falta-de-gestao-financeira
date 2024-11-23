@@ -1,4 +1,4 @@
-import entrie from "./entrie.js";
+import entry from "./entry.js";
 
 import { auth } from "../lib/auth.js";
 import { MILLISECCONDS_IN_DAY, TYPE_ENUM } from "../lib/constants.js";
@@ -192,24 +192,24 @@ const recurrent = {
 };
 
 export async function deleteOldRecurrentEntries(oldRecurrent) {
-  const entries = await entrie.getAllFromUser();
+  const entries = await entry.getAllFromUser();
 
-  entries.forEach(async ({ id, categoryId, label, type, value }) => {
+  for (const { id, categoryId, label, type, value } of entries) {
     if (
       oldRecurrent.categoryId === categoryId &&
       oldRecurrent.label === label &&
       oldRecurrent.type === type &&
       oldRecurrent.value === value
     ) {
-      await entrie.delete(id);
+      await entry.delete(id);
     }
-  });
+  }
 }
 
 export async function insertMissingRecurringEntries() {
   const recurring = await recurrent.getAllFromUser();
 
-  const entries = await entrie.getAllFromUser();
+  const entries = await entry.getAllFromUser();
 
   const today = new Date().getTime() + MILLISECCONDS_IN_DAY;
 
@@ -228,7 +228,7 @@ export async function insertMissingRecurringEntries() {
 
     if (entries.length < 1) {
       while (insertDay >= 0) {
-        await entrie.create({
+        await entry.create({
           categoryId,
           label,
           type,
@@ -245,7 +245,7 @@ export async function insertMissingRecurringEntries() {
         const timeSpanFromStart = daysDiffrence(entries[i].date, initialDate);
 
         while (timeSpanFromStart < insertDay && insertDay >= 0) {
-          await entrie.create({
+          await entry.create({
             categoryId,
             label,
             type,
@@ -276,7 +276,7 @@ export async function insertMissingRecurringEntries() {
           }
 
           if (create) {
-            await entrie.create({
+            await entry.create({
               categoryId,
               label,
               type,

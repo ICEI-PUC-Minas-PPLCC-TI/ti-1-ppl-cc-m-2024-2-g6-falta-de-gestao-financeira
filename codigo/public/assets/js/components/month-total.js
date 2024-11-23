@@ -1,4 +1,4 @@
-import entrie from "../controllers/entrie.js";
+import entry from "../controllers/entry.js";
 
 import { toMoney } from "../lib/util.js";
 
@@ -11,19 +11,19 @@ export async function updateMonthTotal(elementId, month, year) {
   let sum = 0;
   let isPositive = true;
 
-  const entries = await entrie.getAllFromUser();
+  const entries = await entry.getAllFromUser();
 
   for (const { date, value, type } of entries) {
-    const entrieMonth = new Date(date).getMonth();
-    const entrieYear = new Date(date).getFullYear();
+    const entryMonth = new Date(date).getMonth();
+    const entryYear = new Date(date).getFullYear();
 
-    if (entrieMonth === month && entrieYear === year) {
+    if (entryMonth === month && entryYear === year) {
       if (type === "income") {
         sum += parseFloat(value) || 0;
       } else {
         sum -= parseFloat(value) || 0;
       }
-    } else if (entrieMonth < month || entrieYear < year) break;
+    } else if (entryMonth < month || entryYear < year) break;
   }
 
   if (sum < 0) {

@@ -26,7 +26,7 @@ $(document).ready(function () {
       })
       .then((entries) => {
         console.log("Data loaded:", entries);
-        const data = { entries: entries };
+        const data = { entries };
         if (callback) callback(data);
       })
       .catch((error) => {
@@ -289,10 +289,5 @@ $(document).ready(function () {
     const monthlyData = processMonthlyData(data.entries, loggedInUser.id);
     createLineChart(monthlyData);
     processMonthlyExpenses(data.entries, loggedInUser.id);
-  });
-
-  // Navigation
-  $("#metas").click(function () {
-    window.location.href = "index.html";
   });
 });

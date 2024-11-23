@@ -99,7 +99,7 @@
             <button class="open-popup" data-popup-id="create-recurrent-popup">
               Adicionar Recorrente
             </button>
-            <button class="open-popup" data-popup-id="create-entrie-popup">
+            <button class="open-popup" data-popup-id="create-entry-popup">
               Adicionar Registro
             </button>
           </div>
@@ -322,9 +322,9 @@
       </form>
     </dialog>
 
-    <dialog class="popup" id="create-entrie-popup">
+    <dialog class="popup" id="create-entry-popup">
       <button
-        data-popup-id="create-entrie-popup"
+        data-popup-id="create-entry-popup"
         class="close-popup close-popup--icon"
       >
         <svg
@@ -343,19 +343,19 @@
         </svg>
       </button>
 
-      <form class="form" id="create-entrie-form" method="post">
+      <form class="form" id="create-entry-form" method="post">
         <div class="form__header">
           <h2>Criar Registro</h2>
         </div>
         <div class="form__field">
-          <label class="form__field__label" for="create-entrie-form--label">
+          <label class="form__field__label" for="create-entry-form--label">
             Título
           </label>
           <input
             class="form__field__input"
             type="text"
             name="label"
-            id="create-entrie-form--label"
+            id="create-entry-form--label"
             required
           />
         </div>
@@ -366,12 +366,12 @@
                 class="form__field__tab__input"
                 type="radio"
                 name="type"
-                id="create-entrie-form--income"
+                id="create-entry-form--income"
                 checked
               />
               <label
                 class="form__field__tab__label"
-                for="create-entrie-form--income"
+                for="create-entry-form--income"
               >
                 Receita
               </label>
@@ -381,11 +381,11 @@
                 class="form__field__tab__input"
                 type="radio"
                 name="type"
-                id="create-entrie-form--expense"
+                id="create-entry-form--expense"
               />
               <label
                 class="form__field__tab__label"
-                for="create-entrie-form--expense"
+                for="create-entry-form--expense"
               >
                 Despesa
               </label>
@@ -393,7 +393,7 @@
           </ul>
         </div>
         <div class="form__field">
-          <label class="form__field__label" for="create-entrie-form--value">
+          <label class="form__field__label" for="create-entry-form--value">
             Valor
           </label>
           <input
@@ -401,19 +401,19 @@
             type="number"
             step=".01"
             name="value"
-            id="create-entrie-form--value"
+            id="create-entry-form--value"
             required
           />
         </div>
         <div class="form__field">
-          <label class="form__field__label" for="create-entrie-form--date">
+          <label class="form__field__label" for="create-entry-form--date">
             Data
           </label>
           <input
             class="form__field__input"
             type="date"
             name="date"
-            id="create-entrie-form--date"
+            id="create-entry-form--date"
             required
           />
         </div>
@@ -432,14 +432,14 @@
           <select
             class="form__field__input"
             name="category"
-            id="create-entrie-form--category"
+            id="create-entry-form--category"
           ></select>
         </div>
 
         <div class="form__footer">
           <button
             class="close-popup form__cancel"
-            data-popup-id="create-entrie-popup"
+            data-popup-id="create-entry-popup"
             type="reset"
           >
             Cancelar
@@ -450,9 +450,9 @@
       </form>
     </dialog>
 
-    <dialog class="popup" id="edit-entrie-popup">
+    <dialog class="popup" id="edit-entry-popup">
       <button
-        data-popup-id="edit-entrie-popup"
+        data-popup-id="edit-entry-popup"
         class="close-popup close-popup--icon"
       >
         <svg
@@ -471,19 +471,19 @@
         </svg>
       </button>
 
-      <form class="form" id="edit-entrie-form" method="post">
+      <form class="form" id="edit-entry-form" method="post">
         <div class="form__header">
           <h2>Editar Registro</h2>
         </div>
         <div class="form__field">
-          <label class="form__field__label" for="edit-entrie-form--label">
+          <label class="form__field__label" for="edit-entry-form--label">
             Título
           </label>
           <input
             class="form__field__input"
             type="text"
             name="label"
-            id="edit-entrie-form--label"
+            id="edit-entry-form--label"
             required
           />
         </div>
@@ -494,12 +494,12 @@
                 class="form__field__tab__input"
                 type="radio"
                 name="type"
-                id="edit-entrie-form--income"
+                id="edit-entry-form--income"
                 checked
               />
               <label
                 class="form__field__tab__label"
-                for="edit-entrie-form--income"
+                for="edit-entry-form--income"
               >
                 Receita
               </label>
@@ -509,11 +509,11 @@
                 class="form__field__tab__input"
                 type="radio"
                 name="type"
-                id="edit-entrie-form--expense"
+                id="edit-entry-form--expense"
               />
               <label
                 class="form__field__tab__label"
-                for="edit-entrie-form--expense"
+                for="edit-entry-form--expense"
               >
                 Despesa
               </label>
@@ -521,7 +521,7 @@
           </ul>
         </div>
         <div class="form__field">
-          <label class="form__field__label" for="edit-entrie-form--value">
+          <label class="form__field__label" for="edit-entry-form--value">
             Valor
           </label>
           <input
@@ -529,26 +529,26 @@
             type="number"
             step=".01"
             name="value"
-            id="edit-entrie-form--value"
+            id="edit-entry-form--value"
             required
           />
         </div>
         <div class="form__field">
-          <label class="form__field__label" for="edit-entrie-form--date">
+          <label class="form__field__label" for="edit-entry-form--date">
             Data
           </label>
           <input
             class="form__field__input"
             type="date"
             name="date"
-            id="edit-entrie-form--date"
+            id="edit-entry-form--date"
             required
           />
         </div>
 
         <div class="form__field">
           <div class="form__field__header">
-            <label class="form__field__label" for="edit-entrie-form--category">
+            <label class="form__field__label" for="edit-entry-form--category">
               Categoria
             </label>
             <button data-popup-id="create-category-popup" class="open-popup">
@@ -562,14 +562,14 @@
           <select
             class="form__field__input"
             name="category"
-            id="edit-entrie-form--category"
+            id="edit-entry-form--category"
           ></select>
         </div>
 
         <div class="form__footer">
           <button
             class="close-popup form__cancel"
-            data-popup-id="edit-entrie-popup"
+            data-popup-id="edit-entry-popup"
             type="reset"
           >
             Cancelar
@@ -668,7 +668,7 @@
             class="form__field__label"
             for="create-recurrent-form--frequency"
           >
-            Recorrencia (em dias)
+            Recorrência (em dias)
           </label>
           <input
             class="form__field__input"

@@ -1,5 +1,5 @@
 import category from "../controllers/category.js";
-import entrie from "../controllers/entrie.js";
+import entry from "../controllers/entry.js";
 import { insertMissingRecurringEntries } from "../controllers/recurrent.js";
 
 import { ICONS_NAMES } from "../lib/constants.js";
@@ -12,7 +12,7 @@ export async function updateEntriesList(entries) {
   if (!entries) {
     await insertMissingRecurringEntries();
 
-    entries = await entrie.getAllFromUser();
+    entries = await entry.getAllFromUser();
   }
 
   const today = new Date();
@@ -23,8 +23,8 @@ export async function updateEntriesList(entries) {
   const entriesList = document.querySelector(".entries-list");
   entriesList.innerHTML = "";
 
-  const editEntrieForm = document.getElementById("edit-entrie-form");
-  const editEntriePopup = document.getElementById("edit-entrie-popup");
+  const editEntryForm = document.getElementById("edit-entry-form");
+  const editEntryPopup = document.getElementById("edit-entry-popup");
 
   const userCategories = await category.getAllFromUser();
 
@@ -84,7 +84,7 @@ export async function updateEntriesList(entries) {
 
       <button
         class="entries-list__day__item__button entries-list__day__item__button--edit"
-        id="button-edit-entrie-${id}"
+        id="button-edit-entry-${id}"
         type="button"
       >
         <svg
@@ -105,7 +105,7 @@ export async function updateEntriesList(entries) {
       </button>
       <button
         class="entries-list__day__item__button entries-list__day__item__button--delete"
-        id="button-delete-entrie-${id}"
+        id="button-delete-entry-${id}"
         type="button"
       >
         <svg
@@ -129,32 +129,32 @@ export async function updateEntriesList(entries) {
     `
     );
 
-    const editButton = document.getElementById(`button-edit-entrie-${id}`);
-    const deleteButton = document.getElementById(`button-delete-entrie-${id}`);
+    const editButton = document.getElementById(`button-edit-entry-${id}`);
+    const deleteButton = document.getElementById(`button-delete-entry-${id}`);
 
     editButton.addEventListener("click", async () => {
-      editEntrieForm.setAttribute("data-entrie-id", id);
+      editEntryForm.setAttribute("data-entry-id", id);
 
-      document.getElementById("edit-entrie-form--label").value = label;
-      document.getElementById("edit-entrie-form--date").value =
+      document.getElementById("edit-entry-form--label").value = label;
+      document.getElementById("edit-entry-form--date").value =
         formatDateToInput(new Date(date));
-      document.getElementById("edit-entrie-form--value").value = value;
+      document.getElementById("edit-entry-form--value").value = value;
 
-      await updateCategorySelect("edit-entrie-form--category", type);
+      await updateCategorySelect("edit-entry-form--category", type);
 
-      document.getElementById("edit-entrie-form--category").value = categoryId;
+      document.getElementById("edit-entry-form--category").value = categoryId;
 
       if (type === "income") {
-        document.getElementById("edit-entrie-form--income").checked = true;
+        document.getElementById("edit-entry-form--income").checked = true;
       } else {
-        document.getElementById("edit-entrie-form--expense").checked = true;
+        document.getElementById("edit-entry-form--expense").checked = true;
       }
 
-      editEntriePopup.showModal();
+      editEntryPopup.showModal();
     });
 
     deleteButton.addEventListener("click", async () => {
-      const deleted = await entrie.delete(id);
+      const deleted = await entry.delete(id);
 
       if (!deleted) {
         alert("Erro ao deletar registro.");
