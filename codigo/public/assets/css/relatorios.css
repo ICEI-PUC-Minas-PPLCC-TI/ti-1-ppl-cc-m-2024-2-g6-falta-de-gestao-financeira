@@ -18,7 +18,7 @@ body {
   }
   
   /* Estilo para .report_header */
-  .report_header {
+  .card__content .report_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,6 +26,12 @@ body {
     background-color: var(--card);
     border-radius: 0.5rem;
     gap: 1rem;
+  }
+  
+  .report_header div{
+    flex: 1;
+    text-align: center;
+    gap: 0.5rem;
   }
   
   .report_header #yearDropdown,
@@ -97,15 +103,19 @@ body {
   }
   
   /* Estilo do cabeçalho da categoria */
-  .categorySummary .categoryHeader {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    font-weight: bold;
-    font-size: var(--text-md);
-    text-align: center;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--foreground);
+  .categoryHeader {
+    display: flex; /* Define um contêiner flex */
+    justify-content: space-between; /* Distribui as divs com espaçamento igual */
+    align-items: center; /* Alinha as divs verticalmente */
+    gap: 1rem; /* Espaçamento entre as divs */
   }
+  
+  .categoryHeader div {
+    flex: 1; /* Faz com que todas as divs ocupem espaços iguais */
+    text-align: center; /* Centraliza o texto dentro de cada div */
+    padding: 0.5rem; /* Adiciona espaçamento interno */
+  }
+  
   
 /* Corpo da categoria */
 .categorySummary .categoryBody {
