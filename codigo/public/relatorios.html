@@ -90,10 +90,46 @@
         </div>
 
         <div class="card__content">
+            <div class="form__field">
+                <ul class="form__field__tab">
+                    <li class="form__field__tab__item">
+                        <input
+                            class="form__field__tab__input"
+                            type="radio"
+                            name="type"
+                            id="create-entry-form--income"
+                            checked
+                        />
+                        <label
+                            class="form__field__tab__label"
+                            for="create-entry-form--income"
+                        >
+                            Receita
+                        </label>
+                    </li>
+                    <li class="form__field__tab__item">
+                        <input
+                            class="form__field__tab__input"
+                            type="radio"
+                            name="type"
+                            id="create-entry-form--expense"
+                        />
+                        <label
+                            class="form__field__tab__label"
+                            for="create-entry-form--expense"
+                        >
+                            Despesa
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card__content">
             <div class="categoryHeader">
-                <div >Categoria</div>
-                <div >Quantidade</div>
-                <div >% Total</div>
+                <div>Categoria</div>
+                <div>Quantidade</div>
+                <div>% Total</div>
             </div>
             <div class="categoryBody">
                 <div id="categories"></div>
@@ -101,6 +137,7 @@
                 <div id="%total"></div>
             </div>
         </div>
+        
 
         <div class="card__content">
             <canvas id="chartCanvas" width="400" height="200"></canvas>
