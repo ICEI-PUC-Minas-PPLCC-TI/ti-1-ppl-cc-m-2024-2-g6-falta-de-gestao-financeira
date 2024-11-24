@@ -70,21 +70,28 @@
     </header>
     <div class="card">
         <div class="card__content">
-            <div class="report_header" id="yearSelection">
-
-            </div>
             <div class="report_header">
-                Relatório de receitas e despesas
-            </div>
-            <div class="report_header">
-                Dashboard
+                <div class="left" >
+                    <select id="yearDropdown" class="form-select">
+                        <option value="" disabled selected>Selecionar ano</option>
+                    </select>
+                    <button id="updateButton" class="btn btn-primary">Atualizar</button>
+                </div>
+            
+                <div class="center">
+                    Relatório de receitas e despesas
+                </div>
+            
+                <div class="right">
+                    Dashboard
+                </div>
             </div>
         </div>
 
         <div class="card__content">
             <div id="rowReceita">Receita</div>
             <div id="rowGastos">Gastos</div>
-            <div id="rowGastoPercentual">% da receita gasta</div>
+            <div id="rowGastoPercentual">% do total gasto</div>
             <div id="rowbalanco">Balanço</div>
             <div id="rowMargemDeLucro">% Margem de lucro</div>
         </div>
@@ -142,10 +149,18 @@
         <div class="card__content">
             <canvas id="chartCanvas" width="400" height="200"></canvas>
         </div>
+
+        <div class="download-section">
+            <button id="downloadPdfButton" class="download-button">
+                <span>Download PDF</span>
+                <i class="download-icon"></i>
+            </button>
+        </div>
         
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="./assets/js/pages/relatorios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 </body>
 </html>

@@ -1,166 +1,187 @@
 /* Geral */
 body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-family: ui-sans-serif, system-ui, Arial, Helvetica, sans-serif;
-  }
-  
-  /* Navbar container (igual à index.html) */
-  .navbar__container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-inline: 1rem;
+    background-color: #2b2b2b; /* Fundo escuro */
+    color: #FAFAFA; /* Texto claro */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Card */
+.card {
+    background-color: #1f1f1f;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    border-radius: 1rem;
     max-width: 1280px;
-    margin-inline: auto;
-    align-items: center;
-  }
-  
-  /* Estilo para .report_header */
-  .card__content .report_header {
+    color: #FAFAFA;
+}
+
+.card__content {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #292929;
+    border-radius: 0.5rem;
+}
+
+/* Header de relatório */
+.report_header {
+    display: flex; /* Ativa o Flexbox */
+    justify-content: space-between; /* Espaça os itens igualmente */
+    align-items: center; /* Alinha verticalmente no centro */
+    padding: 1rem;
+    background-color: #1f1f1f;
+    border-radius: 0.5rem;
+    color: #FAFAFA;
+}
+
+/* Primeira seção: Dropdown e botão */
+.report_header .left {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: var(--card);
-    border-radius: 0.5rem;
-    gap: 1rem;
-  }
-  
-  .report_header div{
-    flex: 1;
-    text-align: center;
-    gap: 0.5rem;
-  }
-  
-  .report_header #yearDropdown,
-  .report_header #updateButton {
-    font-size: var(--text-md);
+    gap: 0.5rem; /* Espaço entre o dropdown e o botão */
+}
+
+.report_header #yearDropdown {
     padding: 0.5rem;
-  }
-  
-  .report_header #updateButton {
-    background-color: var(--primary);
-    color: var(--foreground);
+    border-radius: 0.5rem;
+    background-color: #292929;
+    color: #FAFAFA;
     border: none;
-    cursor: pointer;
+}
+
+.report_header #updateButton {
+    background-color: #6D9588;
+    color: #FAFAFA;
+    padding: 0.5rem 1rem;
+    border: none;
     border-radius: 0.5rem;
-  }
-  
-  .report_header div {
-    font-size: var(--text-xl);
+    cursor: pointer;
+}
+
+/* Texto central */
+.report_header .center {
+    font-size: 32px;
     font-weight: bold;
     text-align: center;
-  }
-  
-  /* Estilo para .card__content (primeira imagem) */
-  .card__content {
+    flex-grow: 1; /* Permite que o texto central se ajuste */
+}
+
+/* Texto à direita */
+.report_header .right {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: right;
+    color: #FAFAFA;
+}
+
+/* Seção de métricas */
+#rowReceita, #rowGastos, #rowGastoPercentual, #rowbalanco, #rowMargemDeLucro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+.green{
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+/* Tabs de Receita e Despesa */
+.form__field__tab {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.form__field__tab__item {
+    margin: 0 1rem;
+}
+
+.form__field__tab__input {
+    display: none;
+}
+
+.form__field__tab__label {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: #292929;
+    color: #FAFAFA;
+}
+
+.form__field__tab__input:checked + .form__field__tab__label {
+    background-color: #6D9588;
+    color: #FAFAFA;
+}
+
+/* Categoria */
+.categoryHeader {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    background-color: var(--card);
-    padding: 1rem;
-    border-radius: 1rem;
-  }
-  
-  .card__content div {
-    padding: 0.5rem;
-    text-align: left;
-    font-size: var(--text-lg);
+    grid-template-columns: 2fr 1fr 1fr;
     font-weight: bold;
-    color: var(--foreground);
-  }
-  
-  #rowReceita,
-  #rowGastos {
-    color: var(--foreground-success);
-  }
-  
-  #rowGastoPercentual,
-  #rowbalanco {
-    color: var(--foreground-destructive);
-  }
-  
-  /* Adicionando bordas e espaçamento */
-  .card__content div {
-    border-bottom: 1px solid var(--foreground);
-    padding-bottom: 0.5rem;
-  }
-  
-  /* Último item sem borda */
-  .card__content div:last-child {
-    border-bottom: none;
-  }
-  
-  /* Estilo para .categorySummary */
-  .categorySummary {
-    display: grid;
-    gap: 1rem;
-    background-color: var(--card);
-    padding: 1rem;
-    border-radius: 1rem;
-  }
-  
-  /* Estilo do cabeçalho da categoria */
-  .categoryHeader {
-    display: flex; /* Define um contêiner flex */
-    justify-content: space-between; /* Distribui as divs com espaçamento igual */
-    align-items: center; /* Alinha as divs verticalmente */
-    gap: 1rem; /* Espaçamento entre as divs */
-  }
-  
-  .categoryHeader div {
-    flex: 1; /* Faz com que todas as divs ocupem espaços iguais */
-    text-align: center; /* Centraliza o texto dentro de cada div */
-    padding: 0.5rem; /* Adiciona espaçamento interno */
-  }
-  
-  
-/* Corpo da categoria */
-.categorySummary .categoryBody {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr; /* 3 colunas para Categoria, Quantidade e % Total */
-    gap: 0.5rem; /* Espaçamento entre os itens */
-  }
-  
-  .categorySummary .categoryBody div {
     text-align: center;
     padding: 0.5rem 0;
-    border-bottom: 1px solid var(--foreground);
-  }
-  
-  /* Remove borda para os últimos itens */
-  .categorySummary .categoryBody div:nth-last-child(-n+3) {
-    border-bottom: none;
-  }
-  
-  /* Destaque para os valores de % Total */
-  .categorySummary .categoryBody div:nth-child(3n) {
-    color: var(--primary);
-  }
-  
-  /* Botões Receita e Despesa */
-  .form__field__tab__label {
+    border-bottom: 1px solid #FAFAFA;
+}
+
+.categoryBody {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.categoryBody div {
     text-align: center;
-    border-radius: 0.25rem;
-    padding: 0.25rem;
-    font-size: var(--text-md);
-    cursor: pointer;
-  }
-  
-  .form__field__tab__input:checked~.form__field__tab__label {
-    background-color: var(--foreground);
-    color: var(--background);
-  }
-  
-  /* Geral para botões */
-  button,
-  input,
-  select {
-    background-color: var(--input);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+
+/* Gráfico */
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Seção do botão de download */
+.download-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.download-button {
+    background-color: red; /* Cor do fundo */
+    color: white; /* Cor do texto */
+    padding: 0.8rem 2rem;
     border: none;
     border-radius: 0.5rem;
-    color: var(--foreground);
-  }
-  
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espaço entre o ícone e o texto */
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: darkred; /* Cor do fundo ao passar o mouse */
+}
+
+/* Ícone de download */
+.download-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/724/724933.png'); /* Ícone de download */
+    background-size: cover;
+    display: inline-block;
+}

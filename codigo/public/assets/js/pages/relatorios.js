@@ -41,29 +41,16 @@ async function fetchUniqueYears() {
 
 // Função para adicionar o campo de seleção e o botão ao HTML
 function addYearSelector(years) {
-    const yearRow = document.getElementById("yearSelection");
-    yearRow.innerHTML = ""; // Limpa o conteúdo anterior
+    const yearRow = document.getElementById("yearDropdown");
 
     // Criar o dropdown (select)
     const selectHTML = `
-        <select id="yearDropdown" class="form-select">
-            <option value="" disabled selected>Selecionar ano</option>
             ${years.map(year => `<option value="${year}">${year}</option>`).join('')}
-        </select>
     `;
 
-    // Criar o botão "Atualizar"
-    const buttonHTML = `
-        <button id="updateButton" class="btn btn-primary">Atualizar</button>
-    `;
 
     // Adicionar o select e o botão ao HTML
-    yearRow.insertAdjacentHTML("beforeend", `
-        <div class="year-selector">
-            ${selectHTML}
-            ${buttonHTML}
-        </div>
-    `);
+    yearRow.insertAdjacentHTML("beforeend", `${selectHTML}`);
 
     // Adicionar o evento de clique ao botão
     const updateButton = document.getElementById("updateButton");
@@ -78,14 +65,14 @@ async function handleYearSelection() {
     if (selectedYear) {
         console.log(`Ano selecionado: ${selectedYear}`);
         
-        await calcularDados();
-        criarDashboardAnual();
+        await calcularDados(selectedYear);
+        criarDashboardAnual(selectedYear);
     } else {
         alert("Por favor, selecione um ano.");
     }
 }
 
-async function calcularDados() {
+async function calcularDados(selectedYear) {
     try {
         // Buscar as entradas do usuário logado
         const response = await fetch(`/entries?ownerId=${user.id}`);
@@ -94,36 +81,64 @@ async function calcularDados() {
         }
 
         const entries = await response.json();
-        console.log(entries);
+
+        const filteredEntries = entries.filter(entry => {
+            const timestamp = parseInt(entry.date, 10);
+            const entryYear = new Date(timestamp).getFullYear();
+            return entryYear === parseInt(selectedYear, 10);
+        });
 
         // Filtrar e somar as receitas (type = "income")
-        const totalReceitas = entries
+        const totalReceitas = filteredEntries
             .filter(entry => entry.type === "income")
             .reduce((acc, entry) => acc + parseFloat(entry.value), 0);
 
         const rowReceita = document.getElementById("rowReceita");
-        rowReceita.insertAdjacentHTML('beforeend', `R$ ${totalReceitas.toFixed(2)}`);
-        console.log('Receitas = ' + totalReceitas);
+        rowReceita.innerHTML = '';
+
+        rowReceita.insertAdjacentHTML('beforeend', 
+            `Receita<div class="right green"> R$ ${totalReceitas.toFixed(2)}</div>`);
 
         // Filtrar e somar as gastos (type = "expense")
-        const totalGastos = entries
+        const totalGastos = filteredEntries
             .filter(entry => entry.type === "expense")
             .reduce((acc, entry) => acc + parseFloat(entry.value), 0);
         
         const rowGastos= document.getElementById("rowGastos");
-        rowGastos.insertAdjacentHTML('beforeend', `R$ ${totalGastos.toFixed(2)}`);
+        rowGastos.innerHTML='';
+        rowGastos.insertAdjacentHTML('beforeend', 
+            `Gastos<div class="right red"> R$ ${totalGastos.toFixed(2)}</div>`);
 
-        const gastoPercentual = totalGastos/totalReceitas;
+        const gastoPercentual = totalReceitas > 0 ? (totalGastos / totalReceitas) : "∅";
         const rowGastoPercentual = document.getElementById("rowGastoPercentual");
-        rowGastoPercentual.insertAdjacentHTML('beforeend', `${(gastoPercentual*100).toFixed(2)} %`);
+        rowGastoPercentual.innerHTML ='';
+
+        rowGastoPercentual.insertAdjacentHTML('beforeend', 
+            `% do total gasto<div class="right"> ${(gastoPercentual*100).toFixed(2)} %</div>`);
 
         const balanço = totalReceitas - totalGastos;
         const rowbalanco = document.getElementById('rowbalanco');
-        rowbalanco.insertAdjacentHTML('beforeend', `R$ ${balanço.toFixed(2)}`);
+        rowbalanco.innerHTML='';
+        if (balanço >= 0){
+            rowbalanco.insertAdjacentHTML('beforeend', 
+                `Balanço<div class="right green"> R$ ${balanço.toFixed(2)}</div>`);
+        } else {
+            rowbalanco.insertAdjacentHTML('beforeend', 
+                `Balanço<div class="right red"> R$ ${balanço.toFixed(2)}</div>`);
+        }
+        
 
         const margemLucro = 1 - gastoPercentual;
         const rowMargemDeLucro = document.getElementById('rowMargemDeLucro');
-        rowMargemDeLucro.insertAdjacentHTML('beforeend', `${(margemLucro*100).toFixed(2)} %`)
+        rowMargemDeLucro.innerHTML='';
+
+        if (gastoPercentual >= 0){
+            rowMargemDeLucro.insertAdjacentHTML('beforeend', 
+                `% Margem de lucro<div class="right green"> ${(margemLucro*100).toFixed(2)} %<div>`)
+        } else {
+            rowMargemDeLucro.insertAdjacentHTML('beforeend', 
+                `% Margem de lucro<div class="right red"> ${(margemLucro*100).toFixed(2)} %<div>`)
+        }
 
 
     } catch (error) {
@@ -131,7 +146,7 @@ async function calcularDados() {
     }
 }
 
-async function criarDashboardAnual() {
+async function criarDashboardAnual(selectedYear) {
     try {
         // Buscar as entradas do usuário logado
         const response = await fetch(`/entries?ownerId=${user.id}`);
@@ -141,12 +156,18 @@ async function criarDashboardAnual() {
 
         const entries = await response.json();
 
+        const filteredEntries = entries.filter(entry => {
+            const timestamp = parseInt(entry.date, 10);
+            const entryYear = new Date(timestamp).getFullYear();
+            return entryYear === parseInt(selectedYear, 10);
+        });
+
         // Inicializar arrays para receitas e gastos por mês (12 meses)
         const receitasMensais = Array(12).fill(0);
         const gastosMensais = Array(12).fill(0);
 
         // Processar as entradas
-        entries.forEach(entry => {
+        filteredEntries.forEach(entry => {
             const timestamp = parseInt(entry.date, 10);
             const date = new Date(timestamp);
             const month = date.getMonth(); // Janeiro = 0, Dezembro = 11
@@ -228,7 +249,7 @@ function renderizarGrafico(receitasMensais, gastosMensais) {
     });
 }
 
-async function listarCategorias(type) {
+async function listarCategorias(type, selectedYear) {
     try {
         const entriesResponse = await fetch(`/entries?ownerId=${user.id}`);
         const categoriesResponse = await fetch(`/categories?ownerId=${user.id}`);
@@ -240,11 +261,19 @@ async function listarCategorias(type) {
         const entries = await entriesResponse.json();
         const categories = await categoriesResponse.json();
 
-        const filteredEntries = entries.filter(entry => entry.type === type);
+        // Filtrar entradas pelo tipo e ano selecionado
+        const filteredEntries = entries.filter(entry => {
+            const timestamp = parseInt(entry.date, 10);
+            const entryYear = new Date(timestamp).getFullYear();
+            return entry.type === type && entryYear === parseInt(selectedYear, 10);
+        });
+
+        // Calcular o total geral para o tipo e ano selecionado
         const totalGeral = filteredEntries.reduce((acc, entry) => acc + parseFloat(entry.value), 0);
 
         const categoriesData = [];
 
+        // Agrupar as entradas por categoria
         categories.forEach(category => {
             const categoryTotal = filteredEntries
                 .filter(entry => entry.categoryId === category.id)
@@ -259,11 +288,13 @@ async function listarCategorias(type) {
             }
         });
 
+        // Atualizar o resumo da categoria na interface
         atualizarCategorySummary(categoriesData);
     } catch (error) {
         console.error('Erro ao listar categorias:', error);
     }
 }
+
 
 
 function atualizarCategorySummary(categoriesData) {
@@ -299,3 +330,21 @@ document.getElementById('create-entry-form--expense').addEventListener('click', 
 
 // Chamar a função principal
 fetchUniqueYears();
+
+
+document.getElementById('downloadPdfButton').addEventListener('click', () => {
+    // Selecionar o elemento principal da página que será transformado em PDF
+    const element = document.body;
+
+    // Configurações para o PDF
+    const opt = {
+        margin: 0.5,
+        filename: 'relatorio.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    // Gerar e baixar o PDF
+    html2pdf().set(opt).from(element).save();
+});
