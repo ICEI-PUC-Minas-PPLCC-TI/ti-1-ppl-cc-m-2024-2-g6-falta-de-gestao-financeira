@@ -228,6 +228,78 @@ function renderizarGrafico(receitasMensais, gastosMensais) {
     });
 }
 
+async function listarCategorias(type, year) {
+    try {
+        // Buscar as entradas e categorias do usuário logado
+        const entriesResponse = await fetch(`/entries?ownerId=${user.id}`);
+        const categoriesResponse = await fetch(`/categories?ownerId=${user.id}`);
+
+        if (!entriesResponse.ok || !categoriesResponse.ok) {
+            throw new Error('Erro ao buscar dados do servidor');
+        }
+
+        const entries = await entriesResponse.json();
+        const categories = await categoriesResponse.json();
+
+        // Filtrar entradas pelo tipo (income ou expense) e ano selecionado
+        const filteredEntries = entries.filter(entry => {
+            const entryYear = new Date(parseInt(entry.date, 10)).getFullYear();
+            return entry.type === type && entryYear === parseInt(year, 10);
+        });
+
+        // Mapear os dados das categorias
+        const categoryData = {};
+
+        filteredEntries.forEach(entry => {
+            if (!categoryData[entry.categoryId]) {
+                const category = categories.find(cat => cat.id === entry.categoryId);
+                if (category) {
+                    categoryData[entry.categoryId] = {
+                        name: category.label,
+                        total: 0
+                    };
+                }
+            }
+            if (categoryData[entry.categoryId]) {
+                categoryData[entry.categoryId].total += parseFloat(entry.value);
+            }
+        });
+
+        // Calcular o total geral
+        const totalGeral = Object.values(categoryData).reduce((acc, curr) => acc + curr.total, 0);
+
+        // Atualizar o HTML com os dados das categorias
+        const categoriesDiv = document.getElementById('categories');
+        const amountDiv = document.getElementById('amount');
+        const percentDiv = document.getElementById('%total');
+
+        categoriesDiv.innerHTML = '';
+        amountDiv.innerHTML = '';
+        percentDiv.innerHTML = '';
+
+        Object.values(categoryData).forEach(category => {
+            const percent = ((category.total / totalGeral) * 100).toFixed(1);
+            categoriesDiv.insertAdjacentHTML('beforeend', `<div>${category.name}</div>`);
+            amountDiv.insertAdjacentHTML('beforeend', `<div>R$ ${category.total.toFixed(2)}</div>`);
+            percentDiv.insertAdjacentHTML('beforeend', `<div>${percent}%</div>`);
+        });
+    } catch (error) {
+        console.error('Erro ao listar categorias:', error);
+    }
+}
+
+// Adicionar eventos aos botões Receita e Despesa
+document.getElementById('create-entry-form--income').addEventListener('click', () => {
+    const yearDropdown = document.getElementById('yearDropdown');
+    const selectedYear = yearDropdown.value || new Date().getFullYear();
+    listarCategorias('income', selectedYear);
+});
+
+document.getElementById('create-entry-form--expense').addEventListener('click', () => {
+    const yearDropdown = document.getElementById('yearDropdown');
+    const selectedYear = yearDropdown.value || new Date().getFullYear();
+    listarCategorias('expense', selectedYear);
+});
 
 
 // Chamar a função principal
