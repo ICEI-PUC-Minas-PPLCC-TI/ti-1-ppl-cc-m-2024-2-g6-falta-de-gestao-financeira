@@ -228,65 +228,60 @@ function renderizarGrafico(receitasMensais, gastosMensais) {
     });
 }
 
-async function listarCategorias(type, year) {
+async function listarCategorias(type) {
     try {
-        // Buscar as entradas e categorias do usuário logado
         const entriesResponse = await fetch(`/entries?ownerId=${user.id}`);
         const categoriesResponse = await fetch(`/categories?ownerId=${user.id}`);
 
         if (!entriesResponse.ok || !categoriesResponse.ok) {
-            throw new Error('Erro ao buscar dados do servidor');
+            throw new Error('Erro ao buscar dados');
         }
 
         const entries = await entriesResponse.json();
         const categories = await categoriesResponse.json();
 
-        // Filtrar entradas pelo tipo (income ou expense) e ano selecionado
-        const filteredEntries = entries.filter(entry => {
-            const entryYear = new Date(parseInt(entry.date, 10)).getFullYear();
-            return entry.type === type && entryYear === parseInt(year, 10);
-        });
+        const filteredEntries = entries.filter(entry => entry.type === type);
+        const totalGeral = filteredEntries.reduce((acc, entry) => acc + parseFloat(entry.value), 0);
 
-        // Mapear os dados das categorias
-        const categoryData = {};
+        const categoriesData = [];
 
-        filteredEntries.forEach(entry => {
-            if (!categoryData[entry.categoryId]) {
-                const category = categories.find(cat => cat.id === entry.categoryId);
-                if (category) {
-                    categoryData[entry.categoryId] = {
-                        name: category.label,
-                        total: 0
-                    };
-                }
-            }
-            if (categoryData[entry.categoryId]) {
-                categoryData[entry.categoryId].total += parseFloat(entry.value);
+        categories.forEach(category => {
+            const categoryTotal = filteredEntries
+                .filter(entry => entry.categoryId === category.id)
+                .reduce((acc, entry) => acc + parseFloat(entry.value), 0);
+
+            if (categoryTotal > 0) {
+                categoriesData.push({
+                    name: category.label,
+                    total: categoryTotal,
+                    percent: (categoryTotal / totalGeral) * 100
+                });
             }
         });
 
-        // Calcular o total geral
-        const totalGeral = Object.values(categoryData).reduce((acc, curr) => acc + curr.total, 0);
-
-        // Atualizar o HTML com os dados das categorias
-        const categoriesDiv = document.getElementById('categories');
-        const amountDiv = document.getElementById('amount');
-        const percentDiv = document.getElementById('%total');
-
-        categoriesDiv.innerHTML = '';
-        amountDiv.innerHTML = '';
-        percentDiv.innerHTML = '';
-
-        Object.values(categoryData).forEach(category => {
-            const percent = ((category.total / totalGeral) * 100).toFixed(1);
-            categoriesDiv.insertAdjacentHTML('beforeend', `<div>${category.name}</div>`);
-            amountDiv.insertAdjacentHTML('beforeend', `<div>R$ ${category.total.toFixed(2)}</div>`);
-            percentDiv.insertAdjacentHTML('beforeend', `<div>${percent}%</div>`);
-        });
+        atualizarCategorySummary(categoriesData);
     } catch (error) {
         console.error('Erro ao listar categorias:', error);
     }
 }
+
+
+function atualizarCategorySummary(categoriesData) {
+    const categoryBody = document.querySelector('.categoryBody');
+
+    // Limpar conteúdo anterior
+    categoryBody.innerHTML = '';
+
+    // Adicionar cada categoria na estrutura correta
+    categoriesData.forEach(({ name, total, percent }) => {
+        categoryBody.insertAdjacentHTML('beforeend', `
+            <div>${name}</div>
+            <div>R$ ${total.toFixed(2)}</div>
+            <div>${percent.toFixed(1)}%</div>
+        `);
+    });
+}
+
 
 // Adicionar eventos aos botões Receita e Despesa
 document.getElementById('create-entry-form--income').addEventListener('click', () => {

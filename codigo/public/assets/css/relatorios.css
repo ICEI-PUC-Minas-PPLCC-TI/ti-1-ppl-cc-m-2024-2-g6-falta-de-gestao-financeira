@@ -1,15 +1,156 @@
-main {
-    margin-top: 4rem;
-    max-width: 1280px;
-    padding-inline: 1rem;
-    margin-inline: auto;
-    display: grid;
-    gap: 2rem;
-}
-
-.year-button{
-  background-color: var(--foreground);
-  color: var(--background);
-  padding: .5rem 1rem;
+/* Geral */
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: ui-sans-serif, system-ui, Arial, Helvetica, sans-serif;
+  }
   
-}
+  /* Navbar container (igual à index.html) */
+  .navbar__container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 1rem;
+    max-width: 1280px;
+    margin-inline: auto;
+    align-items: center;
+  }
+  
+  /* Estilo para .report_header */
+  .report_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--card);
+    border-radius: 0.5rem;
+    gap: 1rem;
+  }
+  
+  .report_header #yearDropdown,
+  .report_header #updateButton {
+    font-size: var(--text-md);
+    padding: 0.5rem;
+  }
+  
+  .report_header #updateButton {
+    background-color: var(--primary);
+    color: var(--foreground);
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+  }
+  
+  .report_header div {
+    font-size: var(--text-xl);
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Estilo para .card__content (primeira imagem) */
+  .card__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    background-color: var(--card);
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  .card__content div {
+    padding: 0.5rem;
+    text-align: left;
+    font-size: var(--text-lg);
+    font-weight: bold;
+    color: var(--foreground);
+  }
+  
+  #rowReceita,
+  #rowGastos {
+    color: var(--foreground-success);
+  }
+  
+  #rowGastoPercentual,
+  #rowbalanco {
+    color: var(--foreground-destructive);
+  }
+  
+  /* Adicionando bordas e espaçamento */
+  .card__content div {
+    border-bottom: 1px solid var(--foreground);
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Último item sem borda */
+  .card__content div:last-child {
+    border-bottom: none;
+  }
+  
+  /* Estilo para .categorySummary */
+  .categorySummary {
+    display: grid;
+    gap: 1rem;
+    background-color: var(--card);
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  /* Estilo do cabeçalho da categoria */
+  .categorySummary .categoryHeader {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    font-weight: bold;
+    font-size: var(--text-md);
+    text-align: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--foreground);
+  }
+  
+/* Corpo da categoria */
+.categorySummary .categoryBody {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* 3 colunas para Categoria, Quantidade e % Total */
+    gap: 0.5rem; /* Espaçamento entre os itens */
+  }
+  
+  .categorySummary .categoryBody div {
+    text-align: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--foreground);
+  }
+  
+  /* Remove borda para os últimos itens */
+  .categorySummary .categoryBody div:nth-last-child(-n+3) {
+    border-bottom: none;
+  }
+  
+  /* Destaque para os valores de % Total */
+  .categorySummary .categoryBody div:nth-child(3n) {
+    color: var(--primary);
+  }
+  
+  /* Botões Receita e Despesa */
+  .form__field__tab__label {
+    text-align: center;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    font-size: var(--text-md);
+    cursor: pointer;
+  }
+  
+  .form__field__tab__input:checked~.form__field__tab__label {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+  
+  /* Geral para botões */
+  button,
+  input,
+  select {
+    background-color: var(--input);
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--foreground);
+  }
+  

@@ -581,54 +581,6 @@
       "value": 500
     },
     {
-      "label": "teste",
-      "type": "income",
-      "value": "126",
-      "date": "2024-10-29",
-      "category": "none",
-      "id": 285
-    },
-    {
-      "label": "teste",
-      "type": "income",
-      "value": "126",
-      "date": "2024-10-29",
-      "category": "none",
-      "id": 286
-    },
-    {
-      "label": "teste",
-      "type": "income",
-      "value": "126",
-      "date": "2024-10-29",
-      "category": "none",
-      "id": 287
-    },
-    {
-      "label": "teste",
-      "type": "income",
-      "value": "2",
-      "date": "2024-10-31",
-      "category": "20",
-      "id": 288
-    },
-    {
-      "label": "teste",
-      "type": "income",
-      "value": "2",
-      "date": "2024-10-31",
-      "category": "20",
-      "id": 289
-    },
-    {
-      "label": "ra",
-      "type": "expense",
-      "value": "12",
-      "date": "2024-10-21",
-      "category": "21",
-      "id": 290
-    },
-    {
       "label": "just",
       "type": "income",
       "value": "123",
@@ -673,6 +625,7 @@
       "createdAt": 1732387503734,
       "updatedAt": 1732387503734,
       "id": 295
+<<<<<<< Updated upstream
     },
     {
       "ownerId": 5,
@@ -706,6 +659,8 @@
       "createdAt": 1732393925665,
       "updatedAt": 1732393925665,
       "id": 298
+=======
+>>>>>>> Stashed changes
     }
   ],
   "goals": [
