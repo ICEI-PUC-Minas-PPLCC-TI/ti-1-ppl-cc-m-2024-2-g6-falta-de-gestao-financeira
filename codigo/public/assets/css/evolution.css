@@ -123,15 +123,6 @@ main .botoes {
   color: white;
 }
 
-main .botoes button {
-  color: #f8f8f8;
-}
-
-main .botoes .selecionado {
-  background-color: #f8f8f8;
-  color: #000;
-}
-
 .economia-total {
   width: 100%;
   font-size: 1.5rem;

@@ -4,3 +4,4 @@ Icon?
 .vscode
 node_modules
 .env
+env.js
