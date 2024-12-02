@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Relatórios</title>
@@ -10,16 +10,153 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./assets/css/globals.css" />
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/globals.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/card.css" />
-    <link rel="stylesheet" href="./assets/css/relatorios.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/relatorios.css" />
+  </head>
+  <body>
     <header class="navbar">
-        <nav class="navbar__container">
-          <a class="navbar__logo" href="./index.html">
+      <nav class="navbar__container">
+        <a class="navbar__logo" href="/">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m13.11 7.664 1.78 2.672" />
+            <path d="m14.162 12.788-3.324 1.424" />
+            <path d="m20 4-6.06 1.515" />
+            <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+            <circle cx="12" cy="6" r="2" />
+            <circle cx="16" cy="12" r="2" />
+            <circle cx="9" cy="15" r="2" />
+          </svg>
+
+          <span>FinUp</span>
+        </a>
+
+        <div class="navbar__content">
+          <input id="navbar-menu-toggle" type="checkbox" />
+
+          <ul class="navbar__list">
+            <li class="navbar__list__item navbar__list__item--active">
+              <a class="navbar__link navbar__link--active" href="/">
+                Registros</a
+              >
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./goals.html">Metas</a>
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./evolution.html">Evolução</a>
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./relatorios.html">Relatórios</a>
+            </li>
+            <li>
+              <a class="navbar__link" href="./stocks.html">Bolsa de valores</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar__buttons">
+          <button id="logout-button">Sair</button>
+          <div class="navbar__menu"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="card">
+        <div class="card__content">
+          <div class="report_header">
+            <div class="left">
+              <select id="yearDropdown" class="form-select">
+                <option value="" disabled selected>Selecionar ano</option>
+              </select>
+              <button id="updateButton" class="btn btn-primary">
+                Atualizar
+              </button>
+            </div>
+
+            <div class="center">Relatório de receitas e despesas</div>
+
+            <div class="right">Dashboard</div>
+          </div>
+        </div>
+
+        <div class="card__content">
+          <div id="rowReceita">Receita</div>
+          <div id="rowGastos">Gastos</div>
+          <div id="rowGastoPercentual">% do total gasto</div>
+          <div id="rowbalanco">Balanço</div>
+          <div id="rowMargemDeLucro">% Margem de lucro</div>
+        </div>
+
+        <div class="card__content">
+          <div class="form__field">
+            <ul class="form__field__tab">
+              <li class="form__field__tab__item">
+                <input
+                  class="form__field__tab__input"
+                  type="radio"
+                  name="type"
+                  id="create-entry-form--income"
+                  checked
+                />
+                <label
+                  class="form__field__tab__label"
+                  for="create-entry-form--income"
+                >
+                  Receita
+                </label>
+              </li>
+              <li class="form__field__tab__item">
+                <input
+                  class="form__field__tab__input"
+                  type="radio"
+                  name="type"
+                  id="create-entry-form--expense"
+                />
+                <label
+                  class="form__field__tab__label"
+                  for="create-entry-form--expense"
+                >
+                  Despesa
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card__content">
+          <div class="categoryHeader">
+            <div>Categoria</div>
+            <div>Quantidade</div>
+            <div>% Total</div>
+          </div>
+          <div class="categoryBody">
+            <div id="categories"></div>
+            <div id="amount"></div>
+            <div id="%total"></div>
+          </div>
+        </div>
+
+        <div class="card__content">
+          <canvas id="chartCanvas" width="400" height="200"></canvas>
+        </div>
+
+        <div class="download-section">
+          <button id="downloadPdfButton" class="download-button">
+            <span>Download PDF</span>
+
             <svg
+              xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -28,139 +165,19 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
+              class="lucide lucide-download"
             >
-              <path d="m13.11 7.664 1.78 2.672" />
-              <path d="m14.162 12.788-3.324 1.424" />
-              <path d="m20 4-6.06 1.515" />
-              <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-              <circle cx="12" cy="6" r="2" />
-              <circle cx="16" cy="12" r="2" />
-              <circle cx="9" cy="15" r="2" />
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" x2="12" y1="15" y2="3" />
             </svg>
-  
-            <span>FinUp</span>
-          </a>
-  
-          <div class="navbar__content">
-            <input id="navbar-menu-toggle" type="checkbox" />
-  
-            <ul class="navbar__list">
-              <li class="navbar__list__item navbar__list__item--active">
-                <a class="navbar__link navbar__link--active" href="/"
-                  >Registros</a
-                >
-              </li>
-              <li class="navbar__list__item">
-                <a class="navbar__link" href="./goals.html">Metas</a>
-              </li>
-              <li class="navbar__list__item">
-                <a class="navbar__link" href="./evolution.html">Evolução</a>
-              </li>
-              <li class="navbar__list__item">
-                <a class="navbar__link" href="./relatorios.html">Relatórios</a>
-            </li>
-          </ul>
+          </button>
         </div>
-
-        <div class="navbar__buttons">
-          <button id="logout-button">Sair</button>
-          <div class="navbar__menu"></div>
-        </div>
-      </nav>
-    </header>
-    <div class="card">
-        <div class="card__content">
-            <div class="report_header">
-                <div class="left" >
-                    <select id="yearDropdown" class="form-select">
-                        <option value="" disabled selected>Selecionar ano</option>
-                    </select>
-                    <button id="updateButton" class="btn btn-primary">Atualizar</button>
-                </div>
-            
-                <div class="center">
-                    Relatório de receitas e despesas
-                </div>
-            
-                <div class="right">
-                    Dashboard
-                </div>
-            </div>
-        </div>
-
-        <div class="card__content">
-            <div id="rowReceita">Receita</div>
-            <div id="rowGastos">Gastos</div>
-            <div id="rowGastoPercentual">% do total gasto</div>
-            <div id="rowbalanco">Balanço</div>
-            <div id="rowMargemDeLucro">% Margem de lucro</div>
-        </div>
-
-        <div class="card__content">
-            <div class="form__field">
-                <ul class="form__field__tab">
-                    <li class="form__field__tab__item">
-                        <input
-                            class="form__field__tab__input"
-                            type="radio"
-                            name="type"
-                            id="create-entry-form--income"
-                            checked
-                        />
-                        <label
-                            class="form__field__tab__label"
-                            for="create-entry-form--income"
-                        >
-                            Receita
-                        </label>
-                    </li>
-                    <li class="form__field__tab__item">
-                        <input
-                            class="form__field__tab__input"
-                            type="radio"
-                            name="type"
-                            id="create-entry-form--expense"
-                        />
-                        <label
-                            class="form__field__tab__label"
-                            for="create-entry-form--expense"
-                        >
-                            Despesa
-                        </label>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="card__content">
-            <div class="categoryHeader">
-                <div>Categoria</div>
-                <div>Quantidade</div>
-                <div>% Total</div>
-            </div>
-            <div class="categoryBody">
-                <div id="categories"></div>
-                <div id="amount"></div>
-                <div id="%total"></div>
-            </div>
-        </div>
-        
-
-        <div class="card__content">
-            <canvas id="chartCanvas" width="400" height="200"></canvas>
-        </div>
-
-        <div class="download-section">
-            <button id="downloadPdfButton" class="download-button">
-                <span>Download PDF</span>
-                <i class="download-icon"></i>
-            </button>
-        </div>
-        
-    </div>
+      </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="./assets/js/pages/relatorios.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-</body>
+  </body>
 </html>

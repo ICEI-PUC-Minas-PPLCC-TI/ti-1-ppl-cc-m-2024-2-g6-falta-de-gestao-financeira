@@ -1,13 +1,11 @@
-main .card
-{
-    color: white;
-    background-color: #1f1f1f;
-    border-radius: 10px;
-    border: white 1px solid;
+main .card {
+  color: white;
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  border: white 1px solid;
 }
 
-main .botoes .selecionado
-{
-    background-color: #f8f8f8;
-    color: #000;
+main .botoes .selecionado {
+  background-color: #f8f8f8;
+  color: #000;
 }

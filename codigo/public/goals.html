@@ -1,106 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinUp | Início</title>
+    <link rel="stylesheet" href="assets/css/globals.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/Nmetas.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FinUp | Início</title>
-  <link rel="stylesheet" href="assets/css/globals.css" />
-  <link rel="stylesheet" href="assets/css/navbar.css" />
-  <link rel="stylesheet" href="./assets/css/Nmetas.css">
-  <script type="module" src="assets/js/pages/Nmetas.js"></script>
-  <script type="module" src="./assets/js/CMetas.js"></script>
-</head>
+  <body>
+    <header class="navbar">
+      <nav class="navbar__container">
+        <a class="navbar__logo" href="/">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m13.11 7.664 1.78 2.672" />
+            <path d="m14.162 12.788-3.324 1.424" />
+            <path d="m20 4-6.06 1.515" />
+            <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+            <circle cx="12" cy="6" r="2" />
+            <circle cx="16" cy="12" r="2" />
+            <circle cx="9" cy="15" r="2" />
+          </svg>
 
-<body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <nav class="navbar__container">
-      <a class="navbar__logo" href="/">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="m13.11 7.664 1.78 2.672" />
-          <path d="m14.162 12.788-3.324 1.424" />
-          <path d="m20 4-6.06 1.515" />
-          <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-          <circle cx="12" cy="6" r="2" />
-          <circle cx="16" cy="12" r="2" />
-          <circle cx="9" cy="15" r="2" />
-        </svg>
+          <span>FinUp</span>
+        </a>
 
-        <span>FinUp</span>
-      </a>
+        <div class="navbar__content">
+          <input id="navbar-menu-toggle" type="checkbox" />
 
-      <div class="navbar__content">
-        <input id="navbar-menu-toggle" type="checkbox" />
-
-        <ul class="navbar__list">
-          <li class="navbar__list__item navbar__list__item--active">
-            <a class="navbar__link navbar__link--active" href="/">Registros</a>
-          </li>
-          <li class="navbar__list__item">
-            <a class="navbar__link" href="./goals.html">Metas</a>
-          </li>
-          <li class="navbar__list__item">
-            <a class="navbar__link" href="./evolution.html">Evolução</a>
-          </li>
-          <li class="navbar__list__item">
-            <a class="navbar__link" href="./relatorios.html">Relatórios</a>
-          </li>
-          <li class="navbar__list__item">
-            <a class="navbar__link" href="./stocks.html">Bolsa de valores</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="navbar__buttons">
-        <button id="logout-button">Sair</button>
-        <div class="navbar__menu"></div>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <div class="container">
-      <h1>Visualizar Metas</h1>
-      <div id="goal-list">
-        <!-- As metas serão adicionadas aqui dinamicamente -->
-      </div>
-      <button id="add-goal">Adicionar Nova Meta</button>
-    </div>
-
-    <!-- Modal para adicionar metas -->
-    <div class="modal hidden" id="goal-modal">
-      <h2>Criar Meta</h2>
-      <form id="goal-form">
-        <label for="goal-name">Nome</label>
-        <input type="text" id="goal-name" placeholder="Ex: Transporte" required>
-
-        <label for="goal-value">Valor</label>
-        <input type="text" id="goal-value" placeholder="R$ 0,00" required>
-
-        <label for="goal-period">Tempo</label>
-        <select id="goal-period">
-          <option value="diária">Diária</option>
-          <option value="mensal">Mensal</option>
-          <option value="anual">Anual</option>
-        </select>
-
-        <label for="goal-icon">Ícone</label>
-        <div id="icon-picker">
-          <!-- Ícones simulados -->
-          <button type="button" data-icon="✈️">✈️</button>
-          <button type="button" data-icon="🍔">🍔</button>
-          <button type="button" data-icon="🎓">🎓</button>
+          <ul class="navbar__list">
+            <li class="navbar__list__item navbar__list__item--active">
+              <a class="navbar__link navbar__link--active" href="/">
+                Registros</a
+              >
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./goals.html">Metas</a>
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./evolution.html">Evolução</a>
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./relatorios.html">Relatórios</a>
+            </li>
+            <li>
+              <a class="navbar__link" href="./stocks.html">Bolsa de valores</a>
+            </li>
+          </ul>
         </div>
-
-        <div class="buttons">
-          <button type="button" id="cancel-goal">Cancelar</button>
-          <button type="submit">Confirmar</button>
+        <div class="navbar__buttons">
+          <button id="logout-button">Sair</button>
+          <div class="navbar__menu"></div>
         </div>
-      </form>
-    </div>
-  </main>
-</body>
+      </nav>
+    </header>
 
+    <main>
+      <div class="container">
+        <h1>Visualizar Metas</h1>
+        <div id="goal-list">
+          <!-- As metas serão adicionadas aqui dinamicamente -->
+        </div>
+        <button id="add-goal">Adicionar Nova Meta</button>
+      </div>
+
+      <!-- Modal para adicionar metas -->
+      <div class="modal hidden" id="goal-modal">
+        <h2>Criar Meta</h2>
+        <form id="goal-form">
+          <label for="goal-name">Nome</label>
+          <input
+            type="text"
+            id="goal-name"
+            placeholder="Ex: Transporte"
+            required
+          />
+
+          <label for="goal-value">Valor</label>
+          <input type="text" id="goal-value" placeholder="R$ 0,00" required />
+
+          <label for="goal-period">Tempo</label>
+          <select id="goal-period">
+            <option value="diária">Diária</option>
+            <option value="mensal">Mensal</option>
+            <option value="anual">Anual</option>
+          </select>
+
+          <label for="goal-icon">Ícone</label>
+          <div id="icon-picker">
+            <!-- Ícones simulados -->
+            <button type="button" data-icon="✈️">✈️</button>
+            <button type="button" data-icon="🍔">🍔</button>
+            <button type="button" data-icon="🎓">🎓</button>
+          </div>
+
+          <div class="buttons">
+            <button type="button" id="cancel-goal">Cancelar</button>
+            <button type="submit">Confirmar</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script type="module" src="assets/js/pages/Nmetas.js"></script>
+  </body>
 </html>

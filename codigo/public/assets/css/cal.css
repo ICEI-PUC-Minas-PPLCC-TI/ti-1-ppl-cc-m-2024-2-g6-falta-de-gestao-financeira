@@ -1,104 +1,103 @@
 body {
-    background-color: #121212;
-    color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .modal {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 400px;
-  }
-  
-  h2 {
-    text-align: center;
-    color: #fff;
-  }
-  
-  label {
-    color: #ddd;
-    display: block;
-    margin-top: 10px;
-  }
-  
-  input[type="number"] {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    background-color: #333;
-    border: none;
-    color: #fff;
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: #555;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 15px;
-  }
-  
-  button:hover {
-    background-color: #444;
-  }
-  
-  .result {
-    margin-top: 20px;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  #saved-investments {
-    margin-top: 30px;
-    background-color: #444;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    color: #ccc;
-  }
-  
-  .saved-investments h3 {
-    text-align: center;
-  }
-  
-  #investment-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  #investment-list li {
-    background-color: #333;
-    color: #fff;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  #clear-storage {
-    display: block;
-    margin: 10px auto;
-    background-color: #555;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  #clear-storage:hover {
-    background-color: #444;
-  }
-  
+  background-color: #121212;
+  color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.modal {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 400px;
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+}
+
+label {
+  color: #ddd;
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  background-color: #333;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #555;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+.result {
+  margin-top: 20px;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#saved-investments {
+  margin-top: 30px;
+  background-color: #444;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #ccc;
+}
+
+.saved-investments h3 {
+  text-align: center;
+}
+
+#investment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#investment-list li {
+  background-color: #333;
+  color: #fff;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#clear-storage {
+  display: block;
+  margin: 10px auto;
+  background-color: #555;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#clear-storage:hover {
+  background-color: #444;
+}
