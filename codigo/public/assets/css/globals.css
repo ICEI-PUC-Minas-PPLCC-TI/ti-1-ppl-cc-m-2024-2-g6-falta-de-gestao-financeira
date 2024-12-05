@@ -32,7 +32,6 @@ html {
 }
 
 body {
-  min-height: 100svh;
   margin: 0;
   line-height: inherit;
   background-color: var(--background);

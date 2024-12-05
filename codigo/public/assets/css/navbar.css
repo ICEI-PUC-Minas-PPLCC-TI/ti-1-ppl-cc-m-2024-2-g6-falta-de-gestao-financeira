@@ -1,9 +1,13 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding-block: .25rem;
   border-bottom: currentColor solid 1px;
   display: flex;
   align-items: center;
   font-size: var(--text-2xl);
+  background-color: var(--background);
 }
 
 .navbar__container {
