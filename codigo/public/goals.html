@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FinUp | Início</title>
+    <title>FinUp | Metas</title>
     <link rel="stylesheet" href="assets/css/globals.css" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
-    <link rel="stylesheet" href="assets/css/Nmetas.css" />
+    <link rel="stylesheet" href="assets/css/popup.css" />
+    <link rel="stylesheet" href="assets/css/form.css" />
+    <link rel="stylesheet" href="assets/css/card.css" />
+    <link rel="stylesheet" href="assets/css/goals.css" />
   </head>
 
   <body>
@@ -54,7 +57,12 @@
               <a class="navbar__link" href="./relatorios.html">Relatórios</a>
             </li>
             <li>
-              <a class="navbar__link" href="./stocks.html">Bolsa de valores</a>
+              <a class="navbar__link" href="./stocks.html">Ações</a>
+            </li>
+            <li>
+              <a class="navbar__link" href="./investments.html">
+                Investimentos
+              </a>
             </li>
           </ul>
         </div>
@@ -66,52 +74,532 @@
     </header>
 
     <main>
-      <div class="container">
-        <h1>Visualizar Metas</h1>
-        <div id="goal-list">
-          <!-- As metas serão adicionadas aqui dinamicamente -->
+      <div class="card">
+        <div class="card__header">
+          <h1>Metas</h1>
+
+          <button data-popup-id="create-goal-popup" class="open-popup">
+            Adicionar Meta
+          </button>
         </div>
-        <button id="add-goal">Adicionar Nova Meta</button>
-      </div>
 
-      <!-- Modal para adicionar metas -->
-      <div class="modal hidden" id="goal-modal">
-        <h2>Criar Meta</h2>
-        <form id="goal-form">
-          <label for="goal-name">Nome</label>
-          <input
-            type="text"
-            id="goal-name"
-            placeholder="Ex: Transporte"
-            required
-          />
-
-          <label for="goal-value">Valor</label>
-          <input type="text" id="goal-value" placeholder="R$ 0,00" required />
-
-          <label for="goal-period">Tempo</label>
-          <select id="goal-period">
-            <option value="diária">Diária</option>
-            <option value="mensal">Mensal</option>
-            <option value="anual">Anual</option>
-          </select>
-
-          <label for="goal-icon">Ícone</label>
-          <div id="icon-picker">
-            <!-- Ícones simulados -->
-            <button type="button" data-icon="✈️">✈️</button>
-            <button type="button" data-icon="🍔">🍔</button>
-            <button type="button" data-icon="🎓">🎓</button>
-          </div>
-
-          <div class="buttons">
-            <button type="button" id="cancel-goal">Cancelar</button>
-            <button type="submit">Confirmar</button>
-          </div>
-        </form>
+        <div class="card__content">
+          <ul class="goals-list"></ul>
+        </div>
       </div>
     </main>
 
-    <script type="module" src="assets/js/pages/Nmetas.js"></script>
+    <!-- Popups -->
+    <dialog class="popup" id="create-goal-popup">
+      <button
+        data-popup-id="create-goal-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <form class="form" id="create-goal-form" method="post">
+        <div class="form__header">
+          <h2>Criar Meta</h2>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-goal-form--label">
+            Título
+          </label>
+          <input
+            class="form__field__input"
+            type="text"
+            name="label"
+            id="create-goal-form--label"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <ul class="form__field__tab">
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="create-goal-form--income"
+                checked
+              />
+              <label
+                class="form__field__tab__label"
+                for="create-goal-form--income"
+              >
+                Receita
+              </label>
+            </li>
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="create-goal-form--expense"
+              />
+              <label
+                class="form__field__tab__label"
+                for="create-goal-form--expense"
+              >
+                Despesa
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-goal-form--value">
+            Valor (R$)
+          </label>
+          <input
+            class="form__field__input"
+            type="number"
+            step=".01"
+            name="value"
+            id="create-goal-form--value"
+            required
+          />
+        </div>
+        <div class="form__field form__field--cols">
+          <div>
+            <label
+              class="form__field__label"
+              for="create-goal-form--initial-date"
+            >
+              Data Inicial:
+            </label>
+            <input
+              class="form__field__input"
+              type="date"
+              name="initial-date"
+              id="create-goal-form--initial-date"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="form__field__label"
+              for="create-goal-form--final-date"
+            >
+              Data Final:
+            </label>
+            <input
+              class="form__field__input"
+              type="date"
+              name="final-date"
+              id="create-goal-form--final-date"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form__field">
+          <div class="form__field__header">
+            <label class="form__field__label" for="create-goal-form--category">
+              Categoria
+            </label>
+            <button data-popup-id="create-category-popup" class="open-popup">
+              Criar Categoria
+            </button>
+            <button data-popup-id="view-categories-popup" class="open-popup">
+              Visualizar categorias
+            </button>
+          </div>
+
+          <select
+            class="form__field__input"
+            name="category"
+            id="create-goal-form--category"
+          ></select>
+        </div>
+
+        <div class="form__footer">
+          <button
+            class="close-popup form__cancel"
+            data-popup-id="create-goal-popup"
+            type="reset"
+          >
+            Cancelar
+          </button>
+
+          <button class="close-popup form__submit" type="submit">Criar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="popup" id="edit-goal-popup">
+      <button
+        data-popup-id="edit-goal-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <form class="form" id="edit-goal-form" method="post">
+        <div class="form__header">
+          <h2>Editar Meta</h2>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="edit-goal-form--label">
+            Título
+          </label>
+          <input
+            class="form__field__input"
+            type="text"
+            name="label"
+            id="edit-goal-form--label"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <ul class="form__field__tab">
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="edit-goal-form--income"
+                checked
+              />
+              <label
+                class="form__field__tab__label"
+                for="edit-goal-form--income"
+              >
+                Receita
+              </label>
+            </li>
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="edit-goal-form--expense"
+              />
+              <label
+                class="form__field__tab__label"
+                for="edit-goal-form--expense"
+              >
+                Despesa
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="edit-goal-form--value">
+            Limite de gasto (R$)
+          </label>
+          <input
+            class="form__field__input"
+            type="number"
+            step=".01"
+            name="value"
+            id="edit-goal-form--value"
+            required
+          />
+        </div>
+        <div class="form__field form__field--cols">
+          <div>
+            <label
+              class="form__field__label"
+              for="edit-goal-form--initial-date"
+            >
+              Data Inicial:
+            </label>
+            <input
+              class="form__field__input"
+              type="date"
+              name="initial-date"
+              id="edit-goal-form--initial-date"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="form__field__label" for="edit-goal-form--final-date">
+              Data Final:
+            </label>
+            <input
+              class="form__field__input"
+              type="date"
+              name="final-date"
+              id="edit-goal-form--final-date"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form__field">
+          <div class="form__field__header">
+            <label class="form__field__label" for="edit-goal-form--category">
+              Categoria
+            </label>
+            <button data-popup-id="create-category-popup" class="open-popup">
+              Criar Categoria
+            </button>
+            <button data-popup-id="view-categories-popup" class="open-popup">
+              Visualizar categorias
+            </button>
+          </div>
+
+          <select
+            class="form__field__input"
+            name="category"
+            id="edit-goal-form--category"
+            required
+          ></select>
+        </div>
+
+        <div class="form__footer">
+          <button
+            class="close-popup form__cancel"
+            data-popup-id="edit-goal-popup"
+            type="reset"
+          >
+            Cancelar
+          </button>
+
+          <button class="close-popup form__submit" type="submit">Salvar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="popup" id="create-category-popup">
+      <button
+        data-popup-id="create-category-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <form class="form" id="create-category-form" method="post">
+        <div class="form__header">
+          <h2>Criar Categoria</h2>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="create-category-form--label">
+            Título
+          </label>
+          <input
+            class="form__field__input"
+            type="text"
+            name="label"
+            id="create-category-form--label"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <ul class="form__field__tab">
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="create-category-form--income"
+                checked
+              />
+              <label
+                class="form__field__tab__label"
+                for="create-category-form--income"
+              >
+                Receita
+              </label>
+            </li>
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="create-category-form--expense"
+              />
+              <label
+                class="form__field__tab__label"
+                for="create-category-form--expense"
+              >
+                Despesa
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="form__field">
+          <span class="form__field__label">Ícone</span>
+          <ul data-for="create-category" class="form__field__icons"></ul>
+        </div>
+        <div class="form__footer">
+          <button
+            class="close-popup form__cancel"
+            data-popup-id="create-category-popup"
+            type="reset"
+          >
+            Cancelar
+          </button>
+
+          <button class="close-popup form__submit" type="submit">Criar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="popup" id="view-categories-popup">
+      <button
+        data-popup-id="view-categories-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <header class="popup__header">
+        <h2>Suas categorias</h2>
+      </header>
+
+      <div class="popup__content">
+        <ul class="popup__content__list" id="user-categories"></ul>
+
+        <span class="popup__content__empty">
+          Você ainda não tem nenhuma categoria
+        </span>
+      </div>
+    </dialog>
+
+    <dialog class="popup" id="edit-category-popup">
+      <button
+        data-popup-id="edit-category-popup"
+        class="close-popup close-popup--icon"
+      >
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <form class="form" id="edit-category-form" method="post">
+        <div class="form__header">
+          <h2>Editar Categoria</h2>
+        </div>
+        <div class="form__field">
+          <label class="form__field__label" for="edit-category-form--label">
+            Título
+          </label>
+          <input
+            class="form__field__input"
+            type="text"
+            name="label"
+            id="edit-category-form--label"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <ul class="form__field__tab">
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="edit-category-form--income"
+                checked
+              />
+              <label
+                class="form__field__tab__label"
+                for="edit-category-form--income"
+              >
+                Receita
+              </label>
+            </li>
+            <li class="form__field__tab__item">
+              <input
+                class="form__field__tab__input"
+                type="radio"
+                name="type"
+                id="edit-category-form--expense"
+              />
+              <label
+                class="form__field__tab__label"
+                for="edit-category-form--expense"
+              >
+                Despesa
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="form__field">
+          <span class="form__field__label">Ícone</span>
+          <ul data-for="edit-category" class="form__field__icons"></ul>
+        </div>
+        <div class="form__footer">
+          <button
+            class="close-popup form__cancel"
+            data-popup-id="edit-category-popup"
+            type="reset"
+          >
+            Cancelar
+          </button>
+
+          <button class="close-popup form__submit" type="submit">Salvar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="assets/js/pages/goals.js"></script>
   </body>
 </html>

@@ -1,0 +1,51 @@
+main {
+  margin-top: 4rem;
+  max-width: 1280px;
+  padding-inline: 1rem;
+  margin-inline: auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.goals-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.goals-list__item {
+  display: grid;
+  grid-template-columns: 32px 192px 1fr 32px 32px;
+  gap: 1rem;
+  font-size: var(--text-2xl);
+  align-items: center;
+  background-color: var(--accent);
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+}
+
+.goals-list__item__value--income {
+  color: var(--foreground-success);
+}
+
+.goals-list__item__value--expense {
+  color: var(--foreground-destructive);
+}
+
+.goals-list__item__text {
+  display: grid;
+}
+
+.goals-list__item__text__time {
+  display: grid;
+  opacity: .7;
+}
+
+.goals-list__item__button {
+  width: 32px;
+  aspect-ratio: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}

@@ -35,5 +35,5 @@ export async function updateMonthTotal(elementId, month, year) {
 
   element.classList.add(isPositive ? "text-success" : "text-destructive");
   element.classList.remove(isPositive ? "text-destructive" : "text-success");
-  element.innerHTML = `R$ ${toMoney(sum)}`;
+  element.innerHTML = `${isPositive ? "" : "-"}R$ ${toMoney(sum)}`;
 }

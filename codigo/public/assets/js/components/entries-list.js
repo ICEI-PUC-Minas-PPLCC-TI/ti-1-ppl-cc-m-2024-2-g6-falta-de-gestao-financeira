@@ -154,6 +154,8 @@ export async function updateEntriesList(entries) {
     });
 
     deleteButton.addEventListener("click", async () => {
+      if (!confirm("Tem certeza que deseja excluir esse registro?")) return;
+
       const deleted = await entry.delete(id);
 
       if (!deleted) {

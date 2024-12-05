@@ -1,5 +1,5 @@
 import { auth } from "../lib/auth.js";
-import { TIME_ENUM, TYPE_ENUM } from "../lib/constants.js";
+import { TYPE_ENUM } from "../lib/constants.js";
 
 /*
   goal: {
@@ -9,26 +9,36 @@ import { TIME_ENUM, TYPE_ENUM } from "../lib/constants.js";
     label: string;
     type: "income" | "expense";
     value: number;
-    time: "daily" | "weakly" | "montly"  | "yearly";
+    initialDate: number;
+    finalDate: number;
     createdAt: number;
     updatedAt: number;
   }
 */
 
 const goal = {
-  create: async ({ categoryId, label, type, value, time }) => {
-    if (!categoryId || !label || !type || !value || !time) {
+  create: async ({
+    categoryId,
+    label,
+    type,
+    value,
+    initialDate,
+    finalDate,
+  }) => {
+    if (
+      !categoryId ||
+      !label ||
+      !type ||
+      !value ||
+      !initialDate ||
+      !finalDate
+    ) {
       console.error("Campos obrigatórios não enviados.");
       return null;
     }
 
     if (!TYPE_ENUM.includes(type)) {
       console.error(`Erro, tipo: "${type}" é inválido.`);
-      return null;
-    }
-
-    if (!TIME_ENUM.includes(time)) {
-      console.error(`Erro, tempo: "${time}" é inválido.`);
       return null;
     }
 
@@ -39,7 +49,7 @@ const goal = {
       return null;
     }
 
-    const createdAt = new Date().getTime();
+    const time = new Date().getTime();
 
     const res = await fetch("/goals", {
       method: "POST",
@@ -50,9 +60,10 @@ const goal = {
         label,
         type,
         value: parseFloat(value) || value,
-        time,
-        createdAt,
-        updatedAt: createdAt,
+        initialDate: new Date(initialDate).getTime(),
+        finalDate: new Date(finalDate).getTime(),
+        updatedAt: time,
+        createdAt: time,
       }),
     });
 
@@ -101,7 +112,15 @@ const goal = {
 
     return goals;
   },
-  update: async ({ goalId, categoryId, label, type, value, time }) => {
+  update: async ({
+    goalId,
+    categoryId,
+    label,
+    type,
+    value,
+    initialDate,
+    finalDate,
+  }) => {
     if (!goalId) {
       console.error("Campos obrigatórios não enviados.");
       return null;
@@ -109,11 +128,6 @@ const goal = {
 
     if (type && !TYPE_ENUM.includes(type)) {
       console.error(`Erro, tipo: "${type}" é inválido.`);
-      return null;
-    }
-
-    if (time && !TIME_ENUM.includes(time)) {
-      console.error(`Erro, tempo: "${time}" é inválido.`);
       return null;
     }
 
@@ -125,7 +139,8 @@ const goal = {
         label,
         type,
         value: parseFloat(value) || value,
-        time,
+        initialDate: new Date(initialDate).getTime(),
+        finalDate: new Date(finalDate).getTime(),
         updatedAt: new Date().getTime(),
       }),
     });

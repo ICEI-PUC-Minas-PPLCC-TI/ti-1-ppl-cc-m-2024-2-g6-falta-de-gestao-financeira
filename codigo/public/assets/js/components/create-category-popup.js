@@ -45,33 +45,59 @@ export function createCategoryPopup() {
 
     updateCategoriesList();
 
-    await updateCategorySelect(
-      "edit-entry-form--category",
-      document.getElementById("edit-entry-form--income").checked
-        ? "income"
-        : "expense"
-    );
+    if (document.getElementById("edit-entry-form--income")) {
+      await updateCategorySelect(
+        "edit-entry-form--category",
+        document.getElementById("edit-entry-form--income").checked
+          ? "income"
+          : "expense"
+      );
+    }
 
-    await updateCategorySelect(
-      "create-entry-form--category",
-      document.getElementById("create-entry-form--income").checked
-        ? "income"
-        : "expense"
-    );
+    if (document.getElementById("create-entry-form--income")) {
+      await updateCategorySelect(
+        "create-entry-form--category",
+        document.getElementById("create-entry-form--income").checked
+          ? "income"
+          : "expense"
+      );
+    }
 
-    await updateCategorySelect(
-      "create-recurrent-form--category",
-      document.getElementById("create-recurrent-form--income").checked
-        ? "income"
-        : "expense"
-    );
+    if (document.getElementById("create-recurrent-form--income")) {
+      await updateCategorySelect(
+        "create-recurrent-form--category",
+        document.getElementById("create-recurrent-form--income").checked
+          ? "income"
+          : "expense"
+      );
+    }
 
-    await updateCategorySelect(
-      "edit-recurrent-form--category",
-      document.getElementById("edit-recurrent-form--income").checked
-        ? "income"
-        : "expense"
-    );
+    if (document.getElementById("edit-recurrent-form--income")) {
+      await updateCategorySelect(
+        "edit-recurrent-form--category",
+        document.getElementById("edit-recurrent-form--income").checked
+          ? "income"
+          : "expense"
+      );
+    }
+
+    if (document.getElementById("create-goal-form--income")) {
+      await updateCategorySelect(
+        "create-goal-form--category",
+        document.getElementById("create-goal-form--income").checked
+          ? "income"
+          : "expense"
+      );
+    }
+
+    if (document.getElementById("edit-goal-form--income")) {
+      await updateCategorySelect(
+        "edit-goal-form--category",
+        document.getElementById("edit-goal-form--income").checked
+          ? "income"
+          : "expense"
+      );
+    }
 
     createCategoryPopup.close();
     createCategoryForm.reset();
