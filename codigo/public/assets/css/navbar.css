@@ -33,6 +33,7 @@
 }
 
 .navbar__list {
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,7 +68,7 @@
 }
 
 #navbar-menu-toggle {
-  z-index: 1;
+  z-index: 20;
   display: none;
   position: absolute;
   top: 0;
@@ -87,7 +88,7 @@
 }
 
 /* Mobile */
-@media (width <=620px) {
+@media (width <=1024px) {
   .navbar__list {
     display: none;
   }
