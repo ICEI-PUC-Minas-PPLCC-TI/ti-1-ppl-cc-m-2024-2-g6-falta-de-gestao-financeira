@@ -10,7 +10,7 @@ main {
 .card__content {
   margin-bottom: 1rem;
   padding: 1rem;
-  background-color: #292929;
+  background-color: var(--accent);
   border-radius: 0.5rem;
 }
 
@@ -35,7 +35,7 @@ main {
 .report_header #yearDropdown {
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background-color: #292929;
+  background-color: var(--accent);
   color: var(--foreground);
   border: none;
 }
@@ -102,7 +102,7 @@ main {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  background-color: #292929;
+  background-color: var(--accent);
   color: var(--foreground);
 }
 
