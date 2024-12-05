@@ -1,4 +1,8 @@
+import { logoutButton } from "../components/logout-button.js";
+
 document.addEventListener("DOMContentLoaded", function () {
+  logoutButton();
+
   // Capturando o formulário
   const form = document.getElementById("investment-form");
   const cancelButton = document.getElementById("cancel");

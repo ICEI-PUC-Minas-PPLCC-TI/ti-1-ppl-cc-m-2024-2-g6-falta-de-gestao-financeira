@@ -4,54 +4,156 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FinUp | Investimentos</title>
+    <link rel="stylesheet" href="assets/css/globals.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/form.css" />
+    <link rel="stylesheet" href="assets/css/card.css" />
     <link rel="stylesheet" href="assets/css/investments.css" />
   </head>
   <body>
-    <div class="modal">
-      <h2>Calculadora de Investimentos</h2>
-      <form id="investment-form">
-        <label for="initial-amount">Valor Inicial</label>
-        <input
-          type="number"
-          id="initial-amount"
-          placeholder="R$ 0,00"
-          required
-        />
+    <header class="navbar">
+      <nav class="navbar__container">
+        <a class="navbar__logo" href="/">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m13.11 7.664 1.78 2.672" />
+            <path d="m14.162 12.788-3.324 1.424" />
+            <path d="m20 4-6.06 1.515" />
+            <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+            <circle cx="12" cy="6" r="2" />
+            <circle cx="16" cy="12" r="2" />
+            <circle cx="9" cy="15" r="2" />
+          </svg>
 
-        <label for="monthly-deposit">Aporte Mensal</label>
-        <input type="number" id="monthly-deposit" placeholder="R$ 0,00" />
+          <span>FinUp</span>
+        </a>
 
-        <label for="interest-rate">Taxa de Juros (%)</label>
-        <input type="number" id="interest-rate" placeholder="Ex: 5%" required />
+        <div class="navbar__content">
+          <input id="navbar-menu-toggle" type="checkbox" />
 
-        <label for="investment-period">Período (meses)</label>
-        <input
-          type="number"
-          id="investment-period"
-          placeholder="Meses"
-          required
-        />
-
-        <div class="buttons">
-          <button type="button" id="cancel">Cancelar</button>
-          <button type="submit" id="calculate">Calcular</button>
-          <button type="button" id="save-investment">
-            Salvar Investimento
-          </button>
+          <ul class="navbar__list">
+            <li class="navbar__list__item navbar__list__item--active">
+              <a class="navbar__link navbar__link--active" href="/">
+                Registros</a
+              >
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./goals.html">Metas</a>
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./evolution.html">Evolução</a>
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./relatorios.html">Relatórios</a>
+            </li>
+            <li>
+              <a class="navbar__link" href="./stocks.html">Ações</a>
+            </li>
+            <li>
+              <a class="navbar__link" href="./investments.html">
+                Investimentos
+              </a>
+            </li>
+          </ul>
         </div>
-      </form>
-      <div id="result" class="result">
-        <h3>Resultado:</h3>
-        <p id="final-amount">Montante final: R$ 0,00</p>
+        <div class="navbar__buttons">
+          <button id="logout-button">Sair</button>
+          <div class="navbar__menu"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="card">
+        <div class="card__header">
+          <h2>Calculadora de Investimentos</h2>
+        </div>
+        <div class="card__content">
+          <form class="form" id="investment-form">
+            <div class="form__field">
+              <label class="form__field__label" for="initial-amount"
+                >Valor Inicial</label
+              >
+              <input
+                class="form__field__input"
+                type="number"
+                id="initial-amount"
+                placeholder="R$ 0,00"
+                required
+              />
+            </div>
+            <div class="form__field">
+              <label class="form__field__label" for="monthly-deposit"
+                >Aporte Mensal</label
+              >
+              <input
+                class="form__field__input"
+                type="number"
+                id="monthly-deposit"
+                placeholder="R$ 0,00"
+              />
+            </div>
+            <div class="form__field">
+              <label class="form__field__label" for="interest-rate"
+                >Taxa de Juros (%)</label
+              >
+              <input
+                class="form__field__input"
+                type="number"
+                id="interest-rate"
+                placeholder="Ex: 5%"
+                required
+              />
+            </div>
+            <div class="form__field">
+              <label class="form__field__label" for="investment-period"
+                >Período (meses)</label
+              >
+              <input
+                class="form__field__input"
+                type="number"
+                id="investment-period"
+                placeholder="Meses"
+                required
+              />
+            </div>
+            <div class="form__footer">
+              <button class="form__cancel" type="reset" id="cancel">
+                Cancelar
+              </button>
+              <button class="form__submit" type="submit" id="calculate">
+                Calcular
+              </button>
+              <button class="form__submit" type="button" id="save-investment">
+                Salvar Investimento
+              </button>
+            </div>
+            <div id="result" class="result">
+              <h3>Resultado:</h3>
+              <p id="final-amount">Montante final: R$ 0,00</p>
+            </div>
+          </form>
+        </div>
       </div>
-      <div id="saved-investments" class="saved-investments">
-        <h3>Investimentos Salvos</h3>
-        <ul id="investment-list">
-          <!-- Lista de investimentos salvos -->
-        </ul>
-        <button id="clear-storage">Limpar Dados Salvos</button>
+
+      <div class="card">
+        <div id="saved-investments" class="saved-investments">
+          <h3>Investimentos Salvos</h3>
+          <ul id="investment-list">
+            <!-- Lista de investimentos salvos -->
+          </ul>
+          <button id="clear-storage">Limpar Dados Salvos</button>
+        </div>
       </div>
-    </div>
+    </main>
 
     <script src="assets/js/pages/investments.js" type="module"></script>
   </body>
