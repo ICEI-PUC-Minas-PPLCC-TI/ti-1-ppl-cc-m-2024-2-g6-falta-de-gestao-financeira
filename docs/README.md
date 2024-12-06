@@ -44,6 +44,10 @@ A documentação do projeto é estruturada da seguinte forma:
       - [Registros](#registros)
       - [Categorias](#categorias)
       - [Recorrentes](#recorrentes)
+      - [Relatórios](#relatórios)
+      - [Evolução](#evolução)
+      - [Investimentos](#investimentos)
+      - [Ações](#ações)
     - [User Flow](#user-flow)
     - [Protótipo Interativo](#protótipo-interativo)
 - [Metodologia](#metodologia)
@@ -161,7 +165,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-007 | Gerar relatórios patrimoniais                                                  | BAIXA      |
 | RF-008 | Calculadora de retorno de investimentos                                        | BAIXA      |
 | RF-009 | Gráficos comparativos de receitas e despesas, mostrando a evolução patrimonial | MÉDIA      |
-| RF-010 | Ações em alta                                                                  | BAIXA      |
+| RF-010 | Preço de ações                                                                 | BAIXA      |
 
 ### Requisitos não Funcionais
 
@@ -204,6 +208,22 @@ Estes são as principais telas do sistema.
 ![Ver recorrentes](./images/interface/ver-recorrentes.png)
 ![Editar recorrente](./images/interface/editar-recorrente.png)
 
+#### Relatórios
+
+![Editar recorrente](./images/interface/relatorios.png)
+
+#### Evolução
+
+![Editar recorrente](./images/interface/evolucao.png)
+
+#### Investimentos
+
+![Editar recorrente](./images/interface/investimentos.png)
+
+#### Ações
+
+![Editar recorrente](./images/interface/acoes-recomendadas.png)
+
 ### User Flow
 
 Este é o protótipo das telas do sistema.
@@ -239,9 +259,10 @@ Divisão de papéis no grupo e apresentação da estrutura da ferramenta de cont
 
 Usamos as seguintes tecnologias e bibliotecas:
 
-- [JSON-Server](https://github.com/typicode/json-server#readme): Utilizado como servidor e banco de dados
-- [jQuery](https://jquery.com/): Foi utilizado para a manipulação do DOM
+- [Bootstrap](https://getbootstrap.com/): Utilizado para estilização e layout da interface do usuário
 - [Chart.js](https://www.chartjs.org/): Foi usado para criar gráficos
+- [jQuery](https://jquery.com/): Foi utilizado para a manipulação do DOM
+- [JSON-Server](https://github.com/typicode/json-server#readme): Utilizado como servidor e banco de dados
 
 # Referências
 
