@@ -78,6 +78,12 @@ $(document).ready(function () {
 
     const sign = savedAmount > 0 ? "+" : "";
     $("#valorEconomia").text(`${sign}R$ ${savedAmount.toFixed(2)}`);
+    $("#economiaTotal").css(
+      "background-color",
+      savedAmount > 0
+        ? "var(--background-success)"
+        : "var(--background-destructive)"
+    );
 
     return savedAmount;
   }
