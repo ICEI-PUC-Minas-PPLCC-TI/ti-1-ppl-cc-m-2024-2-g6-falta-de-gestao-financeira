@@ -73,73 +73,81 @@ async function renderStocks() {
     // Limpa o loading
     stocksList.innerHTML = "";
 
-    const stocks = Object.entries(response);
+    const responses = Object.entries(response);
 
-    stocks.forEach(([symbol, stock]) => {
-      if (!stock || !stock.close) {
-        throw stocks[1][1];
+    const storageStocks = localStorage.getItem("stocks");
+
+    const stocks = storageStocks ? JSON.parse(storageStocks) : {};
+
+    responses.forEach((data) => {
+      if (data[0] && data[0] === data[1].symbol) {
+        stocks[data[0]] = data[1];
       }
-
-      const precoFormatado = parseFloat(stock.close || 0).toLocaleString(
-        "pt-BR",
-        {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        }
-      );
-
-      const volumeFormatado = parseInt(stock.volume || 0).toLocaleString(
-        "pt-BR"
-      );
-
-      // Calcula a variação
-      const variacao = parseFloat(stock.close) - parseFloat(stock.open);
-      const variacaoPercentual = (
-        (variacao / parseFloat(stock.open)) *
-        100
-      ).toFixed(2);
-
-      const stockElement = document.createElement("li");
-      stockElement.className = "stocks-list__item";
-
-      stockElement.innerHTML = `
-        <h3 class="stock-list__item__title">${stock.name || symbol}</h3>
-
-        <div class="stock-list__item__content">
-          <p>
-            <strong>Código:</strong> ${stock.symbol || symbol}
-          </p>
-
-          <p>
-            <strong>Preço Atual:</strong> $ ${precoFormatado}
-
-            <span class="${
-              variacao >= 0 ? "text-success" : "text-destructive"
-            }">
-              ${variacao >= 0 ? "▲" : "▼"} ${Math.abs(variacaoPercentual)}%
-            </span>
-          </p>
-
-          <p>
-            <strong>Volume Negociado:</strong> ${volumeFormatado} ações
-          </p>
-
-          <p>
-            <strong>Última atualização em:</strong>
-
-            <span>
-            ${new Date().toLocaleTimeString()}
-            </span>
-          </p>
-        </div>
-      `;
-
-      stocksList.appendChild(stockElement);
     });
-  } catch (error) {
-    console.warn("Erro:", error);
 
-    if (stocksList) {
+    if (Object.keys(stocks).length > 0) {
+      localStorage.setItem("stocks", JSON.stringify(stocks));
+
+      Object.keys(stocks).forEach((key) => {
+        const stock = stocks[key];
+
+        const precoFormatado = parseFloat(stock.close || 0).toLocaleString(
+          "pt-BR",
+          {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          }
+        );
+
+        const volumeFormatado = parseInt(stock.volume || 0).toLocaleString(
+          "pt-BR"
+        );
+
+        // Calcula a variação
+        const variacao = parseFloat(stock.close) - parseFloat(stock.open);
+        const variacaoPercentual = (
+          (variacao / parseFloat(stock.open)) *
+          100
+        ).toFixed(2);
+
+        const stockElement = document.createElement("li");
+        stockElement.className = "stocks-list__item";
+
+        stockElement.innerHTML = `
+          <h3 class="stock-list__item__title">${stock.name}</h3>
+
+          <div class="stock-list__item__content">
+            <p>
+              <strong>Código:</strong> ${stock.symbol}
+            </p>
+
+            <p>
+              <strong>Preço Atual:</strong> $ ${precoFormatado}
+        
+              <span class="${
+                variacao >= 0 ? "text-success" : "text-destructive"
+              }">
+                ${variacao >= 0 ? "▲" : "▼"} ${Math.abs(variacaoPercentual)}%
+              </span>
+            </p>
+
+            <p>
+              <strong>Volume Negociado:</strong> ${volumeFormatado} ações
+            </p>
+
+            <p>
+              <strong>Última atualização em:</strong>
+
+              <span>
+              ${new Date(stock.timestamp).toLocaleTimeString()}
+              </span>
+            </p>
+          </div>
+        `;
+
+        stocksList.appendChild(stockElement);
+      });
+    } else {
       stocksList.innerHTML = `
         <div class="text-destructive">
           <p>Desculpe, não foi possível carregar os dados no momento.</p>
@@ -147,5 +155,7 @@ async function renderStocks() {
         </div>
       `;
     }
+  } catch (error) {
+    console.error(error);
   }
 }
