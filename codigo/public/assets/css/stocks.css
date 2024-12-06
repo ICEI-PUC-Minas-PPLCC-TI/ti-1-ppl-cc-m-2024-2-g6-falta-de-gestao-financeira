@@ -1,3 +1,12 @@
+main {
+  margin-top: 4rem;
+  max-width: 1280px;
+  padding-inline: 1rem;
+  margin-inline: auto;
+  display: grid;
+  gap: 2rem;
+}
+
 main .card {
   color: white;
   background-color: #1f1f1f;
@@ -8,4 +17,36 @@ main .card {
 main .botoes .selecionado {
   background-color: #f8f8f8;
   color: #000;
+}
+
+#update-stocks {
+  background-color: var(--primary);
+  padding-inline: 1rem;
+}
+
+.stocks-list {
+  display: grid;
+  gap: 2rem;
+}
+
+.stocks-list__item {
+  background-color: var(--accent);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.stocks-list__item__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-success {
+  color: var(--foreground-success);
+}
+
+.text-destructive {
+  color: var(--foreground-destructive);
 }

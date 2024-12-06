@@ -2,28 +2,39 @@ import { logoutButton } from "../components/logout-button.js";
 import { auth } from "../lib/auth.js";
 import { API_KEY } from "../lib/env.js";
 
-const user = auth();
+const STOCKS = ["AAPL", "MSFT", "NVDA", "AMD", "TSLA"];
 
-if (!user) {
-  window.location.replace("./login.html");
-}
+const API_URL = `
+  https://api.twelvedata.com/quote?symbol=${STOCKS.join(",")}&apikey=${API_KEY}
+`;
 
-logoutButton();
+const stocksList = document.getElementById("stocks-list");
+const updateButton = document.getElementById("update-stocks");
 
-const API_URL = `https://api.twelvedata.com/quote?symbol=AAPL,MSFT,NVDA,AMD,TSLA&apikey=${API_KEY}`;
+document.addEventListener("DOMContentLoaded", async () => {
+  const user = auth();
+
+  if (!user) {
+    window.location.replace("./login.html");
+  }
+
+  updateButton.addEventListener("click", () => window.location.reload());
+
+  logoutButton();
+
+  renderStocks();
+});
 
 // Função para fazer fetch com retry
 async function fetchWithRetry(url, maxRetries = 3) {
-  const cardBody = document.querySelector(".card-body");
-
   // Mostrar loading
-  cardBody.innerHTML = `
-    <div class="text-center">
-        <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Carregando...</span>
-        </div>
-        <p class="mt-2">Carregando dados das ações...</p>
-    </div>
+  stocksList.innerHTML = `
+    <li class="text-center">
+      <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Carregando...</span>
+      </div>
+      <p class="mt-2">Carregando dados das ações...</p>
+    </li>
   `;
 
   for (let i = 0; i < maxRetries; i++) {
@@ -51,33 +62,25 @@ async function fetchWithRetry(url, maxRetries = 3) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const loggedInUser = auth();
-  if (!loggedInUser) {
-    window.location.replace("/login.html");
-    return;
-  }
-
+async function renderStocks() {
   try {
     const response = await fetchWithRetry(API_URL);
-    const cardBody = document.querySelector(".card-body");
 
-    if (!cardBody) {
-      throw new Error("Elemento card-body não encontrado");
+    if (!stocksList) {
+      throw new Error("Elemento stocks-list não encontrado");
     }
 
     // Limpa o loading
-    cardBody.innerHTML = "";
+    stocksList.innerHTML = "";
 
-    const acoes = Object.entries(response);
+    const stocks = Object.entries(response);
 
-    acoes.forEach(([symbol, acao]) => {
-      if (!acao || !acao.close) {
-        console.warn(`Dados incompletos para ${symbol}`, acao);
-        return;
+    stocks.forEach(([symbol, stock]) => {
+      if (!stock || !stock.close) {
+        throw stocks[1][1];
       }
 
-      const precoFormatado = parseFloat(acao.close || 0).toLocaleString(
+      const precoFormatado = parseFloat(stock.close || 0).toLocaleString(
         "pt-BR",
         {
           minimumFractionDigits: 2,
@@ -85,61 +88,64 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       );
 
-      const volumeFormatado = parseInt(acao.volume || 0).toLocaleString(
+      const volumeFormatado = parseInt(stock.volume || 0).toLocaleString(
         "pt-BR"
       );
 
       // Calcula a variação
-      const variacao = parseFloat(acao.close) - parseFloat(acao.open);
+      const variacao = parseFloat(stock.close) - parseFloat(stock.open);
       const variacaoPercentual = (
-        (variacao / parseFloat(acao.open)) *
+        (variacao / parseFloat(stock.open)) *
         100
       ).toFixed(2);
-      const corVariacao = variacao >= 0 ? "text-success" : "text-danger";
-      const simboloVariacao = variacao >= 0 ? "▲" : "▼";
 
-      const cardAcao = document.createElement("div");
-      cardAcao.className = "card mb-3";
+      const stockElement = document.createElement("li");
+      stockElement.className = "stocks-list__item";
 
-      cardAcao.innerHTML = `
-        <div class="card-body">
-            <h5 class="card-title">${acao.name || symbol}</h5>
-            <p class="card-text">
-                <strong>Símbolo:</strong> ${acao.symbol || symbol}<br>
-                <strong>Preço Atual:</strong> $ ${precoFormatado}
-                <span class="${corVariacao}">
-                    ${simboloVariacao} ${Math.abs(variacaoPercentual)}%
-                </span><br>
-                <strong>Volume Negociado:</strong> ${volumeFormatado} ações
-            </p>
-            <small class="text-muted">
-              Última atualização: ${new Date().toLocaleTimeString()}
-            </small>
+      stockElement.innerHTML = `
+        <h3 class="stock-list__item__title">${stock.name || symbol}</h3>
+
+        <div class="stock-list__item__content">
+          <p>
+            <strong>Código:</strong> ${stock.symbol || symbol}
+          </p>
+
+          <p>
+            <strong>Preço Atual:</strong> $ ${precoFormatado}
+
+            <span class="${
+              variacao >= 0 ? "text-success" : "text-destructive"
+            }">
+              ${variacao >= 0 ? "▲" : "▼"} ${Math.abs(variacaoPercentual)}%
+            </span>
+          </p>
+
+          <p>
+            <strong>Volume Negociado:</strong> ${volumeFormatado} ações
+          </p>
+
+          <p>
+            <strong>Última atualização em:</strong>
+
+            <span>
+            ${new Date().toLocaleTimeString()}
+            </span>
+          </p>
         </div>
       `;
 
-      cardBody.appendChild(cardAcao);
+      stocksList.appendChild(stockElement);
     });
-
-    // Adiciona botão de atualização
-    const refreshButton = document.createElement("button");
-    refreshButton.className = "btn btn-primary mt-3";
-    refreshButton.innerHTML = "Atualizar Dados";
-    refreshButton.onclick = () => window.location.reload();
-    cardBody.appendChild(refreshButton);
   } catch (error) {
-    console.error("Erro:", error);
-    const cardBody = document.querySelector(".card-body");
-    if (cardBody) {
-      cardBody.innerHTML = `
-        <div class="alert alert-danger">
+    console.warn("Erro:", error);
+
+    if (stocksList) {
+      stocksList.innerHTML = `
+        <div class="text-destructive">
           <p>Desculpe, não foi possível carregar os dados no momento.</p>
           <p>Por favor, tente novamente em alguns instantes.</p>
-          <button class="btn btn-primary mt-2" onclick="window.location.reload()">
-            Tentar Novamente
-          </button>
         </div>
       `;
     }
   }
-});
+}
