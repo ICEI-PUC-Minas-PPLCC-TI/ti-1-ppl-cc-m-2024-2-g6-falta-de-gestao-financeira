@@ -1,5 +1,5 @@
 import { auth } from "../lib/auth.js";
-import { TYPE_ENUM } from "../lib/constants.js";
+import { MILLISECCONDS_IN_DAY, TYPE_ENUM } from "../lib/constants.js";
 
 /*
   entry: {
@@ -45,7 +45,7 @@ const entry = {
         label,
         type,
         value: parseFloat(value) || value,
-        date: new Date(date).getTime(),
+        date: new Date(date).getTime() + MILLISECCONDS_IN_DAY,
         createdAt: time,
         updatedAt: time,
       }),
