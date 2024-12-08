@@ -136,17 +136,14 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 ### Proposta de valor para Persona 1
 
 ![Proposta de valor persona 1](./images/MiroImages/PropostaValorPersona1.png)
-<br>
 
 ### Proposta de valor para Persona 2
 
 ![Proposta de valor persona 2](./images/MiroImages/ProportaValorPersona2.png)
-<br>
 
 ### Proposta de valor para Persona 3
 
 ![Proposta de valor persona 3](./images/MiroImages/PropostaValorPersona3.png)
-<br>
 
 ## Requisitos
 
@@ -210,19 +207,19 @@ Estes são as principais telas do sistema.
 
 #### Relatórios
 
-![Editar recorrente](./images/interface/relatorios.png)
+![Página de Relatórios](./images/interface/relatorios.png)
 
 #### Evolução
 
-![Editar recorrente](./images/interface/evolucao.png)
+![Gráficos de evolução](./images/interface/evolucao.png)
 
 #### Investimentos
 
-![Editar recorrente](./images/interface/investimentos.png)
+![Calculadora de Investimentos](./images/interface/investimentos.png)
 
 #### Ações
 
-![Editar recorrente](./images/interface/acoes-recomendadas.png)
+![Ações Recomendadas](./images/interface/acoes-recomendadas.png)
 
 ### User Flow
 
@@ -273,3 +270,6 @@ DANTAS, A. Estudo sobre o perfil socioeconômico de motoristas de aplicativo no 
 INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE). Pesquisa de Orçamentos Familiares: Despesas familiares e endividamento. Brasília: IBGE, 2020. Disponível em: https://www.ibge.gov.br. Acesso em: 18 set. 2024.
 
 SERVIÇO DE PROTEÇÃO AO CRÉDITO (SPC). Estudo sobre hábitos de consumo e controle financeiro. São Paulo: SPC, 2019.
+
+CNDL/ SPC. 47% dos jovens da Geração Z não realizam o controle das finanças. Disponível em:
+https://cndl.org.br/politicaspublicas/47-dos-jovens-da-geracao-z-nao-realizam-o-controle-das-financas-aponta-pesquisa-cndl-spc-brasil/. Acesso em 06 dez. 2024.
