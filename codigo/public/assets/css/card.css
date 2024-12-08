@@ -13,6 +13,7 @@
 .card__header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -20,7 +21,23 @@
   font-size: var(--text-3xl);
 }
 
+.card__header__buttons {
+  display: flex;
+  gap: 1rem;
+}
+
 .card__content {
   display: grid;
   gap: 1rem;
+}
+
+/* Mobile */
+@media (width <=860px) {
+  .card__header {
+    align-items: start;
+  }
+
+  .card__header__buttons {
+    flex-direction: column;
+  }
 }
