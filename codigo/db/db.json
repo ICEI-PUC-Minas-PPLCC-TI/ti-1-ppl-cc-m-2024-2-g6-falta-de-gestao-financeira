@@ -59,13 +59,145 @@
   "entries": [
     {
       "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1732838400000,
+      "createdAt": 1733836802304,
+      "updatedAt": 1733836802304,
+      "id": 1
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1730246400000,
+      "createdAt": 1733836802341,
+      "updatedAt": 1733836802341,
+      "id": 2
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1727654400000,
+      "createdAt": 1733836802361,
+      "updatedAt": 1733836802361,
+      "id": 3
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1725062400000,
+      "createdAt": 1733836802402,
+      "updatedAt": 1733836802402,
+      "id": 4
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1722470400000,
+      "createdAt": 1733836802416,
+      "updatedAt": 1733836802416,
+      "id": 5
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1719878400000,
+      "createdAt": 1733836802448,
+      "updatedAt": 1733836802448,
+      "id": 6
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1717286400000,
+      "createdAt": 1733836802483,
+      "updatedAt": 1733836802483,
+      "id": 7
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1714694400000,
+      "createdAt": 1733836802510,
+      "updatedAt": 1733836802510,
+      "id": 8
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1712102400000,
+      "createdAt": 1733836802539,
+      "updatedAt": 1733836802539,
+      "id": 9
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1709510400000,
+      "createdAt": 1733836802553,
+      "updatedAt": 1733836802553,
+      "id": 10
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1706918400000,
+      "createdAt": 1733836802568,
+      "updatedAt": 1733836802568,
+      "id": 11
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Adiantamento Salário",
+      "type": "income",
+      "value": 2000,
+      "date": 1704326400000,
+      "createdAt": 1733836802598,
+      "updatedAt": 1733836802598,
+      "id": 12
+    },
+    {
+      "ownerId": 1,
       "categoryId": 2,
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1731196800000,
-      "createdAt": 1733418331192,
-      "updatedAt": 1733418331192,
+      "date": 1733875200000,
+      "createdAt": 1733836802630,
+      "updatedAt": 1733836802630,
       "id": 13
     },
     {
@@ -74,9 +206,9 @@
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1728604800000,
-      "createdAt": 1733418331222,
-      "updatedAt": 1733418331222,
+      "date": 1731283200000,
+      "createdAt": 1733836802659,
+      "updatedAt": 1733836802659,
       "id": 14
     },
     {
@@ -85,9 +217,9 @@
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1726012800000,
-      "createdAt": 1733418331254,
-      "updatedAt": 1733418331254,
+      "date": 1728691200000,
+      "createdAt": 1733836802691,
+      "updatedAt": 1733836802691,
       "id": 15
     },
     {
@@ -96,9 +228,9 @@
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1723420800000,
-      "createdAt": 1733418331285,
-      "updatedAt": 1733418331285,
+      "date": 1726099200000,
+      "createdAt": 1733836802721,
+      "updatedAt": 1733836802721,
       "id": 16
     },
     {
@@ -107,9 +239,9 @@
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1720828800000,
-      "createdAt": 1733418331288,
-      "updatedAt": 1733418331288,
+      "date": 1723507200000,
+      "createdAt": 1733836802753,
+      "updatedAt": 1733836802753,
       "id": 17
     },
     {
@@ -118,9 +250,9 @@
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1718236800000,
-      "createdAt": 1733418331300,
-      "updatedAt": 1733418331300,
+      "date": 1720915200000,
+      "createdAt": 1733836802785,
+      "updatedAt": 1733836802785,
       "id": 18
     },
     {
@@ -129,9 +261,9 @@
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1715644800000,
-      "createdAt": 1733418331330,
-      "updatedAt": 1733418331330,
+      "date": 1718323200000,
+      "createdAt": 1733836802800,
+      "updatedAt": 1733836802800,
       "id": 19
     },
     {
@@ -140,9 +272,9 @@
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1713052800000,
-      "createdAt": 1733418331361,
-      "updatedAt": 1733418331361,
+      "date": 1715731200000,
+      "createdAt": 1733836802838,
+      "updatedAt": 1733836802838,
       "id": 20
     },
     {
@@ -151,9 +283,9 @@
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1710460800000,
-      "createdAt": 1733418331391,
-      "updatedAt": 1733418331391,
+      "date": 1713139200000,
+      "createdAt": 1733836802865,
+      "updatedAt": 1733836802865,
       "id": 21
     },
     {
@@ -162,9 +294,9 @@
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1707868800000,
-      "createdAt": 1733418331422,
-      "updatedAt": 1733418331422,
+      "date": 1710547200000,
+      "createdAt": 1733836802894,
+      "updatedAt": 1733836802894,
       "id": 22
     },
     {
@@ -173,20 +305,141 @@
       "label": "Alugel",
       "type": "expense",
       "value": 1500,
-      "date": 1705276800000,
-      "createdAt": 1733418331453,
-      "updatedAt": 1733418331453,
+      "date": 1707955200000,
+      "createdAt": 1733836802926,
+      "updatedAt": 1733836802926,
       "id": 23
     },
     {
       "ownerId": 1,
-      "categoryId": 3,
-      "label": "Mercado",
+      "categoryId": 2,
+      "label": "Alugel",
       "type": "expense",
-      "value": 250,
-      "date": 1733097600000,
-      "createdAt": 1733418481717,
-      "updatedAt": 1733418481717,
+      "value": 1500,
+      "date": 1705363200000,
+      "createdAt": 1733836802959,
+      "updatedAt": 1733836802959,
+      "id": 24
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1731283200000,
+      "createdAt": 1733836802988,
+      "updatedAt": 1733836802988,
+      "id": 25
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1728691200000,
+      "createdAt": 1733836803004,
+      "updatedAt": 1733836803004,
+      "id": 26
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1726099200000,
+      "createdAt": 1733836803036,
+      "updatedAt": 1733836803036,
+      "id": 27
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1723507200000,
+      "createdAt": 1733836803066,
+      "updatedAt": 1733836803066,
+      "id": 28
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1720915200000,
+      "createdAt": 1733836803100,
+      "updatedAt": 1733836803100,
+      "id": 29
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1718323200000,
+      "createdAt": 1733836803134,
+      "updatedAt": 1733836803134,
+      "id": 30
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1715731200000,
+      "createdAt": 1733836803160,
+      "updatedAt": 1733836803160,
+      "id": 31
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1713139200000,
+      "createdAt": 1733836803191,
+      "updatedAt": 1733836803191,
+      "id": 32
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1710547200000,
+      "createdAt": 1733836803222,
+      "updatedAt": 1733836803222,
+      "id": 33
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1707955200000,
+      "createdAt": 1733836803253,
+      "updatedAt": 1733836803253,
+      "id": 34
+    },
+    {
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "value": 3000,
+      "date": 1705363200000,
+      "createdAt": 1733836803283,
+      "updatedAt": 1733836803283,
       "id": 35
     },
     {
@@ -195,9 +448,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1732492800000,
-      "createdAt": 1733418481748,
-      "updatedAt": 1733418481748,
+      "date": 1733788800000,
+      "createdAt": 1733836803317,
+      "updatedAt": 1733836803317,
       "id": 36
     },
     {
@@ -206,9 +459,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1731888000000,
-      "createdAt": 1733418481780,
-      "updatedAt": 1733418481780,
+      "date": 1733184000000,
+      "createdAt": 1733836803347,
+      "updatedAt": 1733836803347,
       "id": 37
     },
     {
@@ -217,9 +470,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1731283200000,
-      "createdAt": 1733418481811,
-      "updatedAt": 1733418481811,
+      "date": 1732579200000,
+      "createdAt": 1733836803381,
+      "updatedAt": 1733836803381,
       "id": 38
     },
     {
@@ -228,9 +481,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1730678400000,
-      "createdAt": 1733418481842,
-      "updatedAt": 1733418481842,
+      "date": 1731974400000,
+      "createdAt": 1733836803442,
+      "updatedAt": 1733836803442,
       "id": 39
     },
     {
@@ -239,9 +492,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1730073600000,
-      "createdAt": 1733418481873,
-      "updatedAt": 1733418481873,
+      "date": 1731369600000,
+      "createdAt": 1733836803472,
+      "updatedAt": 1733836803472,
       "id": 40
     },
     {
@@ -250,9 +503,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1729468800000,
-      "createdAt": 1733418481903,
-      "updatedAt": 1733418481903,
+      "date": 1730764800000,
+      "createdAt": 1733836803512,
+      "updatedAt": 1733836803512,
       "id": 41
     },
     {
@@ -261,9 +514,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1728864000000,
-      "createdAt": 1733418481935,
-      "updatedAt": 1733418481935,
+      "date": 1730160000000,
+      "createdAt": 1733836803537,
+      "updatedAt": 1733836803537,
       "id": 42
     },
     {
@@ -272,9 +525,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1728259200000,
-      "createdAt": 1733418481965,
-      "updatedAt": 1733418481965,
+      "date": 1729555200000,
+      "createdAt": 1733836803553,
+      "updatedAt": 1733836803553,
       "id": 43
     },
     {
@@ -283,9 +536,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1727654400000,
-      "createdAt": 1733418481996,
-      "updatedAt": 1733418481996,
+      "date": 1728950400000,
+      "createdAt": 1733836803584,
+      "updatedAt": 1733836803584,
       "id": 44
     },
     {
@@ -294,9 +547,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1727049600000,
-      "createdAt": 1733418482027,
-      "updatedAt": 1733418482027,
+      "date": 1728345600000,
+      "createdAt": 1733836803628,
+      "updatedAt": 1733836803628,
       "id": 45
     },
     {
@@ -305,9 +558,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1726444800000,
-      "createdAt": 1733418482059,
-      "updatedAt": 1733418482059,
+      "date": 1727740800000,
+      "createdAt": 1733836803659,
+      "updatedAt": 1733836803659,
       "id": 46
     },
     {
@@ -316,9 +569,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1725840000000,
-      "createdAt": 1733418482090,
-      "updatedAt": 1733418482090,
+      "date": 1727136000000,
+      "createdAt": 1733836803689,
+      "updatedAt": 1733836803689,
       "id": 47
     },
     {
@@ -327,9 +580,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1725235200000,
-      "createdAt": 1733418482121,
-      "updatedAt": 1733418482121,
+      "date": 1726531200000,
+      "createdAt": 1733836803719,
+      "updatedAt": 1733836803719,
       "id": 48
     },
     {
@@ -338,9 +591,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1724630400000,
-      "createdAt": 1733418482152,
-      "updatedAt": 1733418482152,
+      "date": 1725926400000,
+      "createdAt": 1733836803752,
+      "updatedAt": 1733836803752,
       "id": 49
     },
     {
@@ -349,9 +602,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1724025600000,
-      "createdAt": 1733418482183,
-      "updatedAt": 1733418482183,
+      "date": 1725321600000,
+      "createdAt": 1733836803782,
+      "updatedAt": 1733836803782,
       "id": 50
     },
     {
@@ -360,9 +613,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1723420800000,
-      "createdAt": 1733418482214,
-      "updatedAt": 1733418482214,
+      "date": 1724716800000,
+      "createdAt": 1733836803812,
+      "updatedAt": 1733836803812,
       "id": 51
     },
     {
@@ -371,9 +624,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1722816000000,
-      "createdAt": 1733418482245,
-      "updatedAt": 1733418482245,
+      "date": 1724112000000,
+      "createdAt": 1733836803845,
+      "updatedAt": 1733836803845,
       "id": 52
     },
     {
@@ -382,9 +635,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1722211200000,
-      "createdAt": 1733418482277,
-      "updatedAt": 1733418482277,
+      "date": 1723507200000,
+      "createdAt": 1733836803875,
+      "updatedAt": 1733836803875,
       "id": 53
     },
     {
@@ -393,9 +646,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1721606400000,
-      "createdAt": 1733418482308,
-      "updatedAt": 1733418482308,
+      "date": 1722902400000,
+      "createdAt": 1733836803908,
+      "updatedAt": 1733836803908,
       "id": 54
     },
     {
@@ -404,9 +657,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1721001600000,
-      "createdAt": 1733418482338,
-      "updatedAt": 1733418482338,
+      "date": 1722297600000,
+      "createdAt": 1733836803939,
+      "updatedAt": 1733836803939,
       "id": 55
     },
     {
@@ -415,9 +668,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1720396800000,
-      "createdAt": 1733418482371,
-      "updatedAt": 1733418482371,
+      "date": 1721692800000,
+      "createdAt": 1733836803970,
+      "updatedAt": 1733836803970,
       "id": 56
     },
     {
@@ -426,9 +679,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1719792000000,
-      "createdAt": 1733418482403,
-      "updatedAt": 1733418482403,
+      "date": 1721088000000,
+      "createdAt": 1733836804001,
+      "updatedAt": 1733836804001,
       "id": 57
     },
     {
@@ -437,9 +690,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1719187200000,
-      "createdAt": 1733418482434,
-      "updatedAt": 1733418482434,
+      "date": 1720483200000,
+      "createdAt": 1733836804016,
+      "updatedAt": 1733836804016,
       "id": 58
     },
     {
@@ -448,9 +701,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1718582400000,
-      "createdAt": 1733418482464,
-      "updatedAt": 1733418482464,
+      "date": 1719878400000,
+      "createdAt": 1733836804053,
+      "updatedAt": 1733836804053,
       "id": 59
     },
     {
@@ -459,9 +712,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1717977600000,
-      "createdAt": 1733418482496,
-      "updatedAt": 1733418482496,
+      "date": 1719273600000,
+      "createdAt": 1733836804082,
+      "updatedAt": 1733836804082,
       "id": 60
     },
     {
@@ -470,9 +723,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1717372800000,
-      "createdAt": 1733418482526,
-      "updatedAt": 1733418482526,
+      "date": 1718668800000,
+      "createdAt": 1733836804110,
+      "updatedAt": 1733836804110,
       "id": 61
     },
     {
@@ -481,9 +734,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1716768000000,
-      "createdAt": 1733418482558,
-      "updatedAt": 1733418482558,
+      "date": 1718064000000,
+      "createdAt": 1733836804140,
+      "updatedAt": 1733836804140,
       "id": 62
     },
     {
@@ -492,9 +745,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1716163200000,
-      "createdAt": 1733418482589,
-      "updatedAt": 1733418482589,
+      "date": 1717459200000,
+      "createdAt": 1733836804171,
+      "updatedAt": 1733836804171,
       "id": 63
     },
     {
@@ -503,9 +756,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1715558400000,
-      "createdAt": 1733418482621,
-      "updatedAt": 1733418482621,
+      "date": 1716854400000,
+      "createdAt": 1733836804186,
+      "updatedAt": 1733836804186,
       "id": 64
     },
     {
@@ -514,9 +767,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1714953600000,
-      "createdAt": 1733418482652,
-      "updatedAt": 1733418482652,
+      "date": 1716249600000,
+      "createdAt": 1733836804219,
+      "updatedAt": 1733836804219,
       "id": 65
     },
     {
@@ -525,9 +778,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1714348800000,
-      "createdAt": 1733418482683,
-      "updatedAt": 1733418482683,
+      "date": 1715644800000,
+      "createdAt": 1733836804252,
+      "updatedAt": 1733836804252,
       "id": 66
     },
     {
@@ -536,9 +789,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1713744000000,
-      "createdAt": 1733418482714,
-      "updatedAt": 1733418482714,
+      "date": 1715040000000,
+      "createdAt": 1733836804266,
+      "updatedAt": 1733836804266,
       "id": 67
     },
     {
@@ -547,9 +800,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1713139200000,
-      "createdAt": 1733418482746,
-      "updatedAt": 1733418482746,
+      "date": 1714435200000,
+      "createdAt": 1733836804299,
+      "updatedAt": 1733836804299,
       "id": 68
     },
     {
@@ -558,9 +811,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1712534400000,
-      "createdAt": 1733418482777,
-      "updatedAt": 1733418482777,
+      "date": 1713830400000,
+      "createdAt": 1733836804331,
+      "updatedAt": 1733836804331,
       "id": 69
     },
     {
@@ -569,9 +822,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1711929600000,
-      "createdAt": 1733418482807,
-      "updatedAt": 1733418482807,
+      "date": 1713225600000,
+      "createdAt": 1733836804375,
+      "updatedAt": 1733836804375,
       "id": 70
     },
     {
@@ -580,9 +833,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1711324800000,
-      "createdAt": 1733418482837,
-      "updatedAt": 1733418482837,
+      "date": 1712620800000,
+      "createdAt": 1733836804410,
+      "updatedAt": 1733836804410,
       "id": 71
     },
     {
@@ -591,9 +844,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1710720000000,
-      "createdAt": 1733418482868,
-      "updatedAt": 1733418482868,
+      "date": 1712016000000,
+      "createdAt": 1733836804426,
+      "updatedAt": 1733836804426,
       "id": 72
     },
     {
@@ -602,9 +855,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1710115200000,
-      "createdAt": 1733418482899,
-      "updatedAt": 1733418482899,
+      "date": 1711411200000,
+      "createdAt": 1733836804458,
+      "updatedAt": 1733836804458,
       "id": 73
     },
     {
@@ -613,9 +866,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1709510400000,
-      "createdAt": 1733418482930,
-      "updatedAt": 1733418482930,
+      "date": 1710806400000,
+      "createdAt": 1733836804486,
+      "updatedAt": 1733836804486,
       "id": 74
     },
     {
@@ -624,9 +877,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1708905600000,
-      "createdAt": 1733418482960,
-      "updatedAt": 1733418482960,
+      "date": 1710201600000,
+      "createdAt": 1733836804516,
+      "updatedAt": 1733836804516,
       "id": 75
     },
     {
@@ -635,9 +888,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1708300800000,
-      "createdAt": 1733418482992,
-      "updatedAt": 1733418482992,
+      "date": 1709596800000,
+      "createdAt": 1733836804611,
+      "updatedAt": 1733836804611,
       "id": 76
     },
     {
@@ -646,9 +899,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1707696000000,
-      "createdAt": 1733418483022,
-      "updatedAt": 1733418483022,
+      "date": 1708992000000,
+      "createdAt": 1733836804687,
+      "updatedAt": 1733836804687,
       "id": 77
     },
     {
@@ -657,9 +910,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1707091200000,
-      "createdAt": 1733418483053,
-      "updatedAt": 1733418483053,
+      "date": 1708387200000,
+      "createdAt": 1733836804741,
+      "updatedAt": 1733836804741,
       "id": 78
     },
     {
@@ -668,9 +921,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1706486400000,
-      "createdAt": 1733418483084,
-      "updatedAt": 1733418483084,
+      "date": 1707782400000,
+      "createdAt": 1733836804767,
+      "updatedAt": 1733836804767,
       "id": 79
     },
     {
@@ -679,9 +932,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1705881600000,
-      "createdAt": 1733418483114,
-      "updatedAt": 1733418483114,
+      "date": 1707177600000,
+      "createdAt": 1733836804800,
+      "updatedAt": 1733836804800,
       "id": 80
     },
     {
@@ -690,9 +943,9 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1705276800000,
-      "createdAt": 1733418483145,
-      "updatedAt": 1733418483145,
+      "date": 1706572800000,
+      "createdAt": 1733836804829,
+      "updatedAt": 1733836804829,
       "id": 81
     },
     {
@@ -701,252 +954,43 @@
       "label": "Mercado",
       "type": "expense",
       "value": 250,
-      "date": 1704672000000,
-      "createdAt": 1733418483177,
-      "updatedAt": 1733418483177,
+      "date": 1705968000000,
+      "createdAt": 1733836804858,
+      "updatedAt": 1733836804858,
       "id": 82
     },
     {
       "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1731196800000,
-      "createdAt": 1733418508254,
-      "updatedAt": 1733418508254,
+      "categoryId": 3,
+      "label": "Mercado",
+      "type": "expense",
+      "value": 250,
+      "date": 1705363200000,
+      "createdAt": 1733836804876,
+      "updatedAt": 1733836804876,
       "id": 83
     },
     {
       "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1728604800000,
-      "createdAt": 1733418508285,
-      "updatedAt": 1733418508285,
+      "categoryId": 3,
+      "label": "Mercado",
+      "type": "expense",
+      "value": 250,
+      "date": 1704758400000,
+      "createdAt": 1733836804904,
+      "updatedAt": 1733836804904,
       "id": 84
     },
     {
       "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1726012800000,
-      "createdAt": 1733418508317,
-      "updatedAt": 1733418508317,
+      "categoryId": 3,
+      "label": "Mercado",
+      "type": "expense",
+      "value": 250,
+      "date": 1704153600000,
+      "createdAt": 1733836804937,
+      "updatedAt": 1733836804937,
       "id": 85
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1723420800000,
-      "createdAt": 1733418508348,
-      "updatedAt": 1733418508348,
-      "id": 86
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1720828800000,
-      "createdAt": 1733418508379,
-      "updatedAt": 1733418508379,
-      "id": 87
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1718236800000,
-      "createdAt": 1733418508411,
-      "updatedAt": 1733418508411,
-      "id": 88
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1715644800000,
-      "createdAt": 1733418508442,
-      "updatedAt": 1733418508442,
-      "id": 89
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1713052800000,
-      "createdAt": 1733418508473,
-      "updatedAt": 1733418508473,
-      "id": 90
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1710460800000,
-      "createdAt": 1733418508504,
-      "updatedAt": 1733418508504,
-      "id": 91
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1707868800000,
-      "createdAt": 1733418508521,
-      "updatedAt": 1733418508521,
-      "id": 92
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Salário",
-      "type": "income",
-      "value": 3000,
-      "date": 1705276800000,
-      "createdAt": 1733418508552,
-      "updatedAt": 1733418508552,
-      "id": 93
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1732752000000,
-      "createdAt": 1733419081557,
-      "updatedAt": 1733419081557,
-      "id": 94
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1730160000000,
-      "createdAt": 1733419081588,
-      "updatedAt": 1733419081588,
-      "id": 95
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1727568000000,
-      "createdAt": 1733419081619,
-      "updatedAt": 1733419081619,
-      "id": 96
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1724976000000,
-      "createdAt": 1733419081649,
-      "updatedAt": 1733419081649,
-      "id": 97
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1722384000000,
-      "createdAt": 1733419081680,
-      "updatedAt": 1733419081680,
-      "id": 98
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1719792000000,
-      "createdAt": 1733419081712,
-      "updatedAt": 1733419081712,
-      "id": 99
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1717200000000,
-      "createdAt": 1733419081741,
-      "updatedAt": 1733419081741,
-      "id": 100
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1714608000000,
-      "createdAt": 1733419081773,
-      "updatedAt": 1733419081773,
-      "id": 101
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1712016000000,
-      "createdAt": 1733419081788,
-      "updatedAt": 1733419081788,
-      "id": 102
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1709424000000,
-      "createdAt": 1733419081819,
-      "updatedAt": 1733419081819,
-      "id": 103
-    },
-    {
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Adiantamento Salário",
-      "type": "income",
-      "value": 2000,
-      "date": 1706832000000,
-      "createdAt": 1733419081850,
-      "updatedAt": 1733419081850,
-      "id": 104
     }
   ],
   "recurring": [

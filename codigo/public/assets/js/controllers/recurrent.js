@@ -241,6 +241,8 @@ export async function insertMissingRecurringEntries() {
     } else {
       let i = 0;
 
+      if (new Date(today).getMonth() === new Date(finalDate).getMonth()) return;
+
       while (i < entries.length) {
         const timeSpanFromStart = daysDiffrence(entries[i].date, initialDate);
 
